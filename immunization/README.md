@@ -2,7 +2,7 @@ NIST Immunization Test Tool
 ===========================
 
 + [Testing Procedure](mu2/blob/master/immunization/170-314-f-2-transmission-to-immunization-registries-tp-v-0-7.docx)
-+ [Test Data](mu2/tree/master/immunization)
++ [Test Data](mu2/tree/master/immunization/IZTCPDF/)
 + [Temporary Testing Server URL](http://lri.sipilotdevelopment.org//mu-immunization/)
 
 WAR File
@@ -23,7 +23,7 @@ These are subcomponents the required for to build an Immunization WAR File:
 
 + mu-tool-core-impl-v2  [https://svn.code.sf.net/p/mu-nist/code/trunk/mu-tool-core-impl/mu-tool-core-impl-hl7-v2](https://svn.code.sf.net/p/mu-nist/code/trunk/mu-tool-core-impl/mu-tool-core-impl-hl7-v2/)
 
-+ esource-bundle - [https://svn.code.sf.net/p/mu-nist/code/trunk/resource-bundle/immunization/](https://svn.code.sf.net/p/mu-nist/code/trunk/resource-bundle/immunization/)
++ resource-bundle - [https://svn.code.sf.net/p/mu-nist/code/trunk/resource-bundle/immunization/](https://svn.code.sf.net/p/mu-nist/code/trunk/resource-bundle/immunization/)
 
 + hl7-core - [https://hl7-nist.svn.sourceforge.net/svnroot/hl7-nist/hl7-core/trunk/](https://hl7-nist.svn.sourceforge.net/svnroot/hl7-nist/hl7-core/trunk/)
 
