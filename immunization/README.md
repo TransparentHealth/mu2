@@ -2,7 +2,7 @@ NIST Immunization Test Tool
 ===========================
 
 + [Testing Procedure](https://github.com/meaningfuluse/mu2/raw/master/immunization/170-314-f-2-transmission-to-immunization-registries-tp-v-0-7.docx)
-+ [Test Data](./ZTCPDF/)
++ [Test Data](immunization/IZTCPDF/)
 + [Temporary Testing Server URL](http://lri.sipilotdevelopment.org//mu-immunization/)
 
 WAR File
