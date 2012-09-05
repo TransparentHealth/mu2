@@ -17,7 +17,7 @@ Source Code:
 The source code provided here is for information only purposes.  NIST does not 
 provide support for source code or source installations.
 
-These are subcomponents the required for to build an Immunization WAR File:
+These subcomponents are required to build an Immunization Test Tool WAR File:
 
 + mu-tool-core - [https://svn.code.sf.net/p/mu-nist/code/trunk/mu-tool-core/](https://svn.code.sf.net/p/mu-nist/code/trunk/mu-tool-core/)
 
