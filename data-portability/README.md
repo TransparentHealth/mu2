@@ -101,7 +101,7 @@ Documentation for MDHT can be [found here](https://www.projects.openhealthtools.
 Since this project is a library, it does not have a free-standing application
 with a UI.  It's capabilites are be part of the Transport Testing Tool.
 
-The [NIST MDHT tool for MU2 certification can may be found here](/mu2/tree/master/data-portability/mdht)
+The [NIST MDHT tool for MU2 certification can may be found here](mu2/tree/master/data-portability/mdht)
 
 
 
