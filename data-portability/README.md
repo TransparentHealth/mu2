@@ -10,7 +10,8 @@ The Test Procedure and attional information can be found on HealthIT.gov at
 [http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
 
 
-The following sections point to information on pointers to servers running the tool and local configuration of the tool.
+The following sections point to information on pointers to servers running 
+the tool and local configuration of the tool.
 
 
 
@@ -26,14 +27,14 @@ NIST Hosted Server
 Test Data
 ---------
 
-+ [Test Data for Data Portability 170.314 (b)(7)](/mu2/tree/master/test-data/170.314-b7)
++ [Test Data for Data Portability 170.314 (b)(7)](/meaningfuluse/mu2/tree/master/test-data/170.314-b7)
 
 
 Tool Download and Virtual Machine Images
 ----------------------------------------
 
-+ [ttt.war]ttt.War file for Tomcat 5.5 "will add link complete by Friday"
-+ AMI - "will add link complete by Friday"
++ [ttt.war](ttt.War) file for Tomcat 5.5. #will add link by Friday
++ AMI - #will add link by Friday
 
 
 Firewall Configuration
@@ -43,8 +44,8 @@ Open the following inbound ports.
 
     TCP Port (Service)	Source
     22 (SSH)	        0.0.0.0/0	
-    25 (SMTP)	        0.0.0.0/0		
-    8080 (HTTP*)	    0.0.0.0/0	
+    25 (SMTP)           0.0.0.0/0		
+    8080 (HTTP*)        0.0.0.0/0	
 
 
 
@@ -58,19 +59,17 @@ In this example, we will use the IP "54.243.204.42" as the hostnme and "transpar
 
 Setup the A, CNAME as show below.
  
-    Type:	        Source:	                    Destination:	
-    A Record	    *.transparenthealth.org	    54.243.204.42	
-    A Record	    transparenthealth.org	    54.243.204.42	
-    CNAME Record	mail.transparenthealth.org	transparenthealth.org	
-    CNAME Record	smtp.transparenthealth.org	transparenthealth.org	
+    Type:           Source:                         Destination:	
+    A Record        *.transparenthealth.org         54.243.204.42	
+    A Record	    transparenthealth.org           54.243.204.42	
+    CNAME Record    mail.transparenthealth.org      transparenthealth.org	
+    CNAME Record    smtp.transparenthealth.org      transparenthealth.org	
 
 
 Setup the MX (Mail) Records as shown below.
 
     mail.transparenthealth.org	20
     smtp.transparenthealth.org	10
-
-
 
 
 
