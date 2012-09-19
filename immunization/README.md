@@ -1,14 +1,42 @@
 NIST Immunization Test Tool
 ===========================
 
-+ [Testing Procedure](https://github.com/meaningfuluse/mu2/raw/master/immunization/170-314-f-2-transmission-to-immunization-registries-tp-v-0-7.docx)
++ [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
 + [Test Data](immunization/IZTCPDF/)
-+ [Temporary Testing Server URL](http://lri.sipilotdevelopment.org//mu-immunization/)
++ [Temporary Testing Server URL](http://lri.sipilotdevelopment.org/mu-immunization/)
+
+
+
+Amazon Machine Image (AMI)
+--------------------------
+
+This AMI is based on Ubuntu 12.04 64-bit and has Apache Tomcat 7 and the 
+Immunization Tomcat project already installed. 
+
+
+AMI:  ami-d5f848bc
+Description: NIST Immunization Tool 1.0.0 September 12, 2012
+
+
 
 WAR File
 --------
 
-A "WAR" file for use with Apache Tomcat 6 will be placed here in the coming weeks.
+Use this file to configure Tomcat 7 if not using the AMI.
+
++ [mu-immunization-1.0.4-SNAPSHOT.war](http://svn.code.sf.net/p/mu-nist/code/trunk/mu-wars/mu-immunization-1.0.4-SNAPSHOT.war)
+
+
+
+Firewall Configuration
+----------------------
+
+Open the following inbound ports.
+
+    TCP Port (Service)	Source
+    22 (SSH)            0.0.0.0/0			
+    8080 (HTTP-Tomcat)  0.0.0.0/0
+    9080 (MLLP)         0.0.0.0/0
 
 
 Source Code:
