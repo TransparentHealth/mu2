@@ -1,8 +1,10 @@
 Meaningful Use 2 Certification - Tools, Public Test Servers, Test Data, and Related Information
 ===============================================================================================
 
-This repository is under development and will have additional content added in the 
-comming weeks.
+This repository is under development and be updated as materials and information become available.
+
+For more information on Meaningful Use 2 Certification visit [HealthIT.gov](http://healthit.gov)
+
 
 Contents
 --------
