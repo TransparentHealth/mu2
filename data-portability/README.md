@@ -7,8 +7,7 @@ The NIST Transport Testing Tool provides a web-based front end for
 validating CCDA documents.  
 
 The Test Procedure and attional information can be found on HealthIT.gov at
-[http://hit-testing.nist.gov/cda-validation/muCr.html](http://hit-testing.nist.gov/cda-validation/muCr.html)
-
+[http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
 
 
 The following sections point to information on configuration of the tool.
@@ -17,13 +16,13 @@ The following sections point to information on configuration of the tool.
 Test Data
 ---------
 
-+ [Test Data for Data Portability 170.314 (b)(7)](mu2/tree/master/test-data/170.314-b7)
++ [Test Data for Data Portability 170.314 (b)(7)](/mu2/tree/master/test-data/170.314-b7)
 
 
-Tool Download
--------------
+Tool Download and Virtual Machine Images
+----------------------------------------
 
-+ ttt.War file for Tomcat 5.5 "will add link complete by Friday"
++ [ttt.war]ttt.War file for Tomcat 5.5 "will add link complete by Friday"
 + AMI - "will add link complete by Friday"
 
 
@@ -50,8 +49,8 @@ In this example, we will use the IP "54.243.204.42" as the hostnme and "transpar
 Setup the A, CNAME as show below.
  
     Type:	        Source:	                        Destination:	
-    A Record	        *.transparenthealth.org	        54.243.204.42	
-    A Record	        transparenthealth.org	        54.243.204.42	
+    A Record	    *.transparenthealth.org	    54.243.204.42	
+    A Record	    transparenthealth.org	    54.243.204.42	
     CNAME Record	mail.transparenthealth.org	transparenthealth.org	
     CNAME Record	smtp.transparenthealth.org	transparenthealth.org	
 
