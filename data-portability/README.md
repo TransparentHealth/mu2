@@ -10,7 +10,17 @@ The Test Procedure and attional information can be found on HealthIT.gov at
 [http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
 
 
-The following sections point to information on configuration of the tool.
+The following sections point to information on pointers to servers running the tool and local configuration of the tool.
+
+
+
+
+
+
+NIST Hosted Server
+-----------------
+
++ [Transport Testing Tool](http://nist-ttt.org:8080/ttt)
 
 
 Test Data
@@ -34,7 +44,7 @@ Open the following inbound ports.
     TCP Port (Service)	Source
     22 (SSH)	        0.0.0.0/0	
     25 (SMTP)	        0.0.0.0/0		
-    8080 (HTTP*)	0.0.0.0/0	
+    8080 (HTTP*)	    0.0.0.0/0	
 
 
 
@@ -48,7 +58,7 @@ In this example, we will use the IP "54.243.204.42" as the hostnme and "transpar
 
 Setup the A, CNAME as show below.
  
-    Type:	        Source:	                        Destination:	
+    Type:	        Source:	                    Destination:	
     A Record	    *.transparenthealth.org	    54.243.204.42	
     A Record	    transparenthealth.org	    54.243.204.42	
     CNAME Record	mail.transparenthealth.org	transparenthealth.org	
@@ -73,10 +83,11 @@ This section needs a volunteer.
 
 Developer Docuemntation
 -----------------------
+
 + **Transport Testing Tool** - The subversion source code repository is hosted
 on SourceForge and can [be found here](http://iheos.svn.sourceforge.net/viewvc/iheos/)
 and [build instructions can be found here](http://ihexds.nist.gov/XdsDocs/Documentation/toolkit-developer-guide.html).
-A NIST hosted version of this software is [http://nist-ttt:8080/ttt](http://nist-ttt:8080/ttt).
+A NIST hosted version of this software is [http://nist-ttt.org:8080/ttt](http://nist-ttt.org:8080/ttt).
 
  **NIST does not support source-based installations. Instead you should use the
  binary WAR or AMI distribution.**  These will placed on this page when available. 
@@ -90,7 +101,8 @@ Documentation for MDHT can be [found here](https://www.projects.openhealthtools.
 Since this project is a library, it does not have a free-standing application
 with a UI.  It's capabilites are be part of the Transport Testing Tool.
 
-Ther version of MDHT used in this tool can be found in the MDHT folder in this GitHub repository.
+The [NIST MDHT tool for MU2 certification can may be found here](/mu2/tree/master/data-portability/mdht)
+
 
 
 
