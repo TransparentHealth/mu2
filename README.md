@@ -4,7 +4,7 @@ The Meaningful Use (MU2) Repo
 This repository contains information on Meaningful Use Stage 2 Certification. 
 Contents  include, test data, test software, links public test tool servers, 
 and other related Information. Much of the information included here is 
-in README files (in Markdown format) so this repository is in part as a wiki.
+in README files (in Markdown format) so this repository is partly a wiki.
 
 The materials found here are under development and are frequently updated 
 as information becomes available.  The information here may not represent 
