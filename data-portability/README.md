@@ -15,13 +15,10 @@ the tool and local configuration of the tool.
 
 
 
-
-
-
 NIST Hosted Server
 -----------------
 
-+ [Transport Testing Tool](http://nist-ttt.org:8080/ttt)
++ [Transport Testing Tool](http://hit-testing.nist.gov:9100/ttt/)
 
 
 Test Data
