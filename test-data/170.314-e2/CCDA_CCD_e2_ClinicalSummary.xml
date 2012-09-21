@@ -77,7 +77,7 @@
          <!-- CONF 5268-->
          <id
             extension="1"
-            root="1.1.1.1.1.1.1.1.2"/>
+            root="2.16.840.1.113883.4.6"/>
          <!-- Fake ID using HL7 example OID. -->
          
          <!-- Patient SSN recorded as an ID -->
@@ -120,7 +120,7 @@
                codeSystem="2.16.840.1.113883.5.1"
                displayName="Female"/>
             <birthTime
-               value="19600501"/>
+               value="19470501"/>
             
             <maritalStatusCode
                code="M"
@@ -135,14 +135,15 @@
             
             <!-- Need to Fix the Race Code to be from the OMB Standards -->
             <raceCode
-               code="White"
+               code="2106-3"
                displayName="White"
                codeSystem="2.16.840.1.113883.6.238"
-               codeSystemName="OMB Standards for Race and Ethnicity"/>
+               codeSystemName="Race and Ethnicity - CDC"/>
             <ethnicGroupCode
+               code="2186-5"
                displayName="Not Hispanic or Latino"
                codeSystem="2.16.840.1.113883.6.238"
-               codeSystemName="OMB Standards for Race and Ethnicity"/>
+               codeSystemName="Race and Ethnicity - CDC"/>
                  
             <guardian>
                <code
@@ -184,7 +185,7 @@
             <!-- FIX  the Code System to be 639.2 -->
             <languageCommunication>
                <languageCode
-                  code="spa"/>
+                  code="eng"/>
                <modeCode
                   code="ESP"
                   displayName="Expressed spoken"
@@ -202,7 +203,7 @@
                use="WP"
                value="tel: 555-555-5000"/>
             <addr>
-               <streetAddressLine>1001 Village Avenue</streetAddressLine>
+               <streetAddressLine>1002 Healthcare Dr</streetAddressLine>
                <city>Portland</city>
                <state>OR</state>
                <postalCode>99123</postalCode>
@@ -214,7 +215,7 @@
    
    <author>
       <time
-         value="20050813000000+0500"/>
+         value="20120806"/>
       <assignedAuthor>
          <id
             extension="111111"
@@ -259,7 +260,7 @@
          <assignedPerson>
             <name>
                <given>Mary</given>
-               <family>Jane</family>
+               <family>McDonald</family>
             </name>
          </assignedPerson>
       </assignedEntity>
@@ -340,7 +341,7 @@
    </informationRecipient>
    <legalAuthenticator>
       <time
-         value="20120806000000+0500"/>
+         value="20120806"/>
       <signatureCode
          code="S"/>
       <assignedEntity>
@@ -475,7 +476,7 @@
                <low
                   value="201208060028+0500"/>
                <high
-                  value="201208060028+0500"/>
+                  value="201208060058+0500"/>
             </time>
             <assignedEntity>
                <id
@@ -494,7 +495,7 @@
                   <country>US</country>
                </addr>
                <telecom
-                  value="tel:+1-555-555-5000"
+                  value="tel:+1-555-555-1002"
                   use="WP"/>
                <assignedPerson>
                   <name>
@@ -505,10 +506,10 @@
                </assignedPerson>
                <representedOrganization>
                   <id
-                     root="2.16.840.1.113883.19.5.9999.1393"/>
+                     root="2.16.840.1.113883.4.6"/>
                   <name>Get Well Clinic</name>
                   <telecom
-                     value="tel:+1-555-555-5000"
+                     value="tel:+1-555-555-1002"
                      use="WP"/>
                   <addr>
                      <streetAddressLine>1002 Healthcare Drive </streetAddressLine>
@@ -520,104 +521,12 @@
                </representedOrganization>
             </assignedEntity>
          </performer>
-         <performer
-            typeCode="PPRF">
-            <functionCode
-               code="PP"
-               displayName="Primary Care Provider"
-               codeSystem="2.16.840.1.113883.12.443"
-               codeSystemName="Provider Role">
-               <originalText>Primary Care Provider</originalText>
-            </functionCode>
-            <time>
-               <low
-                  value="201208060028-0400"/>
-               <high
-                  value="201208060028-0400"/>
-            </time>
-            <assignedEntity>
-               <id
-                  extension="PseudoMD-3"
-                  root="2.16.840.1.113883.4.6"/>
-               <code
-                  code="207RG0100X"
-                  displayName="Gastroenterologist"
-                  codeSystemName="Provider Codes"
-                  codeSystem="2.16.840.1.113883.6.101"/>
-               <addr>
-                  <streetAddressLine>1001 Village Avenue</streetAddressLine>
-                  <city>Portland</city>
-                  <state>OR</state>
-                  <postalCode>99123</postalCode>
-                  <country>US</country>
-               </addr>
-               <telecom
-                  value="tel:+1-555-555-5000"
-                  use="HP"/>
-               <assignedPerson>
-                  <name>
-                     <prefix>Dr.</prefix>
-                     <given>Henry</given>
-                     <family>Seven</family>
-                  </name>
-               </assignedPerson>
-               <representedOrganization>
-                  <id
-                     root="2.16.840.1.113883.19.5.9999.1393"/>
-                  <name>Get Well Clinic</name>
-                  <telecom
-                     value="tel:+1-555-555-5000"
-                     use="HP"/>
-                  <addr>
-                     <streetAddressLine>1002 Healthcare Drive </streetAddressLine>
-                     <city>Portland</city>
-                     <state>OR</state>
-                     <postalCode>99123</postalCode>
-                     <country>US</country>
-                  </addr>
-               </representedOrganization>
-            </assignedEntity>
-         </performer>
-         <performer typeCode="PRF">
-            <functionCode
-               code="CP"
-               displayName="Consulting Provider"
-               codeSystem="2.16.840.1.113883.12.443"
-               codeSystemName="Provider Role"/>
-            <assignedEntity>
-               <id root="1.1.1.1.1.1.1.1.2" extension="12"/>
-               <assignedPerson>
-                  <name>
-                     <prefix>Dr</prefix>
-                     <family>Wisham</family>
-                     <given>Mary</given>
-                  </name>
-               </assignedPerson>
-            </assignedEntity>
-         </performer>
-         <performer typeCode="PRF">
-            <functionCode
-               code="RP"
-               displayName="Referring Provider"
-               codeSystem="2.16.840.1.113883.12.443"
-               codeSystemName="Provider Role"/>
-            <assignedEntity>
-               <id root="1.1.1.1.1.1.1.1.2" extension="12"/>
-               <assignedPerson>
-                  <name>
-                     <prefix>Dr</prefix>
-                     <family>John</family>
-                     <given>Lynn</given>
-                  </name>
-               </assignedPerson>
-            </assignedEntity>
-         </performer>
       </serviceEvent>
    </documentationOf>
    
    <componentOf>
       <encompassingEncounter>
-         <id extension="1" root="1.1.1.1.1.1.1.1.2"/>
+         <id extension="1" root="2.16.840.1.113883.4.6"/>
          <code
             code="233604007"
             codeSystem="2.16.840.1.113883.6.96"
@@ -625,13 +534,13 @@
             displayName="Pnuemonia"/>
          <effectiveTime>
             <low
-               value="201208060000+0500"/>
+               value="201208060028+0500"/>
             <high
-               value="201208060030+0500"/>
+               value="201208060058+0500"/>
          </effectiveTime>
          <responsibleParty>
             <assignedEntity>
-               <id root="1.1.1.1.1.1.1.1.2"/>
+               <id root="2.16.840.1.113883.4.6"/>
                <assignedPerson>
                   <name>
                      <prefix>Dr</prefix>
@@ -643,7 +552,7 @@
          </responsibleParty>
          <encounterParticipant typeCode="ATND">
             <assignedEntity>
-               <id root="1.1.1.1.1.1.1.1.2"/>
+               <id root="2.16.840.1.113883.4.6"/>
                <assignedPerson>
                   <name>
                      <prefix>Dr</prefix>
@@ -655,7 +564,7 @@
          </encounterParticipant>
          <location>
             <healthCareFacility>
-               <id root="1.1.1.1.1.1.1.1.2"/>
+               <id root="2.16.840.1.113883.4.6"/>
             </healthCareFacility>
          </location>
       </encompassingEncounter>
@@ -695,9 +604,9 @@ Allergies, Adverse Reactions, Alerts
                      </thead>
                      <tbody>
                         <tr>
-                           <td>ALLERGENIC EXTRACT, PENICILLIN</td>
+                           <td>Penicillin G benzathine</td>
                            <td><content
-                                 ID="reaction1">Nausea</content></td>
+                              ID="reaction1">Hives</content></td>
                            <td><content
                                  ID="severity1">Moderate to severe</content></td>
                            <td>Inactive</td>
@@ -705,7 +614,7 @@ Allergies, Adverse Reactions, Alerts
                         <tr>
                            <td>Codeine</td>
                            <td><content
-                                 ID="reaction2">Wheezing</content></td>
+                              ID="reaction2">Shortness of Breath</content></td>
                            <td><content
                                  ID="severity2">Moderate</content></td>
                            <td>Active</td>
@@ -737,13 +646,13 @@ Allergies, Adverse Reactions, Alerts
                         codeSystemName="LOINC"
                         displayName="Allergies, adverse reactions, alerts"/>
                      <statusCode
-                        code="active"/>
+                        code="completed"/>
                      <effectiveTime
                         value="20070501">
                         <low
                            value="20070501"/>
                         <high
-                           value="20120806000000+0500"/>
+                           value="20120806000028+0500"/>
                      </effectiveTime>
                      <entryRelationship
                         typeCode="SUBJ">
@@ -761,13 +670,14 @@ Allergies, Adverse Reactions, Alerts
                            <statusCode
                               code="completed"/>
                            <effectiveTime>
-                              <low
+                              <low nullFlavor="UNK"/>
+                              <high
                                  value="20120806"/>
                            </effectiveTime>
                            <value
                               xsi:type="CD"
-                              code="420134006"
-                              displayName="Propensity to adverse reactions"
+                              code="419511003"
+                              displayName="Propensity to adverse reaction to drug"
                               codeSystem="2.16.840.1.113883.6.96"
                               codeSystemName="SNOMED CT">
                               <originalText>
@@ -782,8 +692,8 @@ Allergies, Adverse Reactions, Alerts
                                  <playingEntity
                                     classCode="MMAT">
                                     <code
-                                       code="314422"
-                                       displayName="ALLERGENIC EXTRACT, PENICILLIN"
+                                       code="7982"
+                                       displayName="Penicillin G benzathine"
                                        codeSystem="2.16.840.1.113883.6.88"
                                        codeSystemName="RxNorm">
                                        <originalText>
@@ -842,9 +752,9 @@ Allergies, Adverse Reactions, Alerts
                                  </effectiveTime>
                                  <value
                                     xsi:type="CD"
-                                    code="73879007"
+                                    code="247472004"
                                     codeSystem="2.16.840.1.113883.6.96"
-                                    displayName="Nausea"/>
+                                    displayName="Hives"/>
                               </observation>
                            </entryRelationship>
                            <entryRelationship
@@ -895,13 +805,13 @@ Allergies, Adverse Reactions, Alerts
                         codeSystemName="LOINC"
                         displayName="Allergies, adverse reactions, alerts"/>
                      <statusCode
-                        code="active"/>
+                        code="completed"/>
                      <effectiveTime
                         value="20060501">
                         <low
                            value="20060501"/>
                         <high
-                           value="20090227130000+0500"/>
+                           value="20120806000028+0500"/>
                      </effectiveTime>
                      <entryRelationship
                         typeCode="SUBJ">
@@ -921,11 +831,12 @@ Allergies, Adverse Reactions, Alerts
                            <effectiveTime>
                               <low
                                  value="20060501"/>
+                              <high value="20120806"/>
                            </effectiveTime>
                            <value
                               xsi:type="CD"
-                              code="420134006"
-                              displayName="Propensity to adverse reactions"
+                              code="419511003"
+                              displayName="Propensity to adverse reactions due to drug"
                               codeSystem="2.16.840.1.113883.6.96"
                               codeSystemName="SNOMED CT">
                               <originalText>
@@ -1000,9 +911,9 @@ Allergies, Adverse Reactions, Alerts
                                  </effectiveTime>
                                  <value
                                     xsi:type="CD"
-                                    code="56018004"
+                                    code="267036007"
                                     codeSystem="2.16.840.1.113883.6.96"
-                                    displayName="Wheezing"/>
+                                    displayName="Shortness of Breath"/>
                               </observation>
                            </entryRelationship>
                            <entryRelationship
@@ -1053,13 +964,13 @@ Allergies, Adverse Reactions, Alerts
                         codeSystemName="LOINC"
                         displayName="Allergies, adverse reactions, alerts"/>
                      <statusCode
-                        code="active"/>
+                        code="completed"/>
                      <effectiveTime
                         value="20080501">
                         <low
                            value="20080501"/>
                         <high
-                           value="20090227130000+0500"/>
+                           value="20120806"/>
                      </effectiveTime>
                      <entryRelationship
                         typeCode="SUBJ">
@@ -1079,11 +990,12 @@ Allergies, Adverse Reactions, Alerts
                            <effectiveTime>
                               <low
                                  value="20080501"/>
+                              <high value="20120806"/>
                            </effectiveTime>
                            <value
                               xsi:type="CD"
-                              code="420134006"
-                              displayName="Propensity to adverse reactions"
+                              code="419511003"
+                              displayName="Propensity to adverse reactions due to drug"
                               codeSystem="2.16.840.1.113883.6.96"
                               codeSystemName="SNOMED CT">
                               <originalText>
@@ -1155,6 +1067,7 @@ Allergies, Adverse Reactions, Alerts
                                  <effectiveTime>
                                     <low
                                        value="20080501"/>
+                                    <high value="20120806"/>
                                  </effectiveTime>
                                  <value
                                     xsi:type="CD"
@@ -1216,8 +1129,8 @@ ASSESSMENT
                <text>
                   <list
                      listType="ordered">
-                     <item>Community Pnuemonia</item>
-                     <item ID="assessment1">Chronic Asthma .</item>
+                     <item> Pnuemonia</item>
+                     <item ID="assessment1"> Asthma exacerbation.</item>
                   </list>
                </text>
                <entry
@@ -1238,9 +1151,9 @@ ASSESSMENT
                         code="completed"/>
                      <effectiveTime>
                         <low
-                           value="20070103"/>
+                           value="20120806"/>
                         <high
-                           value="20070103"/>
+                           value="20120806"/>
                      </effectiveTime>
                      <entryRelationship
                         typeCode="SUBJ">
@@ -1264,7 +1177,7 @@ ASSESSMENT
                               code="completed"/>
                            <effectiveTime>
                               <low
-                                 value="20070103"/>
+                                 value="20120806"/>
                            </effectiveTime>
                            <value
                               xsi:type="CD"
@@ -1293,7 +1206,7 @@ ASSESSMENT
                                     code="completed"/>
                                  <effectiveTime>
                                     <low
-                                       value="20070103"/>
+                                       value="20120806"/>
                                  </effectiveTime>
                                  <value
                                     xsi:type="CD"
@@ -1361,25 +1274,25 @@ IMMUNIZATIONS
                         <tr>
                            <td><content
                                  ID="immun1"/>Influenza virus vaccine, IM</td>
-                           <td>Nov 1978</td>
+                           <td>Nov 2005</td>
                            <td>Completed</td>
                         </tr>
                         <tr>
                            <td><content
                                  ID="immun2"/>Influenza virus vaccine, IM</td>
-                           <td>May 1999</td>
+                           <td>September 2006</td>
                            <td>Completed</td>
                         </tr>
                         <tr>
                            <td><content
                                  ID="immun3"/>Pneumococcal polysaccharide vaccine, IM</td>
-                           <td>Dec 2000</td>
+                           <td>August 2012</td>
                            <td>Completed</td>
                         </tr>
                         <tr>
                            <td><content
                                  ID="immun4"/>Tetanus and diphtheria toxoids, IM</td>
-                           <td>2007</td>
+                           <td>January 2007</td>
                            <td>Completed</td>
                         </tr>
                      </tbody>
@@ -1404,7 +1317,7 @@ IMMUNIZATIONS
                         code="completed"/>
                      <effectiveTime
                         xsi:type="IVL_TS"
-                        value="19781101"/>
+                        value="20051101"/>
                      <routeCode
                         code="C28161"
                         codeSystem="2.16.840.1.113883.3.26.1.1"
@@ -1477,7 +1390,7 @@ IMMUNIZATIONS
                         code="completed"/>
                      <effectiveTime
                         xsi:type="IVL_TS"
-                        value="19990510"/>
+                        value="20060910"/>
                      <routeCode
                         code="C28161"
                         codeSystem="2.16.840.1.113883.3.26.1.1"
@@ -1550,7 +1463,7 @@ IMMUNIZATIONS
                         code="completed"/>
                      <effectiveTime
                         xsi:type="IVL_TS"
-                        value="20001231"/>
+                        value="20120806"/>
                      <routeCode
                         code="C28161"
                         codeSystem="2.16.840.1.113883.3.26.1.1"
@@ -1713,12 +1626,30 @@ MEDICATIONS
                      <tbody>
                         <tr>
                            <td><content
-                              ID="Med2">Beta Blocker</content></td>
+                              ID="Med2">metoprolol tartrate</content></td>
                            <td>25 MG Tablet once per day</td>
                            <td>20090501</td>
                            <td>Active</td>
-                           <td>Cardiac Function</td>
+                           <td>Cardiac/Lung Function</td>
                            <td><content ID="FillIns2">Generic Substitition Allowed</content></td>
+                        </tr>
+                        <tr>
+                           <td><content
+                              ID="Med3">clarithromycin</content></td>
+                           <td>500 MG Tablet twice daily for 7 days</td>
+                           <td>20120806</td>
+                           <td>Active</td>
+                           <td>Cardiac/Lung Function</td>
+                           <td><content ID="FillIns3">Generic Substitition Allowed</content></td>
+                        </tr>
+                        <tr>
+                           <td><content
+                              ID="Med4">Albuterol 0.09 MG/ACTUAT inhalant solution</content></td>
+                           <td>0.09 MG/ACTUAT inhalant solution, 2 puffs every 6 hours PRN Wheezing</td>
+                           <td>20070103</td>
+                           <td>Active</td>
+                           <td>Pneumonia (233604007 SNOMED CT)</td>
+                           <td><content ID="FillIns4">Generic Substitition Allowed</content></td>
                         </tr>
                      </tbody>
                   </table>
@@ -1736,7 +1667,7 @@ MEDICATIONS
                         root="cdbd33f0-6cde-11db-9fe1-0800200c9a66"/>
                      <text>
                         <reference
-                           value="#Med2"/>25 MG Beta Blocker Table once per day</text>
+                           value="#Med2"/>25 MG Tablet Metoprolol tartrate once per day</text>
                      <statusCode
                         code="completed"/>
                      <effectiveTime
@@ -1773,7 +1704,7 @@ MEDICATIONS
                               <code
                                  code="866924"
                                  codeSystem="2.16.840.1.113883.6.88"
-                                 displayName="Beta Blocker Tablet">
+                                 displayName="Metoprolol tartrate">
                                  <originalText><reference
                                        value="#Med2"/></originalText>
                               </code>
@@ -1816,7 +1747,7 @@ MEDICATIONS
                               classCode="MMAT">
                               <code
                                  code="866924"
-                                 displayName="Beta Blocker"
+                                 displayName="Metoprolol tartrate"
                                  codeSystem="2.16.840.1.113883.6.88"
                                  codeSystemName="RxNorm"/>
                               <name>Aerosol</name>
@@ -1825,51 +1756,7 @@ MEDICATIONS
                      </participant>
                    </substanceAdministration>
                </entry>
-            </section>
-         </component>
-         
-         <!--
-********************************************************
-MEDICATIONS ADMINISTERED
-********************************************************
--->
-         <component>
-            <section>
-               <templateId
-                  root="2.16.840.1.113883.10.20.22.2.38"/>
-               <code
-                  code="29549-3"
-                  codeSystem="2.16.840.1.113883.6.1"
-                  codeSystemName="LOINC"
-                  displayName="MEDICATIONS ADMINISTERED"/>
-               <title>MEDICATIONS ADMINISTERED</title>
-               <text>
-                  <table
-                     border="1"
-                     width="100%">
-                     <thead>
-                        <tr>
-                           <th>Medication</th>
-                           <th>Directions</th>
-                           <th>Start Date</th>
-                           <th>Status</th>
-                           <th>Indications</th>
-                           <th>Fill Instructions</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td><content
-                                 ID="Med1">Proventil 0.09 MG/ACTUAT inhalant solution</content></td>
-                           <td>0.09 MG/ACTUAT inhalant solution, 2 puffs QID PRN wheezing</td>
-                           <td>20070103</td>
-                           <td>Active</td>
-                           <td>Pneumonia (233604007 SNOMED CT)</td>
-                           <td><content ID="FillIns">Generic Substitition Allowed</content></td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </text>
+               
                <entry
                   typeCode="DRIV">
                   <substanceAdministration
@@ -1882,7 +1769,109 @@ MEDICATIONS ADMINISTERED
                         root="cdbd33f0-6cde-11db-9fe1-0800200c9a66"/>
                      <text>
                         <reference
-                           value="#Med1"/>0.09 MG/ACTUAT inhalant solution, 2 puffs QID PRN wheezing </text>
+                           value="#Med3"/>500 MG Tablet Clarithromycin Twice daily for 7 days</text>
+                     <statusCode
+                        code="completed"/>
+                     <effectiveTime
+                        xsi:type="IVL_TS">
+                        <low
+                           value="20120806"/>
+                        <high
+                           value="20120806"/>
+                     </effectiveTime>
+                     <routeCode
+                        code="C38288"
+                        codeSystem="2.16.840.1.113883.3.26.1.1"
+                        codeSystemName="NCI Thesaurus"
+                        displayName="ORAL"/>
+                     <doseQuantity
+                        value="500"
+                        unit="mg"/>
+                     <rateQuantity
+                        value="2"
+                        unit="d"/>
+                     <administrationUnitCode
+                        code="C42998"
+                        displayName="Tablet"
+                        codeSystem="2.16.840.1.113883.3.26.1.1"
+                        codeSystemName="NCI Thesaurus"/>
+                     <consumable>
+                        <manufacturedProduct
+                           classCode="MANU">
+                           <templateId
+                              root="2.16.840.1.113883.10.20.22.4.23"/>
+                           <id
+                              root="2a620155-9d11-439e-92b3-5d9815ff4ee8"/>
+                           <manufacturedMaterial>
+                              <code
+                                 code="197517"
+                                 codeSystem="2.16.840.1.113883.6.88"
+                                 displayName="clarithromycin">
+                                 <originalText><reference
+                                    value="#Med3"/></originalText>
+                              </code>
+                           </manufacturedMaterial>
+                           <manufacturerOrganization>
+                              <name>Medication Factory Inc.</name>
+                           </manufacturerOrganization>
+                        </manufacturedProduct>
+                     </consumable>
+                     <performer>
+                        <assignedEntity>
+                           <id
+                              nullFlavor="NI"/>
+                           <addr
+                              nullFlavor="UNK"/>
+                           <telecom
+                              nullFlavor="UNK"/>
+                           <representedOrganization>
+                              <id
+                                 root="2.16.840.1.113883.19.5.9999.1393"/>
+                              <name>Get Well Clinic</name>
+                              <telecom
+                                 nullFlavor="UNK"/>
+                              <addr
+                                 nullFlavor="UNK"/>
+                           </representedOrganization>
+                        </assignedEntity>
+                     </performer>
+                     <participant
+                        typeCode="CSM">
+                        <participantRole
+                           classCode="MANU">
+                           <templateId
+                              root="2.16.840.1.113883.10.20.22.4.24"/>
+                           <code
+                              code="412307009"
+                              displayName="drug vehicle"
+                              codeSystem="2.16.840.1.113883.6.96"/>
+                           <playingEntity
+                              classCode="MMAT">
+                              <code
+                                 code="197517"
+                                 displayName="clarithromycin"
+                                 codeSystem="2.16.840.1.113883.6.88"
+                                 codeSystemName="RxNorm"/>
+                              <name>Aerosol</name>
+                           </playingEntity>
+                        </participantRole>
+                     </participant>
+                  </substanceAdministration>
+               </entry>
+               
+               <entry
+                  typeCode="DRIV">
+                  <substanceAdministration
+                     classCode="SBADM"
+                     moodCode="EVN">
+                     <templateId
+                        root="2.16.840.1.113883.10.20.22.4.16"/>
+                     <!-- ** MEDICATION ACTIVITY -->
+                     <id
+                        root="cdbd33f0-6cde-11db-9fe1-0800200c9a66"/>
+                     <text>
+                        <reference
+                           value="#Med4"/>0.09 MG/ACTUAT inhalant solution, 2 puffs QID PRN wheezing </text>
                      <statusCode
                         code="completed"/>
                      <effectiveTime
@@ -1908,9 +1897,6 @@ MEDICATIONS ADMINISTERED
                      <doseQuantity
                         value="0.09"
                         unit="mg/actuat"/>
-                     <rateQuantity
-                        value="90"
-                        unit="ml/min"/>
                      <administrationUnitCode
                         code="C42944"
                         displayName="INHALANT"
@@ -1927,12 +1913,12 @@ MEDICATIONS ADMINISTERED
                               <code
                                  code="573621"
                                  codeSystem="2.16.840.1.113883.6.88"
-                                 displayName="Proventil 0.09 MG/ACTUAT inhalant solution">
+                                 displayName="Albuterol 0.09 MG/ACTUAT inhalant solution">
                                  <originalText><reference
-                                       value="#Med1"/></originalText>
+                                       value="#Med4"/></originalText>
                                  <translation
                                     code="573621"
-                                    displayName="Proventil 0.09 MG/ACTUAT inhalant solution"
+                                    displayName="Albuterol 0.09 MG/ACTUAT inhalant solution"
                                     codeSystem="2.16.840.1.113883.6.88"
                                     codeSystemName="RxNorm"/>
                               </code>
@@ -2000,8 +1986,193 @@ MEDICATIONS ADMINISTERED
                            <statusCode
                               code="completed"/>
                            <effectiveTime>
-                              <low
-                                 value="20070103"/>
+                              <low nullFlavor="UNK"/>
+                              <high value="20120806"/>
+                           </effectiveTime>
+                           <value
+                              xsi:type="CD"
+                              code="233604007"
+                              displayName="Pneumonia"
+                              codeSystem="2.16.840.1.113883.6.96"/>
+                        </observation>
+                     </entryRelationship>
+                  </substanceAdministration>
+               </entry>
+               
+            </section>
+         </component>
+         
+         <!--
+********************************************************
+MEDICATIONS ADMINISTERED
+********************************************************
+-->
+         <component>
+            <section>
+               <templateId
+                  root="2.16.840.1.113883.10.20.22.2.38"/>
+               <code
+                  code="29549-3"
+                  codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"
+                  displayName="MEDICATIONS ADMINISTERED"/>
+               <title>MEDICATIONS ADMINISTERED</title>
+               <text>
+                  <table
+                     border="1"
+                     width="100%">
+                     <thead>
+                        <tr>
+                           <th>Medication</th>
+                           <th>Directions</th>
+                           <th>Start Date</th>
+                           <th>Status</th>
+                           <th>Indications</th>
+                           <th>Fill Instructions</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td><content
+                                 ID="Med1">Albuterol 0.09 MG/ACTUAT inhalant solution</content></td>
+                           <td>0.09 MG/ACTUAT inhalant solution, 2 puffs QID</td>
+                           <td>20070103</td>
+                           <td>Active</td>
+                           <td>Pneumonia (233604007 SNOMED CT)</td>
+                           <td><content ID="FillIns">Generic Substitition Allowed</content></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry
+                  typeCode="DRIV">
+                  <substanceAdministration
+                     classCode="SBADM"
+                     moodCode="EVN">
+                     <templateId
+                        root="2.16.840.1.113883.10.20.22.4.16"/>
+                     <!-- ** MEDICATION ACTIVITY -->
+                     <id
+                        root="cdbd33f0-6cde-11db-9fe1-0800200c9a66"/>
+                     <text>
+                        <reference
+                           value="#Med1"/>0.09 MG/ACTUAT inhalant solution, 2 puffs QID PRN wheezing </text>
+                     <statusCode
+                        code="completed"/>
+                     <effectiveTime
+                        xsi:type="IVL_TS">
+                        <low
+                           value="20070103"/>
+                        <high
+                           value="20120806"/>
+                     </effectiveTime>
+                     <effectiveTime
+                        xsi:type="PIVL_TS"
+                        institutionSpecified="true"
+                        operator="A">
+                        <period
+                           value="12"
+                           unit="h"/>
+                     </effectiveTime>
+                     <routeCode
+                        code="C38216"
+                        codeSystem="2.16.840.1.113883.3.26.1.1"
+                        codeSystemName="NCI Thesaurus"
+                        displayName="RESPIRATORY (INHALATION)"/>
+                     <doseQuantity
+                        value="0.09"
+                        unit="mg/actuat"/>
+                     <administrationUnitCode
+                        code="C42944"
+                        displayName="INHALANT"
+                        codeSystem="2.16.840.1.113883.3.26.1.1"
+                        codeSystemName="NCI Thesaurus"/>
+                     <consumable>
+                        <manufacturedProduct
+                           classCode="MANU">
+                           <templateId
+                              root="2.16.840.1.113883.10.20.22.4.23"/>
+                           <id
+                              root="2a620155-9d11-439e-92b3-5d9815ff4ee8"/>
+                           <manufacturedMaterial>
+                              <code
+                                 code="573621"
+                                 codeSystem="2.16.840.1.113883.6.88"
+                                 displayName="Albuterol 0.09 MG/ACTUAT inhalant solution">
+                                 <originalText><reference
+                                       value="#Med1"/></originalText>
+                                 <translation
+                                    code="573621"
+                                    displayName="Albuterol 0.09 MG/ACTUAT inhalant solution"
+                                    codeSystem="2.16.840.1.113883.6.88"
+                                    codeSystemName="RxNorm"/>
+                              </code>
+                           </manufacturedMaterial>
+                           <manufacturerOrganization>
+                              <name>Medication Factory Inc.</name>
+                           </manufacturerOrganization>
+                        </manufacturedProduct>
+                     </consumable>
+                     <performer>
+                        <assignedEntity>
+                           <id
+                              nullFlavor="NI"/>
+                           <addr
+                              nullFlavor="UNK"/>
+                           <telecom
+                              nullFlavor="UNK"/>
+                           <representedOrganization>
+                              <id
+                                 root="2.16.840.1.113883.19.5.9999.1393"/>
+                              <name>Get Well Clinic</name>
+                              <telecom
+                                 nullFlavor="UNK"/>
+                              <addr
+                                 nullFlavor="UNK"/>
+                           </representedOrganization>
+                        </assignedEntity>
+                     </performer>
+                     <participant
+                        typeCode="CSM">
+                        <participantRole
+                           classCode="MANU">
+                           <templateId
+                              root="2.16.840.1.113883.10.20.22.4.24"/>
+                           <code
+                              code="412307009"
+                              displayName="drug vehicle"
+                              codeSystem="2.16.840.1.113883.6.96"/>
+                           <playingEntity
+                              classCode="MMAT">
+                              <code
+                                 code="324049"
+                                 displayName="Aerosol"
+                                 codeSystem="2.16.840.1.113883.6.88"
+                                 codeSystemName="RxNorm"/>
+                              <name>Aerosol</name>
+                           </playingEntity>
+                        </participantRole>
+                     </participant>
+                     <entryRelationship
+                        typeCode="RSON">
+                        <observation
+                           classCode="OBS"
+                           moodCode="EVN">
+                           <templateId
+                              root="2.16.840.1.113883.10.20.22.4.19"/>
+                           <id
+                              root="db734647-fc99-424c-a864-7e3cda82e703"
+                              extension="45665"/>
+                           <code
+                              code="404684003"
+                              displayName="Finding"
+                              codeSystem="2.16.840.1.113883.6.96"
+                              codeSystemName="SNOMED CT"/>
+                           <statusCode
+                              code="completed"/>
+                           <effectiveTime>
+                              <low nullFlavor="UNK"/>
+                              <high value="20120806"/>
                            </effectiveTime>
                            <value
                               xsi:type="CD"
@@ -2030,8 +2201,6 @@ MEDICATIONS ADMINISTERED
                            </effectiveTime>
                            <repeatNumber
                               value="1"/>
-                           <quantity
-                              value="75"/>
                            <product>
                               <manufacturedProduct
                                  classCode="MANU">
@@ -2043,12 +2212,12 @@ MEDICATIONS ADMINISTERED
                                     <code
                                        code="573621"
                                        codeSystem="2.16.840.1.113883.6.88"
-                                       displayName="Proventil 0.09 MG/ACTUAT inhalant solution">
+                                       displayName="Albuterol 0.09 MG/ACTUAT inhalant solution">
                                        <originalText><reference
                                              value="#Med1"/></originalText>
                                        <translation
                                           code="573621"
-                                          displayName="Proventil 0.09 MG/ACTUAT inhalant solution"
+                                          displayName="Albuterol 0.09 MG/ACTUAT inhalant solution"
                                           codeSystem="2.16.840.1.113883.6.88"
                                           codeSystemName="RxNorm"/>
                                     </code>
@@ -2064,7 +2233,7 @@ MEDICATIONS ADMINISTERED
                                     extension="2981823"
                                     root="2.16.840.1.113883.19.5.9999.456"/>
                                  <addr>
-                                    <streetAddressLine>1001 Village Avenue</streetAddressLine>
+                                    <streetAddressLine>1002 Healthcare Dr</streetAddressLine>
                                     <city>Portland</city>
                                     <state>OR</state>
                                     <postalCode>99123</postalCode>
@@ -2126,11 +2295,9 @@ MEDICATIONS ADMINISTERED
                            <statusCode
                               code="completed"/>
                            <effectiveTime
-                              value="20070103"/>
+                              value="20120806"/>
                            <repeatNumber
                               value="1"/>
-                           <quantity
-                              value="75"/>
                            <product>
                               <manufacturedProduct
                                  classCode="MANU">
@@ -2142,12 +2309,12 @@ MEDICATIONS ADMINISTERED
                                     <code
                                        code="573621"
                                        codeSystem="2.16.840.1.113883.6.88"
-                                       displayName="Proventil 0.09 MG/ACTUAT inhalant solution">
+                                       displayName="Albuterol 0.09 MG/ACTUAT inhalant solution">
                                        <originalText><reference
                                              value="#Med1"/></originalText>
                                        <translation
                                           code="573621"
-                                          displayName="Proventil 0.09 MG/ACTUAT inhalant solution"
+                                          displayName="Albuterol 0.09 MG/ACTUAT inhalant solution"
                                           codeSystem="2.16.840.1.113883.6.88"
                                           codeSystemName="RxNorm"/>
                                     </code>
@@ -2165,7 +2332,7 @@ MEDICATIONS ADMINISTERED
                                     root="2.16.840.1.113883.19.5.9999.456"
                                     extension="2981823"/>
                                  <addr>
-                                    <streetAddressLine>1001 Village Avenue</streetAddressLine>
+                                    <streetAddressLine>1002 Healthcare Dr</streetAddressLine>
                                     <city>Portland</city>
                                     <state>OR</state>
                                     <postalCode>99123</postalCode>
@@ -2243,16 +2410,28 @@ CARE PLAN
                      </thead>
                      <tbody>
                         <tr>
-                           <td>Consultation with Dr George Potomac for Asthma</td>
+                           <td>Consultation with Dr George Potomac for pulmonology consultation</td>
                            <td>20120820</td>
                         </tr>
                         <tr>
                            <td>Chest X-ray</td>
-                           <td>20120826</td>
+                           <td>20120813</td>
                         </tr>
                         <tr>
                            <td>HGB Lab Test</td>
-                           <td>20120820</td>
+                           <td>20120813</td>
+                        </tr>
+                        <tr>
+                           <td>Colonoscopy</td>
+                           <td>20120822</td>
+                        </tr>
+                        <tr>
+                           <td>Sputum Culture</td>
+                           <td>20120806</td>
+                        </tr>
+                        <tr>
+                           <td>Follow up appointment with Dr Henry Seven</td>
+                           <td>20120814</td>
                         </tr>
                      </tbody>
                   </table>
@@ -2286,7 +2465,7 @@ CARE PLAN
                               code="409073007"
                               codeSystem="2.16.840.1.113883.6.96"
                               displayName="instruction"/>
-                           <text>Follow up with Dr George Potomac for Asthma</text>
+                           <text>Follow up with Dr George Potomac for pulmonology consultation</text>
                            <statusCode
                               code="completed"/>
                         </act>
@@ -2311,7 +2490,7 @@ CARE PLAN
                         code="new"/>
                      <effectiveTime>
                         <center
-                           value="201208246"/>
+                           value="20120813"/>
                      </effectiveTime>
                   </procedure>
                </entry>
@@ -2333,9 +2512,66 @@ CARE PLAN
                         code="new"/>
                      <effectiveTime>
                         <center
-                           value="20120820"/>
+                           value="20120813"/>
                      </effectiveTime>
                   </observation>
+               </entry>
+               <entry>
+                  <procedure
+                     moodCode="RQO"
+                     classCode="PROC">
+                     <templateId
+                        root="2.16.840.1.113883.10.20.22.4.41"/>
+                     <!-- ** Plan of Care Activity Procedure template ** -->
+                     <id
+                        root="9a6d1bac-17d3-4195-89c4-1121bc809b5a"/>
+                     <code
+                        code="Z12.11"
+                        codeSystem="2.16.840.1.113883.6.96"
+                        displayName="Colonoscopy"/>
+                     <statusCode
+                        code="new"/>
+                     <effectiveTime>
+                        <center
+                           value="20120822"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+               <entry>
+                  <encounter
+                     moodCode="INT"
+                     classCode="ENC">
+                     <templateId
+                        root="2.16.840.1.113883.10.20.22.4.40"/>
+                     <!--  ****  Plan of Care Activity Encounter template  **** -->
+                     <id
+                        root="9a6d1bac-17d3-4195-89a4-1121bc809b4d"/>
+                     <code
+                        code="99241"
+                        displayName="Office consultation - 15 minutes"
+                        codeSystemName="CPT"
+                        codeSystem="2.16.840.1.113883.6.12"/>
+                     <effectiveTime>
+                        <center value="20120814"/>
+                     </effectiveTime>
+                     <entryRelationship
+                        typeCode="SUBJ" inversionInd="true">
+                        <act
+                           classCode="ACT"
+                           moodCode="INT">
+                           <templateId
+                              root="2.16.840.1.113883.10.20.22.4.20"/>
+                           <!-- ** Instructions Template ** -->
+                           <code xsi:type="CE"
+                              code="409073007"
+                              codeSystem="2.16.840.1.113883.6.96"
+                              displayName="instruction"/>
+                           <text>Follow up with Dr Dr Henry Seven</text>
+                           <statusCode
+                              code="completed"/>
+                        </act>
+                     </entryRelationship>
+                  </encounter>
                </entry>
             </section>
          </component>
@@ -2356,7 +2592,9 @@ CHIEF COMPLAINT / REASON FOR VISIT
                   displayName="REASON FOR VISIT + CHIEF COMPLAINT"/>
                <title>REASON FOR VISIT/CHIEF COMPLAINT</title>
                <text>
-                  <paragraph>Mild Fever</paragraph>
+                  <paragraph>1. Mild Fever, 2 days</paragraph>
+                  <paragraph>2. Chills, 2 days</paragraph>
+                  <paragraph>3. Cough productive of greenish sputum, 2 days</paragraph>
                </text>
             </section>
          </component>
@@ -2374,9 +2612,8 @@ CLINICAL INSTRUCTIONS / PATIENT Decision Aids
                   codeSystemName="LOINC" displayName="INSTRUCTIONS" />
                <title>INSTRUCTIONS</title>
                <text>
-                  <content ID="instructions-1">Patient may have low grade fever, mild joint
-                     pain and
-                     injection area tenderness</content>
+                  <content ID="instructions-1">Patient may have low grade fever and chills</content>
+                  <content ID="instruct-2">-	Return to clinic or call 911 if you experience chest pain, shortness of breath, high fevers, or intractable vomiting/diarrhea</content>
                </text>
                <entry typeCode="DRIV">
                   <act classCode="ACT" moodCode="INT">
@@ -2494,7 +2731,7 @@ PROBLEM LIST
                                     code="completed"/>
                                  <effectiveTime>
                                     <low
-                                       value="20080103"/>
+                                       value="20120806"/>
                                  </effectiveTime>
                                  <value
                                     xsi:type="CD"
@@ -2520,7 +2757,7 @@ PROBLEM LIST
                                     code="completed"/>
                                  <value
                                     xsi:type="PQ"
-                                    value="52"
+                                    value="65"
                                     unit="a"/>
                               </observation>
                            </entryRelationship>
@@ -2592,7 +2829,7 @@ PROBLEM LIST
                         <low
                            value="20070103"/>
                         <high
-                           value="20070103"/>
+                           value="20120806"/>
                      </effectiveTime>
                      <entryRelationship
                         typeCode="SUBJ">
@@ -2616,7 +2853,7 @@ PROBLEM LIST
                               code="completed"/>
                            <effectiveTime>
                               <low
-                                 value="20070103"/>
+                                 value="20120806"/>
                            </effectiveTime>
                            <value
                               xsi:type="CD"
@@ -2671,7 +2908,7 @@ PROBLEM LIST
                                     code="completed"/>
                                  <value
                                     xsi:type="PQ"
-                                    value="52"
+                                    value="60"
                                     unit="a"/>
                               </observation>
                            </entryRelationship>
@@ -2754,13 +2991,6 @@ PROCEDURES
                      <tbody>
                         <tr>
                            <td>
-                              <content
-                                 ID="Proc1">Colonic polypectomy</content>
-                           </td>
-                           <td>2011</td>
-                        </tr>
-                        <tr>
-                           <td>
                               <content ID="Proc2">Chest X-Ray</content>
                            </td>
                            <td>2012</td>
@@ -2779,43 +3009,28 @@ PROCEDURES
                      <id
                         root="d68b7e32-7810-4f5b-9cc2-acd54b0fd85d"/>
                      <code xsi:type="CE"
-                        code="0DJD8ZZ"
-                        codeSystem="2.16.840.1.113883.6.4"
-                        displayName="Inspection of Lower Intestinal Tract, Via Natural or Artificial Opening Endoscopic"
-                        codeSystemName="ICD-10-PCS">
+                        code="168731009"
+                        codeSystem="2.16.840.1.113883.6.96"
+                        displayName="Chest X-Ray"
+                        codeSystemName="SNOMED-CT">
                         <originalText>
                            <reference
-                              value="#Proc1"/>
+                              value="#Proc2"/>
                         </originalText>
                      </code>
                      <statusCode
                         code="completed"/>
                      <effectiveTime
-                        value="20110501"/>
+                        value="20120806"/>
                      <methodCode
                         nullFlavor="UNK"/>
-                     <!-- ****OPTIONAL*****-->
-                     <specimen
-                        typeCode="SPC">
-                        <specimenRole
-                           classCode="SPEC">
-                           <id
-                              root="c2ee9ee9-ae31-4628-a919-fec1cbb58683"/>
-                           <specimenPlayingEntity>
-                              <code
-                                 code="309226005"
-                                 codeSystem="2.16.840.1.113883.6.96"
-                                 displayName="colonic polyp sample"/>
-                           </specimenPlayingEntity>
-                        </specimenRole>
-                     </specimen>
                      <performer>
                         <assignedEntity>
                            <id
                               root="2.16.840.1.113883.19.5.9999.456"
                               extension="2981823"/>
                            <addr>
-                              <streetAddressLine>1001 Village Avenue</streetAddressLine>
+                              <streetAddressLine>1002 Healthcare Dr</streetAddressLine>
                               <city>Portland</city>
                               <state>OR</state>
                               <postalCode>99123</postalCode>
@@ -2823,16 +3038,16 @@ PROCEDURES
                            </addr>
                            <telecom
                               use="WP"
-                              value="555-555-5000"/>
+                              value="555-555-1002"/>
                            <representedOrganization>
                               <id
                                  root="2.16.840.1.113883.19.5.9999.1393"/>
                               <name>Get Well Clinic</name>
                               <telecom
                                  use="WP"
-                                 value="555-555-5000"/>
+                                 value="555-555-1002"/>
                               <addr>
-                                 <streetAddressLine>1001 Village Avenue</streetAddressLine>
+                                 <streetAddressLine>1002 Healthcare Dr</streetAddressLine>
                                  <city>Portland</city>
                                  <state>OR</state>
                                  <postalCode>99123</postalCode>
@@ -2841,207 +3056,9 @@ PROCEDURES
                            </representedOrganization>
                         </assignedEntity>
                      </performer>
-                     <participant
-                        typeCode="DEV">
-                        <!-- *** Optional *** -->
-                        <participantRole
-                           classCode="MANU">
-                           <templateId
-                              root="2.16.840.1.113883.10.20.22.4.37"/>
-                           <!--   Product instance template   -->
-                           <id
-                              root="742aee30-21c5-11e1-bfc2-0800200c9a66"/>
-                           <playingDevice>
-                              <code
-                                 code="90412006"
-                                 codeSystem="2.16.840.1.113883.6.96"
-                                 displayName="Colonoscope"/>
-                           </playingDevice>
-                           <scopingEntity>
-                              <id
-                                 root="eb936010-7b17-11db-9fe1-0800200c9b65"/>
-                           </scopingEntity>
-                        </participantRole>
-                     </participant>
                   </procedure>
                </entry>
-               <entry>
-                  <observation
-                     classCode="OBS"
-                     moodCode="EVN">
-                     <templateId
-                        root="2.16.840.1.113883.10.20.22.4.13"/>
-                     <!-- Procedure Activity Observation -->
-                     <id
-                        extension="123456789"
-                        root="2.16.840.1.113883.19"/>
-                     <code xsi:type="CE"
-                        code="274025005"
-                        codeSystem="2.16.840.1.113883.6.96"
-                        displayName="Colonic polypectomy"
-                        codeSystemName="SNOMED-CT">
-                        <originalText>
-                           <reference
-                              value="#Proc1"/>
-                        </originalText>
-                     </code>
-                     <statusCode
-                        code="aborted"/>
-                     <effectiveTime
-                        value="20110203"/>
-                     <priorityCode
-                        code="CR"
-                        codeSystem="2.16.840.1.113883.5.7"
-                        codeSystemName="ActPriority"
-                        displayName="Callback results"/>
-                     <value
-                        xsi:type="CD"/>
-                     <methodCode
-                        nullFlavor="UNK"/>
-                     <targetSiteCode
-                        code="416949008"
-                        codeSystem="2.16.840.1.113883.6.96"
-                        codeSystemName="SNOMED CT"
-                        displayName="Abdomen and pelvis"/>
-                     <performer>
-                        <assignedEntity>
-                           <id
-                              root="2.16.840.1.113883.19.5"
-                              extension="1234"/>
-                           <addr>
-                              <streetAddressLine>17 Daws Rd.</streetAddressLine>
-                              <city>Blue Bell</city>
-                              <state>MA</state>
-                              <postalCode>02368</postalCode>
-                              <country>US</country>
-                           </addr>
-                           <telecom
-                              use="WP"
-                              value="(555)555-555-1234"/>
-                           <representedOrganization>
-                              <id
-                                 root="2.16.840.1.113883.19.5"/>
-                              <name>Get Well Clinic</name>
-                              <telecom
-                                 nullFlavor="UNK"/>
-                              <addr
-                                 nullFlavor="UNK"/>
-                           </representedOrganization>
-                        </assignedEntity>
-                     </performer>
-                     <participant
-                        typeCode="LOC">
-                        <participantRole
-                           classCode="SDLOC">
-                           <templateId
-                              root="2.16.840.1.113883.10.20.22.4.32"/>
-                           <!-- Service Delivery Location template -->
-                           <code
-                              code="1160-1"
-                              codeSystem="2.16.840.1.113883.6.259"
-                              codeSystemName="HealthcareServiceLocation"
-                              displayName="Urgent Care Center"/>
-                           <addr>
-                              <streetAddressLine>17 Daws Rd.</streetAddressLine>
-                              <city>Blue Bell</city>
-                              <state>MA</state>
-                              <postalCode>02368</postalCode>
-                              <country>US</country>
-                           </addr>
-                           <telecom
-                              nullFlavor="UNK"/>
-                           <playingEntity
-                              classCode="PLC">
-                              <name>Get Well Clinic</name>
-                           </playingEntity>
-                        </participantRole>
-                     </participant>
-                  </observation>
-               </entry>
-               <entry>
-                  <act
-                     classCode="ACT"
-                     moodCode="EVN">
-                     <templateId
-                        root="2.16.840.1.113883.10.20.22.4.12"/>
-                     <id
-                        root="1.2.3.4.5.6.7.8"
-                        extension="1234567"/>
-                     <code xsi:type="CE"
-                        code="274025005"
-                        codeSystem="2.16.840.1.113883.6.96"
-                        codeSystemName="SNOMED CT"
-                        displayName="Colonic polypectomy">
-                        <originalText>
-                           <reference
-                              value="#Proc1"/>
-                        </originalText>
-                     </code>
-                     <statusCode
-                        code="completed"/>
-                     <effectiveTime
-                        value="20120503"/>
-                     <priorityCode
-                        code="CR"
-                        codeSystem="2.16.840.1.113883.5.7"
-                        codeSystemName="ActPriority"
-                        displayName="Callback results"/>
-                     <performer>
-                        <assignedEntity>
-                           <id
-                              root="2.16.840.1.113883.19"
-                              extension="1234"/>
-                           <addr>
-                              <streetAddressLine>17 Daws Rd.</streetAddressLine>
-                              <city>Blue Bell</city>
-                              <state>MA</state>
-                              <postalCode>02368</postalCode>
-                              <country>US</country>
-                           </addr>
-                           <telecom
-                              use="WP"
-                              value="(555)555-555-1234"/>
-                           <representedOrganization>
-                              <id
-                                 root="2.16.840.1.113883.19.5"/>
-                              <name>Get Well Clinic</name>
-                              <telecom
-                                 nullFlavor="UNK"/>
-                              <addr
-                                 nullFlavor="UNK"/>
-                           </representedOrganization>
-                        </assignedEntity>
-                     </performer>
-                     <participant
-                        typeCode="LOC">
-                        <participantRole
-                           classCode="SDLOC">
-                           <templateId
-                              root="2.16.840.1.113883.10.20.22.4.32"/>
-                           <!-- Service Delivery Location template -->
-                           <code
-                              code="1160-1"
-                              codeSystem="2.16.840.1.113883.6.259"
-                              codeSystemName="HealthcareServiceLocation"
-                              displayName="Urgent Care Center"/>
-                           <addr>
-                              <streetAddressLine>17 Daws Rd.</streetAddressLine>
-                              <city>Blue Bell</city>
-                              <state>MA</state>
-                              <postalCode>02368</postalCode>
-                              <country>US</country>
-                           </addr>
-                           <telecom
-                              nullFlavor="UNK"/>
-                           <playingEntity
-                              classCode="PLC">
-                              <name>Get Well Clinic</name>
-                           </playingEntity>
-                        </participantRole>
-                     </participant>
-                  </act>
-               </entry>
-               
+                                           
                <entry
                      typeCode="DRIV">
                      <procedure
@@ -3066,7 +3083,7 @@ PROCEDURES
                         <statusCode
                            code="Completed"/>
                         <effectiveTime
-                           value="20120807"/>
+                           value="20120806"/>
                         <priorityCode
                            code="CR"
                            codeSystem="2.16.840.1.113883.5.7"
@@ -3320,17 +3337,17 @@ RESULTS
                         <tr>
                            <td><content
                                  ID="result1">HGB (M 13-18 g/dl; F 12-16 g/dl)</content></td>
-                           <td>13.2</td>
+                           <td>10.2</td>
                         </tr>
                         <tr>
                            <td><content
                                  ID="result2">WBC (4.3-10.8 10+3/ul)</content></td>
-                           <td>6.7</td>
+                           <td>12.3</td>
                         </tr>
                         <tr>
                            <td><content
-                                 ID="result3">PLT (135-145 meq/l)</content></td>
-                           <td>123 (L)</td>
+                                 ID="result3">PLT (150-350 10+3/ul)</content></td>
+                           <td>223</td>
                         </tr>
                      </tbody>
                   </table>
@@ -3373,7 +3390,7 @@ RESULTS
                            <statusCode
                               code="completed"/>
                            <effectiveTime
-                              value="20120810"/>
+                              value="20120806"/>
                            <value
                               xsi:type="PQ"
                               value="10.2"
@@ -3418,7 +3435,7 @@ RESULTS
                            <statusCode
                               code="completed"/>
                            <effectiveTime
-                              value="20120810"/>
+                              value="20120806"/>
                            <value
                               xsi:type="PQ"
                               value="12.3"
@@ -3471,10 +3488,10 @@ RESULTS
                            <statusCode
                               code="completed"/>
                            <effectiveTime
-                              value="20120810"/>
+                              value="20120806"/>
                            <value
                               xsi:type="PQ"
-                              value="123"
+                              value="223"
                               unit="10+3/ul"/>
                            <interpretationCode
                               code="L"
@@ -3540,14 +3557,14 @@ SOCIAL HISTORY
                               <content
                                  ID="soc1"/> smoking</td>
                            <td>1 pack per day</td>
-                           <td>20050501 to 20090227</td>
+                           <td>19920501 to 20090227</td>
                         </tr>
                         <tr>
                            <td>
                               <content
-                                 ID="soc2"/> smoking</td>
+                                 ID="soc2"/> Former Smoker</td>
                            <td>None</td>
-                           <td>20090227 - today</td>
+                           <td>20090227 - Unknown</td>
                         </tr>
                      </tbody>
                   </table>
@@ -3570,9 +3587,8 @@ SOCIAL HISTORY
                         code="completed"/>
                      <effectiveTime>
                         <low
-                           value="20050501"/>
-                        <high
                            value="20090227"/>
+                        <high nullFlavor="UNK"/>
                      </effectiveTime>
                      <value
                         xsi:type="CD"
@@ -3604,7 +3620,7 @@ SOCIAL HISTORY
                         code="completed"/>
                      <effectiveTime>
                         <low
-                           value="20050501"/>
+                           value="19920501"/>
                         <high
                            value="20090227"/>
                      </effectiveTime>
@@ -3698,6 +3714,14 @@ VITAL SIGNS
                                  ID="vit5">132/86 mmHg</content></td>
                            <td><content
                                  ID="vit6">145/88 mmHg</content></td>
+                        </tr>
+                        <tr>
+                           <th
+                              align="left">BMI</th>
+                           <td><content
+                              ID="vit7">27.45</content></td>
+                           <td><content
+                              ID="vit8">28.09</content></td>
                         </tr>
                      </tbody>
                   </table>
@@ -3808,6 +3832,31 @@ VITAL SIGNS
                               codeSystem="2.16.840.1.113883.5.83"/>
                         </observation>
                      </component>
+                     <component>
+                        <observation
+                           classCode="OBS"
+                           moodCode="EVN">
+                           <templateId
+                              root="2.16.840.1.113883.10.20.22.4.27"/>
+                           <!-- Vital Sign Observation template -->
+                           <id
+                              root="c6f88321-67ad-11db-bd13-0800200c9a66"/>
+                           <code
+                              code="60621009"
+                              codeSystem="2.16.840.1.113883.6.96"
+                              codeSystemName="SNOMED-CT"
+                              displayName="BMI"/>
+                           <text><reference
+                              value="#vit7"/></text>
+                           <statusCode
+                              code="completed"/>
+                           <effectiveTime
+                              value="20081101"/>
+                           <value
+                              xsi:type="PQ"
+                              value="27.45" unit="kg/m2"/>
+                        </observation>
+                     </component>
                   </organizer>
                </entry>
                <entry
@@ -3914,6 +3963,31 @@ VITAL SIGNS
                            <interpretationCode
                               code="N"
                               codeSystem="2.16.840.1.113883.5.83"/>
+                        </observation>
+                     </component>
+                     <component>
+                        <observation
+                           classCode="OBS"
+                           moodCode="EVN">
+                           <templateId
+                              root="2.16.840.1.113883.10.20.22.4.27"/>
+                           <!-- Vital Sign Observation template -->
+                           <id
+                              root="c6f88321-67ad-11db-bd13-0800200c9a66"/>
+                           <code
+                              code="60621009"
+                              codeSystem="2.16.840.1.113883.6.96"
+                              codeSystemName="SNOMED-CT"
+                              displayName="BMI"/>
+                           <text><reference
+                              value="#vit8"/></text>
+                           <statusCode
+                              code="completed"/>
+                           <effectiveTime
+                              value="20120806"/>
+                           <value
+                              xsi:type="PQ"
+                              value="28.09" unit="kg.m2"/>
                         </observation>
                      </component>
                   </organizer>
