@@ -11,9 +11,14 @@ as information becomes available.  The information here may not represent
 final releases of information by any government organization. This information
 is provided "as-is" for convenience.  Check back for frequent updates.
 
-The final rule can be found here:
-[The CMS EHR Incentive Program Stage 2 Final Rule](mu2/blob/master/docs/2012-21050-bookmarked.pdf)
-[And ONC Certification Criteria Program 2014 Edition](mu2/blob/master/docs/2012-20982-PI-bookmarked.pdf)
+A bookmarked version of the final rule can be found here:
+
+[The CMS EHR Incentive Program Stage 2 Final Rule](mu2/raw/master/docs/2012-20982-PI-bookmarked.pdf)
+
+and
+
+[ONC Certification Criteria Program 2014 Edition](mu2/raw/master/docs/2012-20982-PI-bookmarked.pdf)
+
 
 For more information on Meaningful Use 2 and Certification, visit
 [HealthIT.gov](http://healthit.gov)
@@ -22,6 +27,7 @@ Contents
 --------
 
 + [Immunization](mu2/tree/master/immunization)
++ [Syndromic](mu2/tree/master/syndromic)
 + [Data Portability](mu2/tree/master/data-portability)
-+ [Transport Test Data](mu2/tree/master/data-portability/test-data)
++ [Transport Test Data](mu2/tree/master/transport/test-data)
 

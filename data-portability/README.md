@@ -1,10 +1,10 @@
 Data Portability 170.314 (b)(7)
 ===============================
 
-Data Portability conformance testing is based on HL7 CCDA validation.  
+Data Portability conformance testing is based on HL7 CCDA validation.
 
 The NIST Transport Testing Tool provides a web-based front end for 
-validating CCDA documents.  
+validating CCDA documents.
 
 The Test Procedure and attional information can be found on HealthIT.gov at
 [http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
@@ -12,7 +12,6 @@ The Test Procedure and attional information can be found on HealthIT.gov at
 
 The following sections point to information on pointers to servers running 
 the tool and local configuration of the tool.
-
 
 
 NIST Hosted Server
@@ -41,7 +40,7 @@ Open the following inbound ports.
 
     TCP Port (Service)	Source
     22 (SSH)	        0.0.0.0/0	
-    25 (SMTP)           0.0.0.0/0		
+    25 (SMTP)           0.0.0.0/0
     8080 (HTTP*)        0.0.0.0/0	
 
 
@@ -50,7 +49,7 @@ DNS Configuration
 -----------------
 
 Setup a static ip and a domain name. Create a static IP and associate 
-it with a domain name.  
+it with a domain name.
 
 In this example, we will use the IP "54.243.204.42" as the hostnme and "transparenthealth.org"
 
@@ -90,14 +89,14 @@ A NIST hosted version of this software is [http://nist-ttt.org:8080/ttt](http://
 
 
 + **MDHT** - MDHT is used for CCDA Validation.  The project's [homepage is here]
-( https://www.projects.openhealthtools.org/sf/projects/mdht/). The subversion
+(https://www.projects.openhealthtools.org/sf/projects/mdht/). The subversion
 source repository, hosted by Open Health Tools,
 [is found here](https://www.projects.openhealthtools.org/sf/scm/do/listRepositories/projects.mdht/scm).
 Documentation for MDHT can be [found here](https://www.projects.openhealthtools.org/sf/projects/mdht/).
 Since this project is a library, it does not have a free-standing application
 with a UI.  It's capabilites are be part of the Transport Testing Tool.
 
-The [NIST MDHT tool for MU2 certification can may be found here](/meaningfuluse/mu2/tree/master/data-portability/mdht)
+The [NIST MDHT tool for MU2 certification can may be found here](/meaningfuluse/mu2/tree/master/transport/mdht)
 
 
 
