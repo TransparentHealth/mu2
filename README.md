@@ -13,7 +13,7 @@ is provided "as-is" for convenience.  Check back for frequent updates.
 
 A bookmarked version of the final rule can be found here:
 
-+ [The CMS EHR Incentive Program Stage 2 Final Rule](https://github.com/meaningfuluse/mu2/raw/master/docs/2012-20982-PI-bookmarked.pdf
++ [The CMS EHR Incentive Program Stage 2 Final Rule](https://github.com/meaningfuluse/mu2/raw/master/docs/2012-20982-PI-bookmarked.pdf)
 + [ONC Certification Criteria Program 2014 Edition](https://github.com/meaningfuluse/mu2/raw/master/docs/2012-21050-bookmarked.pdf)
 
 
