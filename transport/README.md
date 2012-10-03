@@ -13,10 +13,6 @@ The Test Procedure and attional information can be found on HealthIT.gov at
 The following sections point to information on pointers to servers running 
 the tool and local configuration of the tool.
 
-
-TTT
----
-
 + [Transport Testing Tool](http://hit-testing.nist.gov:9100/ttt/)
 + [Test Data](/meaningfuluse/mu2/tree/master/transport/test-data)
 
