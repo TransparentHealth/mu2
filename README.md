@@ -13,11 +13,8 @@ is provided "as-is" for convenience.  Check back for frequent updates.
 
 A bookmarked version of the final rule can be found here:
 
-[The CMS EHR Incentive Program Stage 2 Final Rule](raw/master/docs/2012-20982-PI-bookmarked.pdf)
-
-and
-
-[ONC Certification Criteria Program 2014 Edition](raw/master/docs/2012-20982-PI-bookmarked.pdf)
++ [The CMS EHR Incentive Program Stage 2 Final Rule](raw/master/docs/2012-20982-PI-bookmarked.pdf)
++ [ONC Certification Criteria Program 2014 Edition](raw/master/docs/2012-20982-PI-bookmarked.pdf)
 
 
 For more information on Meaningful Use 2 and Certification, visit
@@ -26,8 +23,9 @@ For more information on Meaningful Use 2 and Certification, visit
 Contents
 --------
 
-+ [Immunization](tree/master/immunization)
++ [Immunization](meaningfuluse/mu2/tree/master/immunization)
 + [Syndromic](tree/master/syndromic)
++ [ELR](tree/master/elr)
 + [Data Portability](tree/master/data-portability)
 + [Transport Test Data](tree/master/transport/test-data)
 
