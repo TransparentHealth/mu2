@@ -18,7 +18,7 @@ TTT
 ---
 
 + [Transport Testing Tool](http://hit-testing.nist.gov:9100/ttt/)
-+ [Test Data](/meaningfuluse/mu2/tree/master/test-data)
++ [Test Data](/meaningfuluse/mu2/tree/master/transport/test-data)
 
 
 

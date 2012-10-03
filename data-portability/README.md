@@ -11,7 +11,7 @@ The Test Procedure and attional information can be found on HealthIT.gov at
 
 
 + [Transport Testing Tool Hosted at NIST](http://hit-testing.nist.gov:9100/ttt/)
-+ [Test Data for Data Portability 170.314 (b)(7)](/meaningfuluse/mu2/tree/master/test-data/170.314-b7)
++ [Test Data for Data Portability 170.314 (b)(7)](/meaningfuluse/mu2/tree/master/transport/test-data/170.314-b7)
 
 
 
