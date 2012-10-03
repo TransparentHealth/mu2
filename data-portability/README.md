@@ -3,26 +3,14 @@ Data Portability 170.314 (b)(7)
 
 Data Portability conformance testing is based on HL7 CCDA validation.
 
-The NIST Transport Testing Tool provides a web-based front end for 
+The Transport Testing Tool provides a web-based front end for 
 validating CCDA documents.
 
 The Test Procedure and attional information can be found on HealthIT.gov at
 [http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
 
 
-The following sections point to information on pointers to servers running 
-the tool and local configuration of the tool.
-
-
-NIST Hosted Server
------------------
-
-+ [Transport Testing Tool](http://hit-testing.nist.gov:9100/ttt/)
-
-
-Test Data
----------
-
++ [Transport Testing Tool Hosted at NIST](http://hit-testing.nist.gov:9100/ttt/)
 + [Test Data for Data Portability 170.314 (b)(7)](/meaningfuluse/mu2/tree/master/test-data/170.314-b7)
 
 
@@ -30,6 +18,7 @@ Test Data
 Configuration
 -------------
 See the [Transport Testing Tool README](/meaningfuluse/mu2/tree/master/transport)
+for more information on TTT configuration information
 
 
 
