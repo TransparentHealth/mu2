@@ -147,17 +147,17 @@ Now we need to add the trust anchor(s) and the email certs to the direct tool.
 Setup Direct via the config-ui
 ------------------------------
 
-# Naviagate to: http://[servername]:8081/config-ui/
-# Login with user name "admin" and password "adm1nD1r3ct".
-# Click "Create a New Domain".
-# Add the domain name. ex. direct.mcrophr.com
-# Add the postmaster email address name should be "postmaster". ex. postmaster@direct.microphr.com
-# Status should be set to Enabled.
-# Click "Add".
-# Click on the Anchors tab.
-# Add the certificate file "root.der".
-# Check incomming, outgoing, and set the status to enabled.
-# Click add Anchor.
+1. Naviagate to: http://[servername]:8081/config-ui/
+2. Login with user name "admin" and password "adm1nD1r3ct".
+3. Click "Create a New Domain".
+4. Add the domain name. ex. direct.mcrophr.com
+5. Add the postmaster email address name should be "postmaster". ex. postmaster@direct.microphr.com
+6. Status should be set to Enabled.
+7. Click "Add".
+8. Click on the Anchors tab.
+9. Add the certificate file "root.der".
+10. Check incomming, outgoing, and set the status to enabled.
+11. Click add Anchor.
 
 Note that if you want to share information between other domains, you need to
 get their certificate and add it here.  Use the same options as above. In our
@@ -185,9 +185,9 @@ Add the following Key Value settings.
     
 Now click on Certificates.
 
-# Add the certificate "alan.der", select Enabled for status and click "Add Certificate."
-# Repeat this process for "alan.p12".
-# Repeat the process for other email users.  "bill.der" and "bill.p12".
+1. Add the certificate "alan.der", select Enabled for status and click "Add Certificate."
+2. Repeat this process for "alan.p12".
+3. Repeat the process for other email users.  "bill.der" and "bill.p12".
 
 Note that adding certs here means that Direct will work without your certificates
 being discoverable in DNS or LDAP.  Adding them here makes them discoverable
@@ -279,6 +279,7 @@ User 2:
     password:           password 
     pop3 server:        direct.microphr.com
     smtp server:        direct.microphr.com
+
     
 User 3:
 ~~~~~~~
@@ -296,6 +297,7 @@ User 4:
     password:           password 
     pop3 server:        direct.transparenthealth.org
     smtp server:        direct.transparenthealth.org
+
 
 
 Configuring DNS:
