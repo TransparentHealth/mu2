@@ -168,12 +168,7 @@ config-ui.  It is necessary for both domains to have swapped anchors to enable
 bi-directional communication across the two domains.
 
 
-Configuring Agent Settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Now click on "Agent Settings".
-
-Add the following Key Value settings.
+Now click on "Agent Settings". Add the following Key Value settings.
 
     KEY                 VALUE
     ---------------     ------------------------
