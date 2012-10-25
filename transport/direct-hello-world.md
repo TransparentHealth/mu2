@@ -259,7 +259,6 @@ You can use Thunderbird or any POP3/SMTP client to achieve this.
 Just add the accounts with the following information.
 
 User 1:
-~~~~~~~
 
     user:               alan
     password:           password 
@@ -268,7 +267,6 @@ User 1:
 
 
 User 2:
-~~~~~~~
 
     user:               bill
     password:           password 
@@ -277,7 +275,6 @@ User 2:
 
     
 User 3:
-~~~~~~~
 
     user:               alan
     password:           password 
@@ -286,13 +283,11 @@ User 3:
 
 
 User 4:
-~~~~~~~
 
     user:               bill
     password:           password 
     pop3 server:        direct.transparenthealth.org
     smtp server:        direct.transparenthealth.org
-
 
 
 Configuring DNS:
