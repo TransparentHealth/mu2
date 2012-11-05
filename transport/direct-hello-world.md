@@ -12,7 +12,7 @@ In this tutorial we will use the domains direct.transparenthealth.org and
 direct.microphr.com. Follow the steps for both domains.  
 
 These instructions assume you are using Ubuntu 12.04 LTS 64-bit Server Edition,
-OpenJDK 7, and Direct 1.3. (This should also work for 1.4)
+OpenJDK 7, and Direct 2.0. (This should also work for 1.4)
 
 If you are running this in Amazon EC2, you will need at least a "small" sized
 server, but a medium is reccomended.  A "micro" can't handle the load.
@@ -64,15 +64,15 @@ below.
     sudo cp jce/local_policy.jar $JAVA_HOME/jre/lib/security
 
 
-Get Direct version 1.3:
+Get Direct version 2.0:
 -----------------------
     
-    wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/1.3.2/direct-project-stock-1.3.2.tar.gz
+    wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/2.0/direct-project-stock-2.0.tar.gz
 
 Unpack the Direct Project:
 --------------------------
     
-    tar -zxvf direct-project-stock-1.3.2.tar.gz
+    tar -zxvf direct-project-stock-2.0.tar.gz
 
 Setup More Environment Variables
 --------------------------------
@@ -84,7 +84,7 @@ Setup More Environment Variables
 Start Tomcat
 ------------
     
-    cd $DIRECT_HOME/apache-tomcat-7.0.25/bin
+    cd $DIRECT_HOME/apache-tomcat-7.0.32/bin
     ./startup.sh
 
 This process may take a few minutes to complete.  Verify it is working by pointing your browser to: 
@@ -103,7 +103,7 @@ http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip
     cd $DIRECT_HOME/tools
     ./certGen.sh
 
-Create a Root Trust anchor for each domain.  Example 1: direct. microphr.com
+Create a Root Trust anchor for each domain.  Example 1: direct.microphr.com
 
     CN:                 [Name for your CA - ex. "Root for Direct.MicroPHR.com"]
     Country:            [Your Country]
@@ -132,7 +132,7 @@ Now create some leaf certificates, by clicking "Create Leaf Cert".
     Password:           LEAVE BLANK
     Click Add Email to Alt subject Names
 
-Click Create.  This will create 3 additional files. alan.der, alanKer.der, and
+Click Create.  This will create 3 additional files. alan.der, alanKey.der, and
 alan.p12.  The file "alan.der" is the public key used by others to send "alan"
 private messages.  The file "alan.p12" is the private key used by "alan" to
 digitally sign the email before it is sent.  This entire process is transparent
