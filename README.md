@@ -28,4 +28,80 @@ Contents
 + [ELR](mu2/tree/master/elr)
 + [Data Portability](mu2/tree/master/data-portability)
 
+List of Google Groups
+---------------------
 
+<table border="1">
+
+<tr>
+<td><b>Name</b></td>
+<td><b>Email</b></td>
+<td><b>URL</b></td>
+<td><b>Accessibility</b></td>
+</tr>
+
+
+<tr>
+<td>ATL Tools</td>
+<td>atl-tools@googlegroups.com</td>
+<td><a href="https://groups.google.com/d/forum/atl-tools">https://groups.google.com/d/forum/atl-tools</a></td>
+<td>For Accredited Testing Labs Only</td>
+</tr>
+
+
+<tr>
+<td>Cancer Reg Testing Tool</td>
+<td>cancer-reg-testing-tool@googlegroups.com</td>
+<td><a href="https://groups.google.com/d/forum/cancer-reg-testing-tool">https://groups.google.com/d/forum/cancer-reg-testing-tool</a></td>
+<td>Public for Viewing & Posting</td>
+</tr>
+
+
+<tr>
+<td>ePrescribing Testing Tool</td>
+<td>erx-testing-tool@googlegroups.com</td>
+<td><a href="https://groups.google.com/d/forum/erx-testing-tool">https://groups.google.com/d/forum/erx-testing-tool</a></td>
+<td>Public for Viewing & Posting</td>
+</tr>
+
+<tr>
+<td>HL7v2 Immunization Testing</td>
+<td>hl7v2-immunization-testing@googlegroups.com</td>
+<td><a href="https://groups.google.com/d/forum/hl7v2-immunization-testing">https://groups.google.com/d/forum/hl7v2-immunization-testing</a></td>
+<td>Public for Viewing & Posting</td>
+</tr>
+
+
+<tr>
+<td>HL7v2 Lab Testing</td>
+<td>hl7v2-lab-testing@googlegroups.com</td>
+<td><a href="https://groups.google.com/d/forum/hl7v2-lab-testing">https://groups.google.com/d/forum/hl7v2-lab-testing</a></td>
+<td>Public for Viewing & Posting</td>
+</tr>
+
+
+<tr>
+<td>HL7v2 Reportable Lab Testing</td>
+<td>hl7v2-reportable-lab-testing@googlegroups.com</td>
+<td><a href="https://groups.google.com/d/forum/hl7v2-reportable-lab-testing">https://groups.google.com/d/forum/hl7v2-reportable-lab-testing</a></td>
+<td>Public for Viewing & Posting</td>
+</tr>
+
+<tr>
+<td>HL7v2 Syndromic Testing</td>
+<td>hl7v2-syndromic-testing@googlegroups.com</td>
+<td><a href="https://groups.google.com/d/forum/hl7v2-syndromic-testing">https://groups.google.com/d/forum/hl7v2-syndromic-testing</a></td>
+<td>Public for Viewing & Posting</td>
+</tr>
+
+<tr>
+<td>Transport Testing Tool</td>
+<td>transport-testing-tool@googlegroups.com</td>
+<td><a href="https://groups.google.com/d/forum/transport-testing-tool">https://groups.google.com/d/forum/transport-testing-tool</a></td>
+<td>Public for Viewing & Posting</td>
+</tr>
+
+
+
+
+</table>
