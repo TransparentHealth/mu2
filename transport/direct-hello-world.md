@@ -335,7 +335,7 @@ A Records:
 
     Name                  IP Address         TTL
     ====================  ===============    =====
-    microphr.com. 	  123.123.123.123    86400 	
+    microphr.com.         123.123.123.123    86400 	
     direct.microphr.com.  123.123.123.123    86400 	
     www.microphr.com. 	  123.123.123.123    86400 	
     ns1.microphr.com. 	  123.123.123.123    86400 	
@@ -346,7 +346,7 @@ A Records:
 
 MX (Mail Exchange) Records:
 
-    Priority 	Host 	                Alias For 	   TTL
+    Priority 	Host                    Alias For          TTL
     ========    ====================    ===============    =====
     0 	        direct.microphr.com. 	123.123.123.123.   86400
 
@@ -354,17 +354,17 @@ MX (Mail Exchange) Records:
 "SOA" (Start of Authority) Records:
 
 
-    Name 	          Host Master 	            Name Server 	TTL 	Expire 	Min.  Refresh  Serial 	Retry
-    ====================  ========================  =================   =====   ======  ====  =======  ======   =====
-    direct.microphr.com.  postmaster.microphr.com.  ns1.microphr.com. 	86400 	0 	0     0        0 	0
+    Name                  Host Master               Name Server         TTL     Expire  Min.  Refresh  Serial  Retry
+    ====================  ========================  =================   =====   ======  ====  =======  ======  =====
+    direct.microphr.com.  postmaster.microphr.com.  ns1.microphr.com. 	86400 	0 	0     0        0 0
 
 
 "NS" Records:
 
-    Name 	          Target 	            TTL
+    Name                  Target                    TTL
     =============         =================         =====
-    microphr.com. 	  ns1.microphr.com. 	    86400 	
-    microphr.com. 	  ns2.microphr.com. 	    86400 	
+    microphr.com.         ns1.microphr.com.         86400 	
+    microphr.com.         ns2.microphr.com.         86400 	
     direct.microphr.com.  ns1.microphr.com.         3600
     
     
