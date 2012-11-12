@@ -8,11 +8,13 @@ the gaps with the online documentation.
 
 This document is a work in progress.
 
-In this tutorial we will use the domains direct.transparenthealth.org and
-direct.microphr.com. Follow the steps for both domains.  
+In this tutorial we will use the domains direct.transparenthealth.org using
+Direct RI 1.3 and direct.microphr.com using Direct RI 2.0.  I will point out
+the variations  in configration between 1.3, 1.4, and 2.0 where applicable. 
+  
 
 These instructions assume you are using Ubuntu 12.04 LTS 64-bit Server Edition,
-OpenJDK 7, and Direct 2.0. (This should also work for 1.4)
+OpenJDK 7.
 
 If you are running this in Amazon EC2, you will need at least a "small" sized
 server, but a medium is reccomended.  A "micro" can't handle the load.
@@ -21,14 +23,17 @@ server, but a medium is reccomended.  A "micro" can't handle the load.
 Firewall and DNS Settings:
 --------------------------
 
-Ensure ports 22, 25, 53, 80, 443, 8080, 8081, are open for inbound traffic.
+Ensure ports 22, 25, 53, 80, 8081, are open for inbound traffic.
 
-Add an MX record for your domain.  ex.
-
-
-    TYPE    HOST NAME               PRIORITY
-    ----    -------------------     --------
-    MX      direct.microphr.com     20
+    PORT    TYPE    FUNCTION
+    ----    ----    -------------------------------------
+    22      TCP      ssh               
+    25      TCP      SMTP (Unencrypted)
+    53      TCP      DNS  
+    53      UDP      DNS
+    80      TCP      HTTP (not absolutley needed unless you run Apache, Squirrel mail, etc.
+    110     TCP      POP3
+    8081    TCP      HTTP Tomcat. Give access to http://yourhost:8081/config-ui 
 
 
 Install Prerequsites:
@@ -64,13 +69,29 @@ below.
     sudo cp jce/local_policy.jar $JAVA_HOME/jre/lib/security
 
 
-Get Direct version 2.0:
------------------------
+Get Direct version :
+--------------------
+
+Download the version of direct you want to use.  We are using both 1.3 and 2.0
+in this tutorial but if you are just starting I'd reccomend using 2.0.
     
+2.0
+
     wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/2.0/direct-project-stock-2.0.tar.gz
+
+1.4
+    
+    wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/1.4/direct-project-stock-1.4.tar.gz
+    
+1.3
+
+    wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/1.3.2/direct-project-stock-1.3.2.tar.gz
+
 
 Unpack the Direct Project:
 --------------------------
+
+Unpack your chosen version of direct.
     
     tar -zxvf direct-project-stock-2.0.tar.gz
 
@@ -150,7 +171,7 @@ Setup Direct via the config-ui
 1. Naviagate to: http://[servername]:8081/config-ui/
 2. Login with user name "admin" and password "adm1nD1r3ct".
 3. Click "Create a New Domain".
-4. Add the domain name. ex. direct.mcrophr.com
+4. Add the domain name. ex. direct.microphr.com
 5. Add the postmaster email address name should be "postmaster". ex. postmaster@direct.microphr.com
 6. Status should be set to Enabled.
 7. Click "Add".
@@ -190,7 +211,13 @@ via Web Services.  The Agent Setting "PublicStoreType", says "try the web servic
 then DNS, and then LDAP.
 
 Note that any time something changes here, you will need to shutdown and restart
-the James email server.  Lets configure and fire up the James webserver now.
+the James email server in version 1.3, but should not have to do this in 1.4 or 2.0.
+as of version 1.4, these agent setting are refreshed from the configuration
+service every 5 minutes.  So unless you need the changes to take affect
+immediately, James does not need to be restarted.
+
+
+Lets configure and fire up the James webserver now.
 
 
 Setup James
@@ -294,8 +321,126 @@ Configuring DNS:
 ----------------
 
 The next step is to setup and configure the DNS server to server certificates.
-This can supposedly be accomplished with BIND, but I have not found any
-instructions on how to do this.  We will use the "DirectDNSServer" we just setup.
+I've read it be accomplished with BIND, but I have not found any
+instructions on how to do this.  We will use the "DirectDNSServer" we just
+setup in the previous step.
 
-TODO.....
 
+ 
+Goto http://yourhost:8081/config-ui and log in.  Now click "DNS Entries" and
+create the following entires below: Replace "123.123.123.123" with the IP
+address of your Direct RI instance.
+
+A Records:
+
+    Name                  IP Address         TTL
+    ====================  ===============    =====
+    microphr.com. 	  123.123.123.123    86400 	
+    direct.microphr.com.  123.123.123.123    86400 	
+    www.microphr.com. 	  123.123.123.123    86400 	
+    ns1.microphr.com. 	  123.123.123.123    86400 	
+    ns2.microphr.com. 	  123.123.123.123    86400 	
+    pop3.microphr.com. 	  123.123.123.123    86400 	
+    smtp.microphr.com. 	  123.123.123.123    86400 	
+    mail.microphr.com. 	  123.123.123.123    86400 	
+
+MX (Mail Exchange) Records:
+
+    Priority 	Host 	                Alias For 	   TTL
+    ========    ====================    ===============    =====
+    0 	        direct.microphr.com. 	123.123.123.123.   86400
+
+
+"SOA" (Start of Authority) Records:
+
+
+    Name 	          Host Master 	            Name Server 	TTL 	Expire 	Min.  Refresh  Serial 	Retry
+    ====================  ========================  =================   =====   ======  ====  =======  ======   =====
+    direct.microphr.com.  postmaster.microphr.com.  ns1.microphr.com. 	86400 	0 	0     0        0 	0
+
+
+"NS" Records:
+
+    Name 	          Target 	            TTL
+    =============         =================         =====
+    microphr.com. 	  ns1.microphr.com. 	    86400 	
+    microphr.com. 	  ns2.microphr.com. 	    86400 	
+    direct.microphr.com.  ns1.microphr.com.         3600
+    
+    
+The next step is to make sure that the domain you are using uses the DNS server
+we just configured.  You may need to ask you hosting provider to setup some custom
+routes before you are able to point your domain's name servers to the DNS server.
+This step could take a few hours up to a day or two to complete.
+
+Go to your domain hosting providers website and setup the NS records to point to
+"ns1.microphr.com" and "ns1.microphr.com". 
+
+You can verify this step is completed by using whois.
+
+    whois microphr.com
+    
+You should see this in the output.
+
+    Name Server.......... ns1.microphr.com
+    Name Server.......... ns2.microphr.com
+
+
+
+Now the public certificates you setup are accessiable via DNS.  You can test
+this with dig.
+
+    dig dig alan.direct.microphr.com CERT
+    
+will return
+
+    ;; Truncated, retrying in TCP mode.
+
+    ; <<>> DiG 9.8.1-P1 <<>> alan.direct.microphr.com CERT
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 42760
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+    ;; QUESTION SECTION:
+    ;alan.direct.microphr.com.	IN	CERT
+
+    ;; ANSWER SECTION:
+    alan.direct.microphr.com. 67179	IN	CERT	PKIX 33535 RSASHA1 MIID
+    qzCCAxSgAwIBAgIIInSMiuOvJhMwDQYJKoZIhvcNAQEFBQAwgZIx JzAlBgkqhkiG9w0BCQEWGH
+    Jvb3RAZGlyZWN0Lm1pY3JvcGhyLmNvbTEl MCMGA1UEAwwcUm9vdCBmb3IgRGlyZWN0Lk1pY3Jv
+    UEhSLmNvbTEMMAoG A1UEBhMDVVNBMQswCQYDVQQIDAJNRDESMBAGA1UEBwwJQmFsdGltb3Jl M
+    REwDwYDVQQKDAhNaWNyb1BIUjAeFw0xMjExMDIxNjI3MDdaFw0xMzEx MDIxNjI3MDdaMHoxJzA
+    lBgkqhkiG9w0BCQEWGGFsYW5AZGlyZWN0Lm1p Y3JvcGhyLmNvbTENMAsGA1UEAwwEYWxhbjEMM
+    AoGA1UEBhMDVVNBMQsw CQYDVQQIDAJNRDESMBAGA1UEBwwJQmFsdGltb3JlMREwDwYDVQQKDAh
+    N aWNyb1BIUjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAhViwReTQ uvOyDEAYPziSfRej
+    cwrRzPSVgYJ42ievj60sGEujStPWL+6DGJa1AQxr PPGKEchfbIYmgWK44Hi9tAQnh/yDnsSS+m
+    ziF4oqMvAOHhyIdD+kezoE cCkgeKwX+9sH7I6xfmmXRyHTMgY7aLZMPD8pXOS80bAbLUpygv8CA
+    wEA AaOCAR8wggEbMIHGBgNVHSMEgb4wgbuAFEJDEQ/nTrjjVmOya9ROO0G7 joNsoYGYpIGVMIG
+    SMScwJQYJKoZIhvcNAQkBFhhyb290QGRpcmVjdC5t aWNyb3Boci5jb20xJTAjBgNVBAMMHFJvb3
+    QgZm9yIERpcmVjdC5NaWNy b1BIUi5jb20xDDAKBgNVBAYTA1VTQTELMAkGA1UECAwCTUQxEjAQB
+    gNV BAcMCUJhbHRpbW9yZTERMA8GA1UECgwITWljcm9QSFKCCHCr+CmYYfnI MB0GA1UdDgQWBBS
+    nzDyrGrsCnH+euWZBv5+v9QYNBDAMBgNVHRMBAf8E AjAAMCMGA1UdEQQcMBqBGGFsYW5AZGlyZW
+    N0Lm1pY3JvcGhyLmNvbTAN BgkqhkiG9w0BAQUFAAOBgQDbKh89WU56U6NRA3KWeov9vg5EeyB36
+    IM/ txzaMxhB8zYv/yU8/RNZwHUCB8H6pB9KlakSZXDPOLuk/7S9gqR48rDR 0aCLliYuNMKnE26
+    vgRyyR1tE6xKqkuHvyJOLqXoZXaW6qCCuqqpPRu4p prsCG+3ixwT8gUlaTkswAhvvOg==
+
+    ;; Query time: 1 msec
+    ;; SERVER: 172.16.0.23#53(172.16.0.23)
+    ;; WHEN: Mon Nov 12 19:34:10 2012
+    ;; MSG SIZE  rcvd: 1002
+
+You now have a fully functioning version of Direct RI.  The following steps are
+optional but probally a good idea.  They have only been tested on Direct RI 2.0.
+
+
+Optional Setup Steps
+====================
+
+Setting up James 3, IMAP, TTL, and SquirrelMail (TOFO)
+
+
+Change the Password on the RI
+=============================
+
+TODO
