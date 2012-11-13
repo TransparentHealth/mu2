@@ -11,9 +11,7 @@ other VMWareTools.
 These instructions are based on the instrustions found at
 http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-only.html
 
-
-[http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip]
-(VMWare Image that can be downloaded here). The basic steps are as follows:
+The basic steps are as follows:
 
 1. Download the file [http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip]
 (http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip)
@@ -28,17 +26,20 @@ http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-o
 7. Press Ctrl-Alt-T to open up a terminal window.
 8. Start the certGen tool by typing the following.
 
-[pre]
+Type this into the terminal
+
     cd direct/tools
     ./certGen.sh
-[/pre]
+
+
+You are now ready to create certificates described in the following sections.
 
 
 Create a Root CA
 ----------------
 
-Create a Root CA/Trust Anchor with the following information.
-
+1. Enter the appropriate values for the CA you are creating in the certGen tool
+following the example shown in the figure below. You only need to create one CA.
 
 
     CN:                 [Name for your CA - ex. "Root for Direct.Example.com"]
@@ -56,9 +57,30 @@ Create a Root CA/Trust Anchor with the following information.
 "Create a Root CA")
 
 
+2. Click the Create button to create the CA. This will create the files
+"root.der" and "rootKey.der" in the /home/ubuntu/direct/tools directory.
+If you need to create more leaf certificates from this CA later, You will need
+these two files along with your password to reload the CA.
 
-Create a Domin Bound Certificate
+
+
+Create a Domain Bound Certificate
 --------------------------------
+
+1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
+the required values. Be sure to click the “Add Email to Alt Subject Names”.
+DO NOT add a password. 
+
+    CN:                 [direct.example.com]
+    Country:            [Your Country]
+    State:              [Your State]
+    Location:           [Your City]
+    Org:                [Your Organization Name]
+    Email:              [direct.example.com]
+    Experiation Days:   365
+    Key Strength:       1024
+    Password:           LEAVE BLANK
+    Click Add Email to Alt subject Names
 
 
 ![Screen shot of certGen used to create a domain-bound certificate]
@@ -66,14 +88,51 @@ Create a Domin Bound Certificate
 "Create a Domain-Bound Certificate")
 
 
+2. Click the "Create" button.This will create the files "direct.example.com.der",
+"direct.example.com.p12", and "direct.example.comKey.der" in the
+/home/ubuntu/direct/tools/ directory.
+
 
 Create an Address-Bound Certificate
 -----------------------------------
+
+
+1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
+the required values. Be sure to click the “Add Email to Alt Subject Names”.
+DO NOT add a password. 
+
+    CN:                 [The cert's email e.g. provider1@direct.example.com]
+    Country:            [Your Country]
+    State:              [Your State]
+    Location:           [Your City]
+    Org:                [Your Organization Name]
+    Email:              [The cert's email e.g. provider1@direct.example.com]
+    Experiation Days:   365
+    Key Strength:       1024
+    Password:           LEAVE BLANK
+    Click Add Email to Alt subject Names
+
+
+![Screen shot of certGen used to create a domain-bound certificate]
+(http://certgen.s3.amazonaws.com/create-a-domain-bound-cert.png
+"Create a Domain-Bound Certificate")
+
+
+2. Click the "Create" button.This will create the files "provider1.der",
+"provider1.p12", and "provider1Key.der" in the /home/ubuntu/direct/tools/
+directory.
+
+
+
+
 
 ![Screen shot of certGen used to create a address-bound certificate]
 (http://certgen.s3.amazonaws.com/create-an-address-bound-cert.png
 "Create an Address-Bound Certificate")
 
+
+Next Steps
+----------
 
 These certificates can be used by the Transport Testing Tool, Direct RI, or
 other Direct-based system.
