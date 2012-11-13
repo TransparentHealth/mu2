@@ -2,13 +2,13 @@ Using the VMWare Image to Create Direct Certificates
 ====================================================
 
 The goal of this document is to demonstrate how to create direct certificates
-using NIST's a "canned" version of certGen. This is provided as a conviencece to
-make the process of generateing direct certificates easier.
+using NIST's a "canned" version of certGen. This is provided as a convenience to
+make the process of generating direct certificates easier.
 
 The tool is packaged as a VMWare image and can be ran using VMWarePlayer and
-other VMWareTools.
+other VMWare tools.
 
-These instructions are based on the instrustions found at
+These instructions are based on the instructions found at
 http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-only.html
 
 The basic steps are as follows:
@@ -23,10 +23,12 @@ The basic steps are as follows:
 5. Navigate to folder extracted in step 1 and select the file
 "Direct certGen - Ubuntu64-bit.vmx" and click "Open".
 6. When the virtual VM is completely booted you will see a Desktop.
+There is no password or login required, but the user and password are:
+ubuntu/adm1nD1r3ct
 7. Press Ctrl-Alt-T to open up a terminal window.
-8. Start the certGen tool by typing the following.
+8. Start the certGen tool.
 
-Type this into the terminal
+Type this into the terminal:
 
     cd direct/tools
     ./certGen.sh
@@ -48,7 +50,7 @@ following the example shown in the figure below. You only need to create one CA.
     Location:           [Your City]
     Org:                [Your Organization Name]
     Email:              [Email for Root CA - ex. root@direct.example.com]
-    Experiation Days:   365
+    Expiration Days:    365
     Key Strength:       1024
     Password:           [Your password]
 
@@ -77,7 +79,7 @@ DO NOT add a password.
     Location:           [Your City]
     Org:                [Your Organization Name]
     Email:              [direct.example.com]
-    Experiation Days:   365
+    Expiration Days:    365
     Key Strength:       1024
     Password:           LEAVE BLANK
     Click Add Email to Alt subject Names
@@ -107,7 +109,7 @@ DO NOT add a password.
     Location:           [Your City]
     Org:                [Your Organization Name]
     Email:              [The cert's email e.g. provider1@direct.example.com]
-    Experiation Days:   365
+    Expiration Days:    365
     Key Strength:       1024
     Password:           LEAVE BLANK
     Click Add Email to Alt subject Names
@@ -121,8 +123,6 @@ DO NOT add a password.
 2. Click the "Create" button.This will create the files "provider1.der",
 "provider1.p12", and "provider1Key.der" in the /home/ubuntu/direct/tools/
 directory.
-
-
 
 
 
