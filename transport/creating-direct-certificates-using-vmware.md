@@ -9,8 +9,8 @@ The tool is packaged as a VMWare image and can be ran using VMWarePlayer and
 other VMWareTools.
 
 These instructions are based on the instrustions found at
-[http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-only.html
-(http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-only.html)
+http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-only.html
+
 
 [http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip]
 (VMWare Image that can be downloaded here). The basic steps are as follows:
@@ -26,11 +26,12 @@ These instructions are based on the instrustions found at
 "Direct certGen - Ubuntu64-bit.vmx" and click "Open".
 6. When the virtual VM is completely booted you will see a Desktop.
 7. Press Ctrl-Alt-T to open up a terminal window.
-8. Start the certGen too by typing the following.
-    
+8. Start the certGen tool by typing the following.
+
+[pre]
     cd direct/tools
     ./certGen.sh
-    
+[/pre]
 
 
 Create a Root CA
