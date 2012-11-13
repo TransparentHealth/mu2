@@ -9,13 +9,13 @@ The tool is packaged as a VMWare image and can be ran using VMWarePlayer and
 other VMWareTools.
 
 These instructions are based on the instrustions found at
-[http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-only.html]
+[http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-only.html
 (http://api.nhindirect.org/java/site/assembly/stock/1.3.1/users-guide/depl-hisp-only.html)
 
-(http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip)
-[VMWare Image that can be downloaded here]. The basic steps are as follows:
+[http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip]
+(VMWare Image that can be downloaded here). The basic steps are as follows:
 
-1. Download the file [(http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip]
+1. Download the file [http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip]
 (http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip)
 1. Unzip the file "certGen-Ubuntu-12-LTS-64bit.zip" to a folder such as "certgen-vm".
 2. Download VMWare Player from [http://www.vmware.com/products/player/]
@@ -31,7 +31,7 @@ These instructions are based on the instrustions found at
     cd direct/tools
     ./certGen.sh
     
-9. Follow the steps in the following sections.
+
 
 Create a Root CA
 ----------------
