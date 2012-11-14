@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ************************************************ -->
+<!-- Scenario: MU1-2: New Prescription - Klor-Con 10 mEq Controlled Release Tab | MU1 Test 2 | Ambulatory | Jane Doe  -->
+<!-- Frank McKinney | fm@frankmckinney.com -->
+<!-- ************************************************ -->
+<Message version="010" release="006" HighestVersionSupported="" xmlns="http://www.ncpdp.org/schema/SCRIPT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ncpdp.org/schema/SCRIPT Script_10.6_XML\SCRIPT_XML_10_6.xsd">
+
+<Header>
+<To>NCPDP03</To>
+<From>NPI1010101</From>
+<MessageID>MU102</MessageID>
+<SentTime>2012-03-24T14:05:00</SentTime>
+<Security>
+<Sender>
+<SecondaryIdentification>PASSWORD</SecondaryIdentification>
+<TertiaryIdentification>3RYIDENTIFIER</TertiaryIdentification>
+</Sender>
+<Receiver></Receiver>
+</Security>
+<PrescriberOrderNumber>ORDMU102</PrescriberOrderNumber>
+</Header>
+<Body>
+<NewRx>
+<Pharmacy>
+<Identification>
+<NCPDPID>NCPDP03</NCPDPID>
+<NPI>NPI3300330</NPI>
+</Identification>
+<StoreName>PHILLIPS PHARMACY</StoreName>
+<Address>
+<AddressLine1>1600 21ST ST NW</AddressLine1>
+<City>WASHINGTON</City>
+<State >DC</State >
+<ZipCode>20009</ZipCode>
+</Address>
+<CommunicationNumbers>
+<Communication>
+<Number>2023872151X238</Number>
+<Qualifier>TE</Qualifier>
+</Communication>
+<Communication>
+<Number>2023872436</Number>
+<Qualifier>FX</Qualifier>
+</Communication>
+</CommunicationNumbers>
+</Pharmacy>
+<Prescriber>
+<Identification>
+<NPI>NPI1010101</NPI>
+<DEANumber>DEA101010</DEANumber>
+<StateLicenseNumber>LIC101010</StateLicenseNumber>
+</Identification>
+<ClinicName>CORCORAN CLINIC</ClinicName>
+<Name>
+<LastName>HARTLEY</LastName>
+<FirstName>ANNA-KATHERINE</FirstName>
+<Suffix>MD</Suffix>
+</Name>
+<Address>
+<AddressLine1>500 SEVENTEENTH ST NW</AddressLine1>
+<City>WASHINGTON</City>
+<State >DC</State >
+<ZipCode>20006</ZipCode>
+</Address>
+<CommunicationNumbers>
+<Communication>
+<Number>2026391800</Number>
+<Qualifier>TE</Qualifier>
+</Communication>
+<Communication>
+<Number>2026391800</Number>
+<Qualifier>FX</Qualifier>
+</Communication>
+</CommunicationNumbers>
+</Prescriber>
+<Patient >
+<DateOfBirth>
+<Date>1985-11-30</Date>
+</DateOfBirth>
+<Name>
+<LastName>DOE</LastName>
+<FirstName>JANE</FirstName>
+</Name>
+<Gender>F</Gender>
+<Address>
+<AddressLine1>2401 FOXHALL RD NW</AddressLine1>
+<City>WASHINGTON</City>
+<State >DC</State >
+<ZipCode>20007</ZipCode>
+</Address>
+<CommunicationNumbers>
+<Communication>
+<Number>2023373051</Number>
+<Qualifier>TE</Qualifier>
+</Communication>
+</CommunicationNumbers>
+</Patient >
+<MedicationPrescribed>
+<DrugDescription>KLOR-CON 10 MEQ CONTROLLED RELEASE TAB</DrugDescription>
+<DrugCoded>
+<ProductCode>00245004100</ProductCode>
+<ProductCodeQualifier>ND</ProductCodeQualifier>
+<Strength>10</Strength>
+<DrugDBCode>628958</DrugDBCode>
+<DrugDBCodeQualifier>SBD</DrugDBCodeQualifier>
+<FormSourceCode>AA</FormSourceCode>
+<FormCode>C69025</FormCode>
+<StrengthSourceCode>AB</StrengthSourceCode>
+<StrengthCode>C48512</StrengthCode>
+</DrugCoded>
+<Quantity>
+<Value>60</Value>
+<CodeListQualifier>38</CodeListQualifier>
+<UnitSourceCode>AC</UnitSourceCode>
+<PotencyUnitCode>C48542</PotencyUnitCode>
+</Quantity>
+<DaysSupply>30</DaysSupply>
+<Directions>TAKE 1 TABLET 2 TIMES A DAY BY MOUTH</Directions>
+<Refills>
+<Qualifier>R</Qualifier>
+<Value>1</Value>
+</Refills>
+<WrittenDate>
+<Date>2012-03-24</Date>
+</WrittenDate>
+<StructuredSIG>
+<RepeatingSIG>
+<SigSequencePositionNumber>0</SigSequencePositionNumber>
+</RepeatingSIG>
+<CodeSystem>
+<SNOMEDVersion>2010_07_31</SNOMEDVersion>
+<FMTVersion>2011_04_01</FMTVersion>
+</CodeSystem>
+<FreeText>
+<SigFreeTextStringIndicator>1</SigFreeTextStringIndicator>
+<SigFreeText >TAKE 1 TABLET 2 TIMES A DAY BY MOUTH</SigFreeText >
+</FreeText>
+<Dose>
+<DoseCompositeIndicator>1</DoseCompositeIndicator>
+<DoseDeliveryMethodText>TAKE</DoseDeliveryMethodText>
+<DoseDeliveryMethodCodeQualifier>1</DoseDeliveryMethodCodeQualifier>
+<DoseDeliveryMethodCode>419652001</DoseDeliveryMethodCode>
+<DoseQuantity>1</DoseQuantity>
+<DoseFormText>TABLET</DoseFormText>
+<DoseFormCodeQualifier>2</DoseFormCodeQualifier>
+<DoseFormCode>C42998</DoseFormCode>
+</Dose>
+<RouteofAdministration>
+<RouteofAdministrationText>BY MOUTH</RouteofAdministrationText>
+<RouteofAdministrationCodeQualifier>1</RouteofAdministrationCodeQualifier>
+<RouteofAdministrationCode>26643006</RouteofAdministrationCode>
+</RouteofAdministration>
+<Timing>
+<FrequencyNumericValue>2</FrequencyNumericValue>
+<FrequencyUnitsText>Day</FrequencyUnitsText>
+<FrequencyUnitsCodeQualifier>1</FrequencyUnitsCodeQualifier>
+<FrequencyUnitsCode>258703001</FrequencyUnitsCode>
+</Timing>
+</StructuredSIG>
+</MedicationPrescribed>
+<BenefitsCoordination>
+<PayerIdentification>
+<PayerID>PAYER300</PayerID>
+</PayerIdentification>
+<PayerName>PHARMA BENEFITS</PayerName>
+<CardholderID>100-19681102</CardholderID>
+<CardHolderName>
+<LastName>DOE</LastName>
+<FirstName>JANE</FirstName>
+</CardHolderName>
+</BenefitsCoordination>
+</NewRx>
+</Body>
+</Message>
