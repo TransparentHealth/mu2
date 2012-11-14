@@ -106,7 +106,7 @@ List of Google Groups
 Quick Links
 -----------
 
-+ [Direct Hello World]()
-+ [How to Create Direct Certificates using NIST's pre-configured Virtual Machine]()
++ [Direct Hello World](https://github.com/meaningfuluse/mu2/blob/master/transport/direct-hello-world.md)
++ [How to Create Direct Certificates using NIST's pre-configured Virtual Machine](https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-certificates-using-vmware.md)
 
 

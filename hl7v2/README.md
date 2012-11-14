@@ -82,17 +82,11 @@ subversion repositories on SourceForge.
 These subcomponents are required to build an any of the tools:
 
 + mu-tool-core - http://svn.code.sf.net/p/mu-nist/code/trunk/mu-tool-core/
-
 + mu-tool-core-impl-v2  - http://svn.code.sf.net/p/mu-nist/code/trunk/mu-tool-core-impl/mu-tool-core-impl-hl7-v2
-
 + hl7-core - http://hl7-nist.svn.sourceforge.net/svnroot/hl7-nist/hl7-core/trunk/
-
 + hl7-testframework - http://hl7-nist.svn.sourceforge.net/svnroot/hl7-nist/hl7-testframework/trunk/
-
 + Immunization resource-bundle - http://svn.code.sf.net/p/mu-nist/code/trunk/resource-bundle/immunization/
-
 + ELR resource-bundle - http://svn.code.sf.net/p/mu-nist/code/trunk/resource-bundle/elr/
-
 + Syndromic resource-bundle - http://svn.code.sf.net/p/mu-nist/code/trunk/resource-bundle/syndromic/
 
 
