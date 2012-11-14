@@ -25,7 +25,7 @@ Contents
 + [Transport Tools - includes CCDA, Direct, SOAP, SAML, etc.](mu2/tree/master/transport)
 + [HL7v2 Tools     - includes ELR, LRI, Syndromic, & Immunization](mu2/tree/master/hl7v2)
 + [CDA-C32 Tools   - includes Cancer Registry](mu2/tree/master/cdac32)
-+ [ePrescribing    - includes SCRIPT XML, SCRIPT EDIFAC ](mu2/tree/master/erx)
++ [ePrescribing    - includes SCRIPT XML, SCRIPT EDIFAC ](mu2/tree/master/script)
 
 
 List of Google Groups
