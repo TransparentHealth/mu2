@@ -1,5 +1,5 @@
-The Meaningful Use (MU2) Repo
-=============================
+The Meaningful Use (MU2) Repository of Useful Information
+=========================================================
 
 This repository contains information on Meaningful Use Stage 2 Certification. 
 Contents include, test data, test software, links to public test tool servers, 
@@ -22,11 +22,11 @@ For more information on Meaningful Use 2 and Certification, visit
 
 Contents
 --------
-+ [Transport Testing Tool](mu2/tree/master/transport)
-+ [Immunization](mu2/tree/master/immunization)
-+ [Syndromic](mu2/tree/master/syndromic)
-+ [ELR](mu2/tree/master/elr)
-+ [Data Portability](mu2/tree/master/data-portability)
++ [Transport Tools - includes CCDA, Direct, SOAP, SAML, etc.](mu2/tree/master/transport)
++ [HL7v2 Tools     - includes ELR, LRI, Syndromic, & Immunization](mu2/tree/master/hl7v2)
++ [CDA-C32 Tools   - includes Cancer Registry](mu2/tree/master/cdac32)
++ [ePrescribing    - includes SCRIPT XML, SCRIPT EDIFAC ](mu2/tree/master/erx)
+
 
 List of Google Groups
 ---------------------
@@ -100,8 +100,13 @@ List of Google Groups
 <td><a href="https://groups.google.com/d/forum/transport-testing-tool">https://groups.google.com/d/forum/transport-testing-tool</a></td>
 <td>Public for Viewing & Posting</td>
 </tr>
-
-
-
-
 </table>
+
+
+Quick Links
+-----------
+
++ [Direct Hello World]()
++ [How to Create Direct Certificates using NIST's pre-configured Virtual Machine]()
+
+
