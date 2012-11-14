@@ -4,7 +4,7 @@ Transport
 These tools cover Direct (including Certificate discovery), CCDA validation,
 and SOAP/SAML.
 
-Test Procedure and additional information can be found on HealthIT.gov at
+Test Procedures and additional information can be found on HealthIT.gov at
 http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 
 
@@ -47,3 +47,10 @@ UI.  This library is intergrated into the Transport Testing Tool.
 + MDHT Homepage - https://www.projects.openhealthtools.org/sf/projects/mdht/
 + MDHT Documentation - https://www.projects.openhealthtools.org/sf/projects/mdht/
 + MDHT Source Code - https://www.projects.openhealthtools.org/sf/scm/do/listRepositories/projects.mdht/scm
+
+
+Useful Links
+============
+
++ [Direct Hello World](https://github.com/meaningfuluse/mu2/blob/master/transport/direct-hello-world.md)
++ [How to Create Direct Certificates using NIST's pre-configured Virtual Machine](https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-certificates-using-vmware.md)
