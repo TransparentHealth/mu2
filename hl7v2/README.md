@@ -45,6 +45,12 @@ Description: NIST Immunization Tool 1.0.0 September 12, 2012
 
 TODO: Add all projects into a single AMI for download.
 
+VMWare Images
+-------------
+
+
+TODO: Add all projects into a single AMI for download.
+
 
 WAR File Downloads
 ------------------
@@ -72,8 +78,8 @@ Open the following inbound ports.
     9080 (MLLP)         0.0.0.0/0
 
 
-Source Code:
-------------
+Source Code
+-----------
 
 The source code provided here is for information only purposes.  NIST does not 
 provide support for source code or source installations.  These links are to
