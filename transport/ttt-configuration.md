@@ -4,6 +4,10 @@ Transport Testing Tool Configuration
 This document describes how to get the Trasnpport Testing Tool configured on
 your own hardware or instance.
 
+THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR INCORRECT.
+
+Nov. 19 2012.
+
 
 Firewall Configuration
 ----------------------
@@ -41,16 +45,73 @@ Setup the MX (Mail) Records as shown below.
     smtp.example.com	10
     
 
+
+  
+
+
 Generating Certificates
 -----------------------
 
 See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-certificates-using-vmware.md
 
 
+
+Installing from Scratch (Unsupported)
+-------------------------------------
+
+*Fetch the Necessary Prerequisites:*
+
+
+    sudo apt-get update
+    sudo apt-get install git-core openjdk-7-jdk
+    wget http://mirrors.ibiblio.org/apache/tomcat/tomcat-5/v5.5.36/bin/apache-tomcat-5.5.36.tar.gz
+    tar  -zxvf apache-tomcat-5.5.36.tar.gz
+    wget http://foo.com/yourcerts.tar.gz
+    tar -zxvf yourcerts.tar.gz
+    cp yourcerts/* /home/ubuntu/apache-tomcat-5.5.36/webapps/ttt/pubcert
+
+*Setup JAVA_HOME:*
+
+
+    export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+    echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
+    export JAVA_OPTS="-Xmx256m -XX:MaxPermSize=256m"
+    echo "export JAVA_OPTS=$JAVA_OPTS" >> ~/.bashrc
+    source ~/.bashrc 
+
+
+*Verify Java 7 is Installed:*
+    
+    java -version
+
+
+*Install Cryptographic Extensions:*
+
+You must fetch the "jce_policy-1_4_2.zip" file from Oracle's website.  Then you
+can follow the instructions below.
+
+    unzip jce_policy-1_4_2.zip
+    sudo cp jce/US_export_policy.jar $JAVA_HOME/jre/lib/security
+    sudo cp jce/local_policy.jar $JAVA_HOME/jre/lib/security
+    
+
+*Start the Tomcat Server*
+
+Not you will most likely need to adjust the configuration file before completing
+the next step.
+
+    cp apache-tomcat-5.5.36/bin
+    sudo ./startup.sh
+
 Setting up the Configuration File
 ---------------------------------
 
 Adjust the configuration file for your site. (TODO..Add detailed instructions here.)
+
+
+The TTT configuration file is found.
+
+
 
     # Select the home page displayed. If commented out, everything
     # will be shown.  To show just the Direct project then code
