@@ -19,6 +19,7 @@ Overview:
     + Update tk_props.txt configuration file
 
 2. SMPT server for sending validation reports
+
      + Validation report message format (local installation can have customized wording)
      + Direct (To) addresses for triggering CCDA validation
      + DNS domain where toolkit is installed
