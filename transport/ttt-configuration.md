@@ -8,6 +8,32 @@ THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR IN
 
 Nov. 19 2012.
 
+Overview:
+---------
+
+
+1. Assign DNS domain 
+
+    + Register domain
+    + Establish MX records etc. in DNS environment
+    + Update tk_props.txt configuration file
+
+2. SMPT server for sending validation reports
+     + Validation report message format (local installation can have customized wording)
+     + Direct (To) addresses for triggering CCDA validation
+     + DNS domain where toolkit is installed
+
+3. Create and install encryption cert tied to this domain
+
+    + Create and install trust anchor tied to this domain (or find existing trust anchor is this site is covered within its namespace)
+    + Create and install signing cert tied to this domain
+    + Configure Ubuntu Linux (under VMWare) with hostname/IP address taken from this DNS domain
+    + Establish configuration for DNS servers
+    
+4. Create and install certificate for TLS (assuming use of SOAP elements of toolkit) 
+
+    + TBD co
+
 
 Firewall Configuration
 ----------------------
@@ -70,13 +96,15 @@ Installing from Scratch (Unsupported)
     tar -zxvf yourcerts.tar.gz
     cp yourcerts/* /home/ubuntu/apache-tomcat-5.5.36/webapps/ttt/pubcert
 
-*Setup JAVA_HOME:*
+*Setup JAVA_HOME and CATALINA_HOME:*
 
 
     export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
     echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
     export JAVA_OPTS="-Xmx256m -XX:MaxPermSize=256m"
     echo "export JAVA_OPTS=$JAVA_OPTS" >> ~/.bashrc
+    export CATALINA_HOME=/home/ubuntu/apache-tomcat-5.5.36
+    echo "export CATALINA_HOME=$CATALINA_HOME" >> ~/.bashrc
     source ~/.bashrc 
 
 
@@ -102,6 +130,10 @@ the next step.
 
     cp apache-tomcat-5.5.36/bin
     sudo ./startup.sh
+
+
+
+
 
 Setting up the Configuration File
 ---------------------------------
@@ -191,4 +223,5 @@ The TTT configuration file is found.
     direct.reporting.ccdatype.type9: VDT Inpatient Summary
     direct.reporting.ccdatype.display9: MU2 170.314 (e)(1) Inpatient Summary
     direct.reporting.ccdatype.directTo9: direct-vdt-inpatient@hit-testing.nist.gov
+
 
