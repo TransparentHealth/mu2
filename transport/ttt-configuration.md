@@ -12,27 +12,23 @@ Overview:
 ---------
 
 
-1. Assign DNS domain 
-
+1. Assign DNS domain
     + Register domain
     + Establish MX records etc. in DNS environment
     + Update tk_props.txt configuration file
 
 2. SMPT server for sending validation reports
-
      + Validation report message format (local installation can have customized wording)
      + Direct (To) addresses for triggering CCDA validation
      + DNS domain where toolkit is installed
 
 3. Create and install encryption cert tied to this domain
-
     + Create and install trust anchor tied to this domain (or find existing trust anchor is this site is covered within its namespace)
     + Create and install signing cert tied to this domain
     + Configure Ubuntu Linux (under VMWare) with hostname/IP address taken from this DNS domain
     + Establish configuration for DNS servers
     
 4. Create and install certificate for TLS (assuming use of SOAP elements of toolkit) 
-
     + TBD co
 
 
