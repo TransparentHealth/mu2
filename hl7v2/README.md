@@ -9,39 +9,36 @@ Immunization Test Tool
 ----------------------
 
 + [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
-+ [Temporary Testing Server URL](http://lri.sipilotdevelopment.org/mu-immunization/)
++ [NIST Testing Server URL](http://hl7v2-iz-testing.nist.gov/mu-immunization/)
 
 
 Lab Results Interface (LRI) Test Tool
 -------------------------------------
 
 + [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
-+ [Temporary Testing Server URL](http://lri.sipilotdevelopment.org/lri-dstu)
++ [NIST Testing Server URL](http://hl7v2-lab-testing.nist.gov/mu-lab/)
 
 
 Electronic Lab Reporting (ELR) Test Tool
 -----------------------------------------
 
 + [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
-+ [Temporary Testing Server URL](http://lri.sipilotdevelopment.org/mu-elr/)
++ [NIST Testing Server URL](http://hl7v2-elr-testing.nist.gov/mu-elr/)
 
 Syndromic Test Tool
 -------------------
 
 + [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
-+ [Temporary Testing Server URL](http://lri.sipilotdevelopment.org/mu-syndromic/)
++ [NIST Testing Server URL](http://hl7v2-ss-testing.nist.gov/mu-syndromic/)
 
 
 
 Amazon Machine Images
 ---------------------
 
-These AMI's  are based on Ubuntu 12.04 64-bit and has Apache Tomcat 7 and the 
-projects already installed. 
+The AMI is based on Ubuntu 12.04 64-bit and has Apache Tomcat 7 and the 
+projects are already installed. 
 
-
-AMI:  ami-d5f848bc
-Description: NIST Immunization Tool 1.0.0 September 12, 2012
 
 TODO: Add all projects into a single AMI for download.
 
@@ -55,15 +52,9 @@ TODO: Add all projects into a single AMI for download.
 WAR File Downloads
 ------------------
 
-Use these file to configure Tomcat 7 if you are not using the AMI.
+Use these file to configure Tomcat 7 if you are not using a Virtual Machine.
 
-+ [mu-immunization.war](http://svn.code.sf.net/p/mu-nist/code/trunk/mu-wars/mu-immunization.war)
-+ [lri-dstu.war](http://svn.code.sf.net/p/mu-nist/code/trunk/mu-wars/lri-dstu.war)
-+ [mu-elr.war](http://svn.code.sf.net/p/mu-nist/code/trunk/mu-wars/mu-elr.war)
-+ [mu-immunization.war](http://svn.code.sf.net/p/mu-nist/code/trunk/mu-wars/mu-immunization.war)
-+ [mu-syndromic.war](http://svn.code.sf.net/p/mu-nist/code/trunk/mu-wars/mu-syndromic.war)
-+ [test-story-manager.war](http://svn.code.sf.net/p/mu-nist/code/trunk/mu-wars/test-story-manager.war)
-
++ http://svn.code.sf.net/p/mu-nist/code/tags/
 
 Firewall Configuration
 ----------------------
