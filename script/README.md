@@ -9,7 +9,7 @@ http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-
 
 
 + NIST's Public ePrescribing Test Tool - http://hit-testing.nist.gov:14070/
-+ War Download (To Do)
-+ Amazon Machine Image (To Do)
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/
+
 + VMWare Image (To Do)
 + Source Code - Not Available
