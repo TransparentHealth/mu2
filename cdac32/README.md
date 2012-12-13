@@ -8,6 +8,6 @@ http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-
 
 
 + NIST's Public Cancer Registry Test Tool - http://hit-testing.nist.gov/cda-validation/muCr.html
-+ Command-Line Validation Tool Download. - http://hit-testing.nist.gov/cda-validation/downloads/muCrValidation20121207.tar.gz (The web-based Cancer Registry is not available for download, but the command-line version performs the same validation.
-+ Source code is not available for download.
++ A Command-Line Validation Tool and WAR Download are available on the aforementioned URL. 
++ The source code for this project is internal to NIST and is not available for download.
 
