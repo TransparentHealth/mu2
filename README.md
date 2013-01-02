@@ -31,6 +31,10 @@ Contents
 List of Google Groups
 ---------------------
 
+To see all the Google Groups on a single page go to http://bit.ly/nistgg or 
+http://meaningfuluse.s3.amazonaws.com/googlegroups.html
+
+
 <table border="1">
 
 <tr>
