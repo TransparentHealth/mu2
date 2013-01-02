@@ -9,27 +9,27 @@ Immunization Test Tool
 ----------------------
 
 + [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
-+ [NIST Testing Server URL](http://hl7v2-iz-testing.nist.gov/mu-immunization/)
++ [NIST Testing Server URL](http://hl7v2-iz-testing.nist.gov)
 
 
 Lab Results Interface (LRI) Test Tool
 -------------------------------------
 
 + [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
-+ [NIST Testing Server URL](http://hl7v2-lab-testing.nist.gov/mu-lab/)
++ [NIST Testing Server URL](http://hl7v2-lab-testing.nist.gov)
 
 
 Electronic Lab Reporting (ELR) Test Tool
 -----------------------------------------
 
 + [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
-+ [NIST Testing Server URL](http://hl7v2-elr-testing.nist.gov/mu-elr/)
++ [NIST Testing Server URL](http://hl7v2-elr-testing.nist.gov)
 
 Syndromic Test Tool
 -------------------
 
 + [Testing Procedure](http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures)
-+ [NIST Testing Server URL](http://hl7v2-ss-testing.nist.gov/mu-syndromic/)
++ [NIST Testing Server URL](http://hl7v2-ss-testing.nist.gov)
 
 
 

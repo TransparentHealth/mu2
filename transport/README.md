@@ -16,7 +16,7 @@ in several MU2 criteria tests.  TTT performs CCDA validation
 (via the MDHT Jave library), Direct Testing, and SOAP/SAML.
 
 + Test Data  - https://github.com/meaningfuluse/mu2/tree/master/transport/test-data
-+ NIST's Public Transport Testing Tool Server - http://hit-testing.nist.gov:9100/ttt/
++ NIST's Public Transport Testing Tool Server - http://transport-testing.nist.gov  
 + Transport Testing Tool Configuration - https://github.com/meaningfuluse/mu2/blob/master/transport/ttt-configuration.md
 + TTT Source Code* -http://iheos.svn.sourceforge.net/viewvc/iheos/
 + TTT Source Build Instrutions* - http://ihexds.nist.gov/XdsDocs/Documentation/toolkit-developer-guide.html
