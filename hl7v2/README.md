@@ -95,7 +95,7 @@ Windows Installation Instructions
 Windows instructions can be found inside the tool itself.  From within the HL7v2 tool.
 Hint: See the NIST Testing Server URL's decribed in the first section.
 
-From within the tool, Click on the Documentation tab.  Then naviagate to the "Resource 
+From within the tool, Click on the Documentation tab.  Then navigate to the "Resource 
 Documentation-->Validation Tool Download" section.  You will see a link to download Windows 
 installation instructions.
 
