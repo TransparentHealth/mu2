@@ -6,58 +6,58 @@ your own hardware or instance.
 
 THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR INCORRECT.
 
-Nov. 19 2012.
+Last updated: Janurary 22, 2013
 
 Overview:
 ---------
 
 
-1. Assign DNS domain
-    + Register domain
-    + Establish MX records etc. in DNS environment
-    + Update tk_props.txt configuration file
+The high-level tasks are as follows:
 
-2. SMPT server for sending validation reports
-     + Validation report message format (local installation can have customized wording)
-     + Direct (To) addresses for triggering CCDA validation
-     + DNS domain where toolkit is installed
+1. Setup a new server with Tomcat7 and a public facing IP address.
+2. Create a host name and configure DNS for your host.
+3. Open the appropriate firewall ports (TCP 22,25,8080).
+4. Create an "external_cache" directory.
+5. Download and adjust the settings in the "tk_props.txt" file.
+6. Create/Obtain certificates for your domain and install them in the "external_cache".
+7. Download the ttt war package and the SMTP listner scripts.
+8. Install/Deploy the ttt.war.
+9. Activate the SMTP listener.
 
-3. Create and install encryption cert tied to this domain
-    + Create and install trust anchor tied to this domain (or find existing trust anchor is this site is covered within its namespace)
-    + Create and install signing cert tied to this domain
-    + Configure Ubuntu Linux (under VMWare) with hostname/IP address taken from this DNS domain
-    + Establish configuration for DNS servers
+
+1. Setup a new server with a public facing IP address:
+------------------------------------------------------
+
+Setup a new server with a public facing IP address.  We are using Ubuntu
+12.04 64-bit Server Edition.  Specificaly, we are using the AWS AMI:
+ami-3d4ff254. Log into the server and install tomcat7. We assume the user you
+are going to use to login is "ubuntu" and this user has sudo priveleages.
+This is consistent with Ubuntu's AWS EC2 instances.
+
+    ssh -i .ec2/ttt.pem ubuntu@ttt.example.com
     
-4. Create and install certificate for TLS (assuming use of SOAP elements of toolkit) 
-    + TBD co
+
+    sudo apt-get update
+    sudo apt-get -y install git-core tomcat7 tomcat7-admin unzip
 
 
-Firewall Configuration
-----------------------
+2. Create a host name and configure DNS for your host:
+------------------------------------------------------
 
-Open the following inbound ports.
-
-    TCP Port (Service)	Source
-    22 (SSH)	        0.0.0.0/0	
-    25 (SMTP)           0.0.0.0/0
-    8080 (HTTP*)        0.0.0.0/0	
-
-
-DNS Configuration
------------------
 
 Setup a static ip and a domain name. Create a static IP and associate 
 it with a domain name.
 
 In this example, we will use the IP  "123.123.123.123" and the hostnme
-"example.com".
+"ttt.example.com".
 
 Setup the A, CNAME as show below.
  
     Type:           Source:             Destination:
     -----------     ----------------    ---------------
     A Record        *.example.com       123.123.123.123	
-    A Record	    example.com         123.123.123.123	
+    A Record	    example.com         123.123.123.123
+    A Record	    ttt.example.com     123.123.123.123	
     CNAME Record    mail.example.com    example.com	
     CNAME Record    smtp.example.com    example.com	
 
@@ -66,70 +66,103 @@ Setup the MX (Mail) Records as shown below.
 
     mail.example.com	20
     smtp.example.com	10
+
+
+3. Open the Appropriate Firewall Ports 
+--------------------------------------
+
+Open the following inbound ports on your firewall.
+
+    TCP Port (Service)	Source
+    22 (SSH)	        0.0.0.0/0	
+    25 (SMTP)           0.0.0.0/0
+    8080 (HTTP*)        0.0.0.0/0	
+
+
+4. Create the external_cache Directory
+--------------------------------------
+
+Log into the server:
+
+    ssh -i .ec2/ttt.pem ubuntu@ttt.example.com
+
+Create the following directory and subdirectories from your home directory:
+
+    cd
+    mkdir tttdir
+    mkdir tttdir/bin
+    mkdir tttdir/logs
+    mkdir tttdir/external_cache
+    mkdir tttdir/external_cache/direct
+    mkdir tttdir/external_cache/direct/contact
+    mkdir tttdir/external_cache/direct/direct
+    mkdir tttdir/external_cache/direct/encrypt_certs
+    mkdir tttdir/external_cache/direct/signing_cert
+    mkdir tttdir/external_cache/direct/sendlog/
+    mkdir tttdir/external_cache/direct/sendlog/DefaultDirectUser
+    mkdir tttdir/external_cache/TestLogCache
+
+
+
+5. Download and adjust the settings in the "tk_props.txt" file.
+---------------------------------------------------------------
+
+Fetch the sample tk_props.txt file.
     
+    cd
+    wget http://ttt-files.s3.amazonaws.com/tk_props.txt
+    
+We will now adjust the values in the file for your local environment.
+The tool is setup to use Gmail for sending mail.  These instructions assume this
+configuration. 
 
 
-  
+    sed -i -e 's/ttt.transparenthealth.org/ttt.example.com/g' tk_props.txt
+    sed -i -e 's/change-to-your-password/your-password/g' tk_props.txt
+    sed -i -e 's/change-to-your-direct-testing-email@gmail.com/your-email@example.com/g' tk_props.txt
+
+Now move the file into the external_cache:
+
+    mv tk_props.txt tttdir/external_cache
 
 
-Generating Certificates
------------------------
+6. Create/Obtain certificates for your domain and install them in the "external_cache".
+------------------------------------------------------------------------------------
+
+You will need to create a root CA and a domain-bound certificates for "ttt.example.com".
+The following link describes how you can go about doing this using the certGen
+tool that comes bundled with Java Direct Reference Implementation (RI)
 
 See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-certificates-using-vmware.md
 
 
 
-Installing from Scratch (Unsupported)
--------------------------------------
 
-*Fetch the Necessary Prerequisites:*
+7. Download the ttt war package and the SMTP listner scripts.
+-------------------------------------------------------------
 
+Log into the server:
 
-    sudo apt-get update
-    sudo apt-get install git-core openjdk-7-jdk
-    wget http://mirrors.ibiblio.org/apache/tomcat/tomcat-5/v5.5.36/bin/apache-tomcat-5.5.36.tar.gz
-    tar  -zxvf apache-tomcat-5.5.36.tar.gz
-    wget http://foo.com/yourcerts.tar.gz
-    tar -zxvf yourcerts.tar.gz
-    cp yourcerts/* /home/ubuntu/apache-tomcat-5.5.36/webapps/ttt/pubcert
+    ssh -i .ec2/ttt.pem ubuntu@ttt.example.com
+    cd
 
-*Setup JAVA_HOME and CATALINA_HOME:*
+Download the ttt war and the listner scripts:
 
 
-    export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
-    echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
-    export JAVA_OPTS="-Xmx256m -XX:MaxPermSize=256m"
-    echo "export JAVA_OPTS=$JAVA_OPTS" >> ~/.bashrc
-    export CATALINA_HOME=/home/ubuntu/apache-tomcat-5.5.36
-    echo "export CATALINA_HOME=$CATALINA_HOME" >> ~/.bashrc
-    source ~/.bashrc 
-
-
-*Verify Java 7 is Installed:*
+    wget http://ttt-files.s3.amazonaws.com/ttt.158.war
     
-    java -version
+Get the listener scripts:
 
-
-*Install Cryptographic Extensions:*
-
-You must fetch the "jce_policy-1_4_2.zip" file from Oracle's website.  Then you
-can follow the instructions below.
-
-    unzip jce_policy-1_4_2.zip
-    sudo cp jce/US_export_policy.jar $JAVA_HOME/jre/lib/security
-    sudo cp jce/local_policy.jar $JAVA_HOME/jre/lib/security
+    wget http://ttt-files.s3.amazonaws.com/listener.sh
+    wget http://ttt-files.s3.amazonaws.com/direct-listener.sh
     
 
-*Start the Tomcat Server*
+Install the ttt war file.
 
-Not you will most likely need to adjust the configuration file before completing
-the next step.
+    sudo cp ttt.158.war /var/lib/tomcat7/webapps/ttt.war
 
-    cp apache-tomcat-5.5.36/bin
-    sudo ./startup.sh
-
-
-
+Copy the lostener scripts into their correct location. 
+    
 
 
 Setting up the Configuration File
