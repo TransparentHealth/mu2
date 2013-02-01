@@ -1,10 +1,11 @@
 Transport Testing Tool Configuration
 ====================================
 
-This document describes how to get the Trasnpport Testing Tool configured on
-your own hardware or instance.
+This document describes how to get the Trandport Testing Tool (TTT) configured
+on your own hardware or instance.
 
-THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR INCORRECT.
+THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR
+INCORRECT.
 
 Last updated: February 1, 2013
 
@@ -100,7 +101,6 @@ Gmail username where you see "your-email".
     sed -i -e 's/change-to-your-direct-testing-email@gmail.com/your-email@gmail.com/g' tk_props.txt
 
 
-
 6. Download and Install the ttt war 
 -----------------------------------
 
@@ -114,28 +114,28 @@ Download the ttt war and the listner scripts:
     wget http://ttt-files.s3.amazonaws.com/ttt.158b.war
         
 
-Install the ttt war file.
+Install the ttt war file:
 
     sudo cp ttt.158b.war /var/lib/tomcat7/webapps/ttt.war
 
 Note that the TTT will not work at this point without further configuration.
 Complete all the step to get the system installed.
 
-Adjust the default values in /var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties.
+Adjust the default values in /var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties:
     
     cd  /var/lib/tomcat7/webapps/ttt/WEB-INF/
 
-Change the location of external_cache
+Change the location of external_cache:
 
     sudo sed -i -e 's/\/Users\/gerardin\/IHE-Testing\/xdstools2_environment/\/home\/ubuntu\/tttdir\/external_cache\//g' toolkit.properties
 
-Change the default password
+Change the default password:
 
     sudo sed -i -e 's/money/your-password/g' toolkit.properties
 
 
-7. Create/Obtain certificates for your domain and install them in the "external_cache".
-------------------------------------------------------------------------------------
+7. Create/Obtain certificates for your domain and install them in the "external_cache"
+--------------------------------------------------------------------------------------
 
 You will need to create a root CA and a domain-bound certificates for "ttt.example.com".
 The following link describes how you can go about doing this using the certGen
@@ -184,8 +184,13 @@ To stop the listener, use:
     sudo ./listener.sh stop
     
 
-9. Test the Server
-------------------
+9. Restart and Test the Server
+------------------------------
+
+Restart Tomcat.
+
+    sudo service tomcat7 restart
+
 
 See if the necessary services are up and running:
 
