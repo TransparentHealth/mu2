@@ -34,10 +34,10 @@ The high-level tasks are as follows:
 ------------------------------------------------------
 
 Setup a new server with a public facing IP address.  We are using Ubuntu
-12.04 64-bit Server Edition.  Specificaly, we are using the AWS AMI:
-ami-3d4ff254. Log into the server and install tomcat7. We assume the user you
-are going to use to login is "ubuntu" and this user has sudo priveleages.
-This is consistent with Ubuntu's AWS EC2 instances.
+12.04 64-bit Server Edition.  Specifically, we are using the AWS AMI:
+ami-3d4ff254. Log into the server and install Tomcat7. This will also install
+OpenJDK. We assume the user you are going to use to login is "ubuntu" and this
+user has sudo priveleages. This is consistent with Ubuntu's AWS EC2 instances.
 
     ssh -i .ec2/ttt.pem ubuntu@ttt.example.com
     sudo apt-get update
