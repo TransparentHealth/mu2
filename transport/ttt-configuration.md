@@ -207,12 +207,22 @@ See if the necessary services are up and running:
 
 
     nmap 127.0.0.1
-    You should see evidence of a running service ports 25 and  8080.
+    You should see evidence of a running service ports 25 and 8080.
     
 You can now go to "http://ttt.example.com:8080/ttt" and all should be working.
 
-Please note that if you update the war file, you will need to adjust the values
+Test the server by attemting to send and receive Direct messages to and from the
+TTT.  Please note you will need to add the trust anchor and the domain bound
+certificate into your Direct implmention.  This will be specific to what Direct
+server you are running.  For example, you may be using the "Java Direct RI", the 
+"Windows .NET RI", or your own.  For information on setting this up using the
+Java Direct RI, please visit -
+https://github.com/meaningfuluse/mu2/blob/master/transport/direct-hello-world.md
+
+
+Also note that if you update the war file, you will need to adjust the values
 in var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties again.
 
-Alan
+Alan Viars
+@aviars
 
