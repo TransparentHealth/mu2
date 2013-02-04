@@ -7,7 +7,7 @@ on your own hardware or instance.
 THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR
 INCORRECT.
 
-Last updated: February 1, 2013
+Last updated: February 4, 2013
 
 Overview:
 ---------
@@ -23,10 +23,11 @@ The high-level tasks are as follows:
 3. Open the appropriate firewall ports (TCP 22,25,8080).
 4. Download the decompress the"tttdir" package.
 5. Adjust the settings in the "tk_props.txt" file.
-6. Download and Install the ttt war 
+6. Download and Install the ttt war.
 7. Create/Obtain certificates for your domain and install them in the "external_cache".
-8. Start the SMTP Daemon
-9. Test the Server
+8. Start the SMTP daemon.
+9. Create the output folder for Direct validation messages.
+10. Test the server.
 
 
 1. Setup a new server with a public facing IP address:
@@ -183,8 +184,18 @@ To stop the listener, use:
 
     sudo ./listener.sh stop
     
+9. Create the output folder for Direct Validation Messages
+----------------------------------------------------------
 
-9. Restart and Test the Server
+You need to create the folder where direct validation messages, sent by email,
+will reside.
+
+    sudo mkdir /var/lib/tomcat7/webapps/ROOT/direct/
+    sudo chown -R tomcat7 /var/lib/tomcat7/webapps/ROOT/direct/
+    sudo chgrp -R tomcat7 /var/lib/tomcat7/webapps/ROOT/direct/
+
+
+10. Restart and Test the Server
 ------------------------------
 
 Restart Tomcat.
