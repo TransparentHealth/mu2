@@ -7,7 +7,7 @@ on your own hardware or instance.
 THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR
 INCORRECT.
 
-Last updated: February 4, 2013
+Last updated: February 7, 2013
 
 Overview:
 ---------
@@ -153,7 +153,10 @@ following commands.
 
     sudo cp root.der /var/lib/tomcat7/webapps/ttt/pubcert/
     sudo cp ttt.example.com.der  /var/lib/tomcat7/webapps/ttt/pubcert/
-    cp ttt.example.com.p12 ~/tttdir/external_cache/direct/signing_cert
+    cp ttt.example.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
+    cd /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
+    sudo chown tomcat7 *
+    sudo chgrp tomcat7 *
     
     
 Set the file names in tk_props to the filenames used above.
