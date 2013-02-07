@@ -153,7 +153,7 @@ following commands.
 
     sudo cp root.der /var/lib/tomcat7/webapps/ttt/pubcert/
     sudo cp ttt.example.com.der  /var/lib/tomcat7/webapps/ttt/pubcert/
-    cp ttt.example.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
+    sudo cp ttt.example.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
     cd /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
     sudo chown tomcat7 *
     sudo chgrp tomcat7 *
