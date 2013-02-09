@@ -40,7 +40,7 @@ Install Prerequsites:
 ----------------------
 
     sudo apt-get update
-    sudo apt-get install ant unzip openjdk-7-jdk nmap
+    sudo apt-get -y install ant unzip openjdk-7-jdk nmap ant
 
     
 Setup JAVA_HOME:
@@ -49,7 +49,7 @@ Setup JAVA_HOME:
     export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
     echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
     export JAVA_OPTS="-Xmx256m -XX:MaxPermSize=256m"
-    echo "export JAVA_OPTS=$JAVA_OPTS" >> ~/.bashrc
+    echo "export JAVA_OPTS=\"$JAVA_OPTS\"" >> ~/.bashrc
     source ~/.bashrc 
 
 
@@ -365,7 +365,6 @@ MX (Mail Exchange) Records:
     =============         =================         =====
     microphr.com.         ns1.microphr.com.         86400 	
     microphr.com.         ns2.microphr.com.         86400 	
-    direct.microphr.com.  ns1.microphr.com.         3600
     
     
 The next step is to make sure that the domain you are using uses the DNS server
@@ -390,7 +389,7 @@ You should see this in the output.
 Now the public certificates you setup are accessiable via DNS.  You can test
 this with dig.
 
-    dig dig alan.direct.microphr.com CERT
+    dig alan.direct.microphr.com CERT
     
 will return
 
