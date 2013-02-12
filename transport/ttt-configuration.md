@@ -7,16 +7,13 @@ on your own hardware or instance.
 THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR
 INCORRECT.
 
-Last updated: February 7, 2013
+Last updated: February 12, 2013
 
 Overview:
 ---------
 
-
 You MUST use Ubuntu 12.04 LTS 64-bit Server Edition.  No other operating systems
-are supported at this time.
-
-The high-level tasks are as follows:
+are supported at this time. The high-level tasks are as follows:
 
 1. Setup a new server with Tomcat7 and a public facing IP address.
 2. Create a host name and configure DNS for your host.
@@ -37,9 +34,11 @@ Setup a new server with a public facing IP address.  We are using Ubuntu
 12.04 64-bit Server Edition.  Specifically, we are using the AWS AMI:
 ami-3d4ff254. Log into the server and install Tomcat7. This will also install
 OpenJDK. We assume the user you are going to use to login is "ubuntu" and this
-user has sudo priveleages. This is consistent with Ubuntu's AWS EC2 instances.
+user has sudo privileges. This is consistent with Ubuntu's AWS EC2 instances.
+Throughout this documement replace "your-domain.com" with your actual domain
+name.
 
-    ssh -i .ec2/ttt.pem ubuntu@ttt.example.com
+    ssh -i .ec2/ttt.pem ubuntu@ttt.your-domain.com
     sudo apt-get update
     sudo apt-get -y install tomcat7 tomcat7-admin nmap
 
@@ -49,18 +48,17 @@ user has sudo priveleages. This is consistent with Ubuntu's AWS EC2 instances.
 
 Setup a static ip and a domain name. Create a static IP and associate  it with
 a domain name. In this example, we will use the IP  "123.123.123.123" and the
-hostnme "ttt.example.com".
+hostnme "ttt.your-domain.com".  
 
 Setup the A, CNAME as show below.
  
-    Type:           Source:             Destination:
-    -----------     ----------------    ---------------
-    A Record        *.example.com       123.123.123.123	
-    A Record	    example.com         123.123.123.123
-    A Record	    ttt.example.com     123.123.123.123	
-    MX Record       mail.example.com    123.123.123.123
-    MX Record       smtp.example.com    123.123.123.123	
-    MX Record       example.com         123.123.123.123	
+    Type:           Source:                       Destination:
+    -----------     ----------------              ---------------
+    A Record	    ttt.your-domain.com           123.123.123.123
+    A Record	    mail.ttt.your-domain.com      123.123.123.123	
+    MX Record       mail.ttt.your-domain.com      123.123.123.123
+    MX Record       smtp.ttt.your-domain.com      123.123.123.123	
+
 
 
 3. Open the Appropriate Firewall Ports 
@@ -77,14 +75,16 @@ Open the following inbound ports on your firewall.
 4. Download the decompress the"tttdir" package.
 -----------------------------------------------
 
+Note the following instructions may vary a bit if you are not using AWS EC2.
+
 Log into the server:
 
-    ssh -i .ec2/ttt.pem ubuntu@ttt.example.com
+    ssh -i .ec2/ttt.pem ubuntu@ttt.your-domain.com
 
 Create the following directory and subdirectories from your home directory:
 
-    wget http://ttt-files.s3.amazonaws.com/tttdir-2012-02-01.tar.gz
-    tar zxvf tttdir-2012-02-01.tar.gz
+    wget http://ttt-files.s3.amazonaws.com/tttdir-2013-02-12.tar.gz
+    tar zxvf tttdir-2013-02-12.tar.gz
 
 
 5. Adjust the settings in the "tk_props.txt" file.
@@ -93,12 +93,12 @@ Create the following directory and subdirectories from your home directory:
 We will now adjust the values in the /home/ubuntu/tttdir/external_cache/tk_props.txt
 file for your local environment. The tool is setup to use Gmail for sending mail.
 These instructions assume this configuration. Place your hostname where you see
-"ttt.example.com", your gmail password where you see "your-password", and your
+"ttt.your-domain.com", your gmail password where you see "your-password", and your
 Gmail username where you see "your-email".
     
     cd tttdir/external_cache
-    sed -i -e 's/ttt.transparenthealth.org/ttt.example.com/g' tk_props.txt
-    sed -i -e 's/change-to-your-password/your-password/g' tk_props.txt
+    sed -i -e 's/ttt.example.com/ttt.your-domain.com/g' tk_props.txt
+    sed -i -e 's/change-to-your-password/your-gmail-password/g' tk_props.txt
     sed -i -e 's/change-to-your-direct-testing-email@gmail.com/your-email@gmail.com/g' tk_props.txt
 
 
@@ -107,7 +107,7 @@ Gmail username where you see "your-email".
 
 Log into the server:
 
-    ssh -i .ec2/ttt.pem ubuntu@ttt.example.com
+    ssh -i .ec2/ttt.pem ubuntu@ttt.your-domain.com
     
 Download the ttt war and the listner scripts:
 
@@ -138,7 +138,7 @@ Change the default password:
 7. Create/Obtain certificates for your domain and install them in the "external_cache"
 --------------------------------------------------------------------------------------
 
-You will need to create a root CA and a domain-bound certificates for "ttt.example.com".
+You will need to create a root CA and a domain-bound certificates for "ttt.your-domain.com".
 The following link describes how you can go about doing this using the certGen
 tool that comes bundled with Java Direct Reference Implementation (RI)
 
@@ -146,31 +146,45 @@ See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-c
 
 After these files are created and transfered to the server, you will want to
 place them in the correct location. Assuming that your trust anchor is "root.der",
-your public certificate is "ttt.example.com.der", and your domain level signing
-certificate is "ttt.example.com.p12", the copy these files to their required
+your public certificate is "ttt.your-domain.com.der", and your domain level signing
+certificate is "ttt.your-domain.com.p12", the copy these files to their required
 location. assuming these files are your current directory, then execute the
 following commands.
 
     sudo cp root.der /var/lib/tomcat7/webapps/ttt/pubcert/
-    sudo cp ttt.example.com.der  /var/lib/tomcat7/webapps/ttt/pubcert/
-    sudo cp ttt.example.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
+    sudo cp ttt.your-domain.com.der /var/lib/tomcat7/webapps/ttt/pubcert/
+    cp ttt.your-domain.com.der  ~/tttdir/external_cache/direct/encrypt_certs
+    sudo cp ttt.your-domain.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
+    sudo cp ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/signing_cert/
+    touch ~/tttdir/external_cache/direct/signing_cert/password.txt
     cd /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
     sudo chown tomcat7 *
     sudo chgrp tomcat7 *
     
     
-Set the file names in tk_props to the filenames used above.
+Set the file names in tk_props to the filenames used above. We are assuming that
+your public cert is named "ttt.your-domain.com.der" and your trust anchor is
+"root.der".  Change these to match the name of your files.
     
-    cd tttdir/external_cache
-    sed -i -e 's/my-public-cert.der/ttt.example.com.der/g' tk_props.txt
+    cd ~/tttdir/external_cache
+    sed -i -e 's/my-public-cert.der/ttt.your-domain.com.der/g' tk_props.txt
     sed -i -e 's/my-trust-anchor.der/root.der/g' tk_props.txt
 
 
-Change the owndership and permissions on the ttt dir
+Change the owndership and permissions on the external_cache and logs directory
 
+    cd ~
     sudo chmod -R 777 tttdir
+    chmod -R 777 logs
     sudo chown -R tomcat7 tttdir
     sudo chgrp -R tomcat7 tttdir
+    
+
+You can test this step was completed successfully by going to running a script
+that checks that all of the files are properly situated
+
+    cd /var/lib/tomcat7/webapps/ttt/scripts
+    bash cert-check.sh
 
 8. Start the SMTP Daemon
 ------------------------
@@ -212,16 +226,15 @@ See if the necessary services are up and running:
     nmap 127.0.0.1
     You should see evidence of a running service ports 25 and 8080.
     
-You can now go to "http://ttt.example.com:8080/ttt" and all should be working.
+You can now go to "http://ttt.your-domain.com:8080/ttt" and all should be working.
 
-Test the server by attemting to send and receive Direct messages to and from the
-TTT.  Please note you will need to add the trust anchor and the domain bound
-certificate into your Direct implmention.  This will be specific to what Direct
-server you are running.  For example, you may be using the "Java Direct RI", the 
-"Windows .NET RI", or your own.  For information on setting this up using the
-Java Direct RI, please visit -
+Test the server by attempting to send and receive Direct messages to and from the
+TTT.  Please note you will need to add/enable the trust anchor AND the
+domain-bound certificate into your Direct implementation.  This will be specific to
+what Direct server you are running.  For example, you may be using the
+"Java Direct RI", the "Windows .NET RI", or your own.  For information on
+setting this up using the Java Direct RI, please visit -
 https://github.com/meaningfuluse/mu2/blob/master/transport/direct-hello-world.md
-
 
 Also note that if you update the war file, you will need to adjust the values
 in var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties again.
