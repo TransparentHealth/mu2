@@ -7,7 +7,7 @@ on your own hardware or instance.
 THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR
 INCORRECT.
 
-Last updated: February 12, 2013
+Last updated: February 14, 2013 by Alan Viars
 
 Overview:
 ---------
@@ -21,10 +21,11 @@ are supported at this time. The high-level tasks are as follows:
 4. Download the decompress the"tttdir" package.
 5. Adjust the settings in the "tk_props.txt" file.
 6. Download and Install the ttt war.
-7. Create/Obtain certificates for your domain and install them in the "external_cache".
-8. Start the SMTP daemon.
-9. Create the output folder for Direct validation messages.
-10. Test the server.
+7. Create/Obtain certificates for your domain
+8. Install certificatse in the TTT
+9. Start the SMTP daemon.
+10. Create the output folder for Direct validation messages.
+11. Test the server.
 
 
 1. Setup a new server with a public facing IP address:
@@ -135,14 +136,32 @@ Change the default password:
     sudo sed -i -e 's/money/your-password/g' toolkit.properties
 
 
-7. Create/Obtain certificates for your domain and install them in the "external_cache"
---------------------------------------------------------------------------------------
+7. Create/Obtain certificates for your Domain 
+---------------------------------------------
 
-You will need to create a root CA and a domain-bound certificates for "ttt.your-domain.com".
+You will need to create:
+   1. a Trust anchor CA, we will name "root". You will need the file "roo.der".
+   2. A domain-bound certificates, buit from the aformentioned "root.", for
+   "ttt.your-domain.com". You will need the files "ttt.your-domain.com.p12" and
+   "ttt.your-domain.com.der".
+   3.  Another trust anchor to serve as an untrusted anchor. We will call this
+   "invalid-trust-relationship", and you will need the file
+   "invalid-trust-relationship.der". This anchor is valid, but if you use it in
+   conjunction with "ttt.your-domain.com" from #2, then it would be invalis because
+   the domain-bound certifcate was not created with this trust anchor.
+   
+To generate these files, we will use the tool "certGen.sh" that is bundled with
+the Java Direct RI.  There is a direct
+
 The following link describes how you can go about doing this using the certGen
 tool that comes bundled with Java Direct Reference Implementation (RI)
 
-See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-certificates-using-vmware.md
+See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certificates-for-ttt.md
+
+for how to complete this step.
+
+8. Install Certificatse in the TTT
+----------------------------------
 
 After these files are created and transfered to the server, you will want to
 place them in the correct location. Assuming that your trust anchor is "root.der",
@@ -153,6 +172,8 @@ following commands.
 
     sudo cp root.der /var/lib/tomcat7/webapps/ttt/pubcert/
     sudo cp ttt.your-domain.com.der /var/lib/tomcat7/webapps/ttt/pubcert/
+    sudo cp invalid-trust-relationship.der /var/lib/tomcat7/webapps/ttt/pubcert/
+    
     cp ttt.your-domain.com.der  ~/tttdir/external_cache/direct/encrypt_certs
     sudo cp ttt.your-domain.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
     sudo cp ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/signing_cert/
@@ -169,7 +190,7 @@ your public cert is named "ttt.your-domain.com.der" and your trust anchor is
     cd ~/tttdir/external_cache
     sed -i -e 's/my-public-cert.der/ttt.your-domain.com.der/g' tk_props.txt
     sed -i -e 's/my-trust-anchor.der/root.der/g' tk_props.txt
-
+    sed -i -e 's/my-invtrustrel.der/invalid-trust-relationship.der/g' tk_props.txt
 
 Change the owndership and permissions on the external_cache and logs directory
 
@@ -186,7 +207,7 @@ that checks that all of the files are properly situated
     cd /var/lib/tomcat7/webapps/ttt/scripts
     bash cert-check.sh
 
-8. Start the SMTP Daemon
+9. Start the SMTP Daemon
 ------------------------
 
 run the script that starts the SMTP listener
@@ -201,7 +222,7 @@ To stop the listener, use:
 
     sudo ./listener.sh stop
     
-9. Create the output folder for Direct Validation Messages
+10. Create the output folder for Direct Validation Messages
 ----------------------------------------------------------
 
 You need to create the folder where direct validation messages, sent by email,
@@ -212,7 +233,7 @@ will reside.
     sudo chgrp -R tomcat7 /var/lib/tomcat7/webapps/ROOT/direct/
 
 
-10. Restart and Test the Server
+11. Restart and Test the Server
 ------------------------------
 
 Restart Tomcat.
