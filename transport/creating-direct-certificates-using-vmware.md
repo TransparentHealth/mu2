@@ -1,6 +1,8 @@
 Using the VMWare Image to Create Direct Certificates
 ====================================================
 
+Last updated: February 14, 2013 by Alan Viars
+
 The goal of this document is to demonstrate how to create direct certificates
 using NIST's a "canned" version of certGen. This is provided as a convenience to
 make the process of generating direct certificates easier.
@@ -44,18 +46,19 @@ Create a Root CA
 following the example shown in the figure below. You only need to create one CA.
 
 
-    CN:                 [Name for your CA - ex. "Root for Direct.Example.com"]
-    Country:            [Your Country]
-    State:              [Your State]
-    Location:           [Your City]
-    Org:                [Your Organization Name]
-    Email:              [Email for Root CA - ex. root@direct.example.com]
-    Expiration Days:    365
-    Key Strength:       1024
-    Password:           [Your password]
+    CN:                             [Name for your CA - ex. "Root for Direct.Example.com"]
+    Country:                        [Your Country] # Use two letter ISO code, e.g. US.
+    State:                          [Your State]
+    Location:                       [Your City]
+    Org:                            [Your Organization Name]
+    Email:                          [Email for Root CA - ex. root@direct.example.com]
+    Expiration Days:                365
+    Key Strength:                   1024
+    Password:                       [Your password]
+    Add Email to Alt Subject Names: Checked
 
 ![Screen shot of certGen used to create a root certificate authority.]
-(http://certgen.s3.amazonaws.com/create-a-root-ca.png
+(http://certgen.s3.amazonaws.com/root-CA-for-Direct.png
 "Create a Root CA")
 
 
@@ -73,20 +76,21 @@ Create a Domain Bound Certificate
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
 
-    CN:                 [direct.example.com]
-    Country:            [Your Country]
-    State:              [Your State]
-    Location:           [Your City]
-    Org:                [Your Organization Name]
-    Email:              [direct.example.com]
-    Expiration Days:    365
-    Key Strength:       1024
-    Password:           LEAVE BLANK
-    Click Add Email to Alt subject Names
+    CN:                                 [direct.example.com]
+    Country:                            [Your Country] # Use two letter ISO code, e.g. US.
+    State:                              [Your State]
+    Location:                           [Your City]
+    Org:                                [Your Organization Name]
+    Email:                              [direct.example.com] #Notice this is not actually an email.
+    Expiration Days:                    365
+    Key Strength:                       1024
+    Password:                           LEAVE BLANK
+    Add Email to Alt Subject Names:     Checked
+
 
 
 ![Screen shot of certGen used to create a domain-bound certificate]
-(http://certgen.s3.amazonaws.com/create-a-domain-bound-cert.png
+(http://certgen.s3.amazonaws.com/domain-bound-direct.png
 "Create a Domain-Bound Certificate")
 
 
@@ -103,21 +107,22 @@ Create an Address-Bound Certificate
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
 
-    CN:                 [The cert's email e.g. provider1@direct.example.com]
-    Country:            [Your Country]
-    State:              [Your State]
-    Location:           [Your City]
-    Org:                [Your Organization Name]
-    Email:              [The cert's email e.g. provider1@direct.example.com]
-    Expiration Days:    365
-    Key Strength:       1024
-    Password:           LEAVE BLANK
-    Click Add Email to Alt subject Names
+    CN:                                 [The cert's email e.g. provider1@direct.example.com]
+    Country:                            [Your Country] # Use two letter ISO code, e.g. US.
+    State:                              [Your State]
+    Location:                           [Your City]
+    Org:                                [Your Organization Name]
+    Email:                              [The cert's email e.g. provider1@direct.example.com]
+    Expiration Days:                    365
+    Key Strength:                       1024
+    Password:                           LEAVE BLANK
+    Add Email to Alt Subject Names:     Checked
 
 
-![Screen shot of certGen used to create a domain-bound certificate]
-(http://certgen.s3.amazonaws.com/create-a-domain-bound-cert.png
-"Create a Domain-Bound Certificate")
+
+![Screen shot of certGen used to create an address-bound certificate]
+(http://certgen.s3.amazonaws.com/address-bound-direct.png
+"Create a Address-Bound Certificate")
 
 
 2. Click the "Create" button.This will create the files "provider1.der",
@@ -127,13 +132,12 @@ directory.
 
 
 ![Screen shot of certGen used to create a address-bound certificate]
-(http://certgen.s3.amazonaws.com/create-an-address-bound-cert.png
+(http://certgen.s3.amazonaws.com/address-bound-direct.png
 "Create an Address-Bound Certificate")
 
 
 Next Steps
 ----------
 
-These certificates can be used by the Transport Testing Tool, Direct RI, or
-other Direct-based system.
+These certificates can be used by the  Direct RI, or other Direct-based system.
 
