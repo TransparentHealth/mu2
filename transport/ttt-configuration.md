@@ -192,7 +192,7 @@ See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certific
 
 for how to complete this step.
 
-8. Install Certificatse in the TTT
+8. Install Certificates in the TTT
 ----------------------------------
 
 After these files are created and transfered to the server, you will want to
@@ -205,16 +205,14 @@ following commands.
     sudo cp root.der /var/lib/tomcat7/webapps/ttt/pubcert/
     sudo cp ttt.your-domain.com.der /var/lib/tomcat7/webapps/ttt/pubcert/
     sudo cp invalid-trust-relationship.der /var/lib/tomcat7/webapps/ttt/pubcert/
-    
     cp ttt.your-domain.com.der  ~/tttdir/external_cache/direct/encrypt_certs
     sudo cp ttt.your-domain.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
     sudo cp ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/signing_cert/
     touch ~/tttdir/external_cache/direct/signing_cert/password.txt
     cd /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
+    sudo rm mykeystore.p12
     sudo chown tomcat7 *; sudo chgrp tomcat7 *
     
-
-    sudo chmod -R 777 external_cache
     
 Set the file names in tk_props to the filenames used above. We are assuming that
 your public cert is named "ttt.your-domain.com.der" and your trust anchor is
