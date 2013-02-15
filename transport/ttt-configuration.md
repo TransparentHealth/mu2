@@ -44,7 +44,7 @@ Open the following inbound ports on your firewall.
 After the server is setup, log into the server and install Tomcat7. This will
 also install OpenJDK. We assume the user you are going to use to login is
 "ubuntu" and this user has sudo privileges. This is consistent with Canonical's
-Ubuntu AWS EC2 instances. Throughout this documement replace "your-domain.com"
+Ubuntu AWS EC2 instances. Throughout this document replace "your-domain.com"
 with your actual domain name.
 
     ssh -i .ec2/ttt.pem ubuntu@ttt.your-domain.com
