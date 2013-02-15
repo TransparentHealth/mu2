@@ -4,10 +4,7 @@ Transport Testing Tool Configuration
 This document describes how to get the Trandport Testing Tool (TTT) configured
 on your own hardware or instance.
 
-THIS DOCUMENT IS IS IN ACTIVE DEVELOPENT SO SOME DETAILS MAY BE INCOMPLETE OR
-INCORRECT.
-
-Last updated: February 14, 2013 by Alan Viars
+Last updated: February 15, 2013 by Alan Viars
 
 Overview:
 ---------
@@ -17,8 +14,8 @@ are supported at this time. The high-level tasks are as follows:
 
 1. Setup a new server with Tomcat7 and a public facing IP address.
 2. Create a host name and configure DNS for your host.
-3. Open the appropriate firewall ports (TCP 22,25,8080).
-4. Download the decompress the"tttdir" package.
+3. Download and decompress the "tttdir" package.
+4. Setup a Tomcat Connector for port 8443
 5. Adjust the settings in the "tk_props.txt" file.
 6. Download and Install the ttt war.
 7. Create/Obtain certificates for your domain
@@ -33,11 +30,22 @@ are supported at this time. The high-level tasks are as follows:
 
 Setup a new server with a public facing IP address.  We are using Ubuntu
 12.04 64-bit Server Edition.  Specifically, we are using the AWS AMI:
-ami-3d4ff254. Log into the server and install Tomcat7. This will also install
-OpenJDK. We assume the user you are going to use to login is "ubuntu" and this
-user has sudo privileges. This is consistent with Ubuntu's AWS EC2 instances.
-Throughout this documement replace "your-domain.com" with your actual domain
-name.
+ami-3d4ff254.
+
+Open the following inbound ports on your firewall.
+
+    TCP Port (Service)	Source
+    22 (SSH)	        0.0.0.0/0	
+    25 (SMTP)           0.0.0.0/0
+    8080 (HTTP*)        0.0.0.0/0
+    8443 (HTTPS*)       0.0.0.0/0
+
+
+After the server is setup, log into the server and install Tomcat7. This will
+also install OpenJDK. We assume the user you are going to use to login is
+"ubuntu" and this user has sudo privileges. This is consistent with Canonical's
+Ubuntu AWS EC2 instances. Throughout this documement replace "your-domain.com"
+with your actual domain name.
 
     ssh -i .ec2/ttt.pem ubuntu@ttt.your-domain.com
     sudo apt-get update
@@ -61,20 +69,8 @@ Setup the A, CNAME as show below.
     MX Record       smtp.ttt.your-domain.com      123.123.123.123	
 
 
-
-3. Open the Appropriate Firewall Ports 
---------------------------------------
-
-Open the following inbound ports on your firewall.
-
-    TCP Port (Service)	Source
-    22 (SSH)	        0.0.0.0/0	
-    25 (SMTP)           0.0.0.0/0
-    8080 (HTTP*)        0.0.0.0/0	
-
-
-4. Download the decompress the"tttdir" package.
------------------------------------------------
+3. Download and Decompress the "tttdir" package.
+------------------------------------------------
 
 Note the following instructions may vary a bit if you are not using AWS EC2.
 
@@ -83,9 +79,43 @@ Log into the server:
     ssh -i .ec2/ttt.pem ubuntu@ttt.your-domain.com
 
 Create the following directory and subdirectories from your home directory:
+    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-160/tttdir-2013-02-15.tar.gz/download -O tttdir-2013-02-12.tar.gz
+    tar zxvf tttdir-2013-02-15.tar.gz
 
-    wget http://ttt-files.s3.amazonaws.com/tttdir-2013-02-12.tar.gz
-    tar zxvf tttdir-2013-02-12.tar.gz
+
+4.  Setup a Tomcat Connector for port 8443
+------------------------------------------
+
+Open Tomcat 7's server.xml configuration file for editing.
+
+    sudo nano /etc/tomcat7/server.xml
+    
+Locate the commented out section that looks like this:
+
+    <!--
+    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+               maxThreads="150" scheme="https" secure="true"
+               clientAuth="false" sslProtocol="TLS" />
+    -->
+
+Replace it with the following text:
+
+    <Connector port="8443"
+            protocol="HTTP/1.1"
+            maxThreads="200"
+           scheme="https" secure="true" SSLEnabled="true"
+           keystoreFile="/home/ubuntu/tttdir/external_cache/keystore" keystorePass="changeit"
+           truststoreFile="/home/ubuntu/tttdir/external_cache/keystore" truststorePass="changeit"
+           clientAuth="true" sslProtocol="TLS"
+     />
+
+Press Ctrl-x, and then "Y", to exit and sabve the changes.
+
+
+Restart Tomcat7.
+    
+    sudo service tomcat7 restart
+
 
 
 5. Adjust the settings in the "tk_props.txt" file.
@@ -113,27 +143,29 @@ Log into the server:
 Download the ttt war and the listner scripts:
 
 
-    wget http://ttt-files.s3.amazonaws.com/ttt.158b.war
+    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-160/ttt.war/download -O ttt.war
         
 
 Install the ttt war file:
 
-    sudo cp ttt.158b.war /var/lib/tomcat7/webapps/ttt.war
+    sudo cp ttt.war /var/lib/tomcat7/webapps/
 
 Note that the TTT will not work at this point without further configuration.
-Complete all the step to get the system installed.
+Complete all the step to get things working.
 
 Adjust the default values in /var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties:
     
     cd  /var/lib/tomcat7/webapps/ttt/WEB-INF/
 
-Change the location of external_cache:
+Change the name of the host to suit your environment, assuming yourt host name
+is ttt.your-domain.com:
 
-    sudo sed -i -e 's/\/Users\/gerardin\/IHE-Testing\/xdstools2_environment/\/home\/ubuntu\/tttdir\/external_cache\//g' toolkit.properties
+    sudo sed -i -e 's/example.com/ttt.your-domain.com/g' toolkit.properties
+    
+Change the default password.  Change "your-password" to your desired password.:
 
-Change the default password:
+    sudo sed -i -e 's/easy/your-password/g' toolkit.properties
 
-    sudo sed -i -e 's/money/your-password/g' toolkit.properties
 
 
 7. Create/Obtain certificates for your Domain 
@@ -179,9 +211,10 @@ following commands.
     sudo cp ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/signing_cert/
     touch ~/tttdir/external_cache/direct/signing_cert/password.txt
     cd /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
-    sudo chown tomcat7 *
-    sudo chgrp tomcat7 *
+    sudo chown tomcat7 *; sudo chgrp tomcat7 *
     
+
+    sudo chmod -R 777 external_cache
     
 Set the file names in tk_props to the filenames used above. We are assuming that
 your public cert is named "ttt.your-domain.com.der" and your trust anchor is
@@ -194,11 +227,10 @@ your public cert is named "ttt.your-domain.com.der" and your trust anchor is
 
 Change the owndership and permissions on the external_cache and logs directory
 
-    cd ~
-    sudo chmod -R 777 tttdir
-    chmod -R 777 logs
-    sudo chown -R tomcat7 tttdir
-    sudo chgrp -R tomcat7 tttdir
+    cd ~/tttdir/
+    sudo chmod -R 777 external_cache/ logs/ bin/
+    sudo chown -R tomcat7 external_cache/ logs/ bin/
+    sudo chgrp -R tomcat7 external_cache/ logs/ bin/
     
 
 You can test this step was completed successfully by going to running a script
@@ -243,11 +275,10 @@ Restart Tomcat.
 
 See if the necessary services are up and running:
 
-
     nmap 127.0.0.1
-    You should see evidence of a running service ports 25 and 8080.
     
-You can now go to "http://ttt.your-domain.com:8080/ttt" and all should be working.
+You should see evidence of a running service ports 25 and 8080. You can now go
+to "http://ttt.your-domain.com:8080/ttt" and all should be working.
 
 Test the server by attempting to send and receive Direct messages to and from the
 TTT.  Please note you will need to add/enable the trust anchor AND the
