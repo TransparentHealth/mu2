@@ -1,6 +1,9 @@
 NIST HL7 v2 Tools
 =================
 
+
+Updated Feb. 18, 2013 by Alan Viars
+
 These test tools include Electronic Immunization, Lab Results Interface (LRI), Lab Reporting (ELR), 
 and Syndromic.
 
@@ -44,50 +47,65 @@ These instructions assume an Ubuntu 12.04 LTS 64bit Server edition.
 Open up a terminal window and type:
 
 
-For HL7v2 tools:
+For the HL7v2 Tools, ePrescribing, and Cancer Registry:
 
     sudo apt-get update
     
-    #Installing Tomcat7 will also install OpenJDK 1.6
+Install Tomcat7. This will also install OpenJDK 1.6
+
     sudo apt-get -y install tomcat7 tomcat7-admin unzip
     
-    #Fetch the WAR archives from subversion
-    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-lab-1.0.0.war
-    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-elr-1.0.0.war
-    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-syndromic-1.0.0.war
-    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-immunization-1.0.0.war
- 
-    #Copy the War files the webapps folder for deployment
+Fetch the zipped archives containing the WAR fiels from subversion/elsewhere
+    
+    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-elr-1.1.0.zip
+    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-actor-1.0.1.zip
+    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-immunization-1.1.0.zip
+    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-syndromic-1.1.0.zip
+    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-lab-1.1.0.zip
+    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-eprescribing-1.0.1.zip
+    wget http://hit-testing.nist.gov/cda-validation/downloads/muCrValidation20130206.tar.gz
+
+
+Unzip the files and copy the War files the webapps folder for deployment
+    
+    unzip mu-elr-1.1.0.zip
+    sudo cp mu-elr-1.1.0/mu-elr-1.1.0.war /var/lib/tomcat7/webapps/mu-elr.war
+    
+    unzip  mu-immunization-1.1.0.zip
+    sudo cp mu-immunization-1.1.0/mu-immunization-1.1.0.war /var/lib/tomcat7/webapps/mu-immunization.war
+    
+    unzip mu-actor-1.0.1.zip
+    sudo cp mu-actor-1.0.1/mu-actor.war /var/lib/tomcat7/webapps/mu-actor.war
+    
+    unzip mu-lab-1.1.0.zip
+    sudo cp  mu-lab-1.1.0/mu-lab-1.1.0.war  /var/lib/tomcat7/webapps/mu-lab.war
+    
+    unzip mu-syndromic-1.1.0.zip
+    sudo cp mu-syndromic-1.1.0/mu-syndromic-1.1.0.war /var/lib/tomcat7/webapps/mu-syndromic.war
+    
+    unzip mu-eprescribing-1.0.1.zip
+    sudo cp mu-eprescribing-edi.war  /var/lib/tomcat7/webapps/
+    sudo cp mu-eprescribing-xml.war /var/lib/tomcat7/webapps/
+    
+    tar zxvf muCrValidation20130206.tar.gz
+    sudo cp muCrValidation20130206/muValidationCR.war /var/lib/tomcat7/webapps/
+    
     sudo cp mu-lab-1.0.0.war /var/lib/tomcat7/webapps/
     sudo cp mu-elr-1.0.0.war /var/lib/tomcat7/webapps/
     sudo cp mu-syndromic-1.0.0.war /var/lib/tomcat7/webapps/
     sudo cp mu-immunization-1.0.0.war /var/lib/tomcat7/webapps/
 
-For ePrescribing:
-    
-    #Installing Tomcat7 will also install OpenJDK 1.6
-    sudo apt-get install tomcat7 tomcat7-admin unzip
-
-    #Fetch the WAR archives from subversion
-    wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-eprescribing-1.0.0.zip
-
-    #Unzip the zip file containing both EDI and XML eRx War files
-    unzip mu-eprescribing-1.0.0.zip
-
-    #Copy the War files the webapps folder for deployment
-    sudo cp mu-eprescribing-xml.war /var/lib/tomcat7/webapps/
-    sudo cp mu-eprescribing-edi.war /var/lib/tomcat7/webapps/
   
 
 If your server's IP is "127.0.0.1", then you can access the tools at the following URLS.
 
-+ http://127.0.0.1:8080/mu-elr-1.0.0
-+ http://127.0.0.1:8080/mu-syndromic-1.0.0
++ http://127.0.0.1:8080/mu-elr
++ http://127.0.0.1:8080/mu-syndromic
 + http://127.0.0.1:8080/mu-lab-1.0.0
 + http://127.0.0.1:8080/mu-immunization-1.0.0
 + http://127.0.0.1:8080/mu-eprescribing-xml
 + http://127.0.0.1:8080/mu-eprescribing-edi
- 
++ http://127.0.0.1:8080/muValidationCR
 
 Windows Installation Instructions
 ---------------------------------
@@ -107,25 +125,20 @@ The AMI is based on Ubuntu 12.04 64-bit and has Apache Tomcat 7 and the
 projects are already installed. It is based on the instructions described in
 "Ubuntu Linux Installation Instructions" section.
 
-*AMI ID:* ami-f54fc69c
+*AMI ID:* ami-1a1e8e73
 
-*AMI Name:* nist-hl7v2-erx-1.0.0
+*AMI Name:* NIST-HL7v2-eRx-CancerReg-Feb-18-2013
 
-*Description:* NIST HL7v2 and ePrescribing Test Tools version 1.0.0. Runs atop Ubuntu 12.04 LTS, Tomcat7, OpenJDK 1.6.
+*Description:* NIST HL7v2, ePrescribing, and Cancer Registry Test Tools versions
+released Feb. 15 2013. Runs atop Ubuntu 12.04 LTS, Tomcat7, OpenJDK 1.6.
 
-Notes:  Use at least a "small" instance size. Be sure to follow the firewall instructions in this document for your instance. When connecting to the host via ssh, remember that the default user name is "ubuntu" and 
-not "root".  Be sure and "chmod 400 your.pem", where your.pem is you security key from Amazon.  When launching a new instance you may need to wait 5 minutes or so for Tomcat to fully start.
+Notes:  Use at least a "small" instance size. Be sure to follow the firewall
+instructions in this document for your instance. When connecting to the host
+via ssh, remember that the default user name is "ubuntu" and  not "root".  Be
+sure and "chmod 400 your.pem", where your.pem is you security key from Amazon.
+When launching a new instance you may need to wait 5 minutes or so for Tomcat7
+to fully start.
 
-
-For example, if your server's DNS name is: "ec2-50-16-156-210.compute-1.amazonaws.com", your tools would 
-be available at:
-
-+ http://ec2-50-16-156-210.compute-1.amazonaws.com:8080/mu-elr-1.0.0
-+ http://ec2-50-16-156-210.compute-1.amazonaws.com:8080/mu-syndromic-1.0.0
-+ http://ec2-50-16-156-210.compute-1.amazonaws.com:8080/mu-lab-1.0.0
-+ http://ec2-50-16-156-210.compute-1.amazonaws.com:8080/mu-immunization-1.0.0
-+ http://ec2-50-16-156-210.compute-1.amazonaws.com:8080/mu-eprescribing-xml
-+ http://ec2-50-16-156-210.compute-1.amazonaws.com:8080/mu-eprescribing-edi
 
 
 WAR File Downloads
