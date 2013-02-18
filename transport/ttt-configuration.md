@@ -208,7 +208,7 @@ following commands.
     sudo cp invalid-trust-relationship.der /var/lib/tomcat7/webapps/ttt/pubcert/
     cp ttt.your-domain.com.der  ~/tttdir/external_cache/direct/encrypt_certs
     sudo cp ttt.your-domain.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
-    sudo cp ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/signing_cert/
+    cp ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/signing_cert/
     touch ~/tttdir/external_cache/direct/signing_cert/password.txt
     cd /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
     sudo rm mykeystore.p12
