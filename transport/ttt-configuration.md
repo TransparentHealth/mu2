@@ -79,6 +79,7 @@ Log into the server:
     ssh -i .ec2/ttt.pem ubuntu@ttt.your-domain.com
 
 Create the following directory and subdirectories from your home directory:
+
     wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-160/tttdir-2013-02-15.tar.gz/download -O tttdir-2013-02-12.tar.gz
     tar zxvf tttdir-2013-02-15.tar.gz
 
