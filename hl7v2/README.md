@@ -2,7 +2,7 @@ NIST HL7 v2 Tools
 =================
 
 
-Updated Feb. 18, 2013 by Alan Viars
+Updated Feb. 19, 2013 by Alan Viars
 
 These test tools include Electronic Immunization, Lab Results Interface (LRI), Lab Reporting (ELR), 
 and Syndromic.
@@ -90,12 +90,6 @@ Unzip the files and copy the War files the webapps folder for deployment
     tar zxvf muCrValidation20130206.tar.gz
     sudo cp muCrValidation20130206/muValidationCR.war /var/lib/tomcat7/webapps/
     
-    sudo cp mu-lab-1.0.0.war /var/lib/tomcat7/webapps/
-    sudo cp mu-elr-1.0.0.war /var/lib/tomcat7/webapps/
-    sudo cp mu-syndromic-1.0.0.war /var/lib/tomcat7/webapps/
-    sudo cp mu-immunization-1.0.0.war /var/lib/tomcat7/webapps/
-
-  
 
 If your server's IP is "127.0.0.1", then you can access the tools at the following URLS.
 
@@ -118,6 +112,24 @@ Documentation-->Validation Tool Download" section.  You will see a link to downl
 installation instructions.
 
 
+VMWare Image
+------------
+
+The following VMWare image is based on Ubuntu 12.04 and has Apache Tomcat 7 and
+the projects already installed.  You will need to install VMWare, such as
+VMWare Player which is free, to get these tool up and running.  It is based on
+the instructions desrcibes in "Ubuntu Linux Installation Instructions" section.
+OpenSSH-server is also installed so you can access the boc via ssh. We reccomend
+at least 3GB of RAM for this VM.
+
+
+*Download:*  http://meaningfuluse.s3.amazonaws.com/NIST-HL7v2-eRx-CancerReg-Feb-18-2013.zip
+*Name:*      NIST-HL7v2-eRx-CancerReg-Feb-18-2013
+*User:*      ubuntu
+*Password:*  homerlovesdonuts
+
+
+
 Amazon Machine Images (AMI)
 ---------------------------
 
@@ -132,7 +144,7 @@ projects are already installed. It is based on the instructions described in
 *Description:* NIST HL7v2, ePrescribing, and Cancer Registry Test Tools versions
 released Feb. 15 2013. Runs atop Ubuntu 12.04 LTS, Tomcat7, OpenJDK 1.6.
 
-Notes:  Use at least a "small" instance size. Be sure to follow the firewall
+Notes:  Use at least a "medium" instance size. Be sure to follow the firewall
 instructions in this document for your instance. When connecting to the host
 via ssh, remember that the default user name is "ubuntu" and  not "root".  Be
 sure and "chmod 400 your.pem", where your.pem is you security key from Amazon.
