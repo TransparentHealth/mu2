@@ -15,14 +15,14 @@ Immunization Test Tool
 
 + Testing Procedure - http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 + NIST Testing Server URL -  (http://hl7v2-iz-testing.nist.gov)
-+ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-immunization-1.0.0.war
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-immunization-1.1.0.zip
 
 Lab Results Interface (LRI) Test Tool
 -------------------------------------
 
 + Testing Procedure - http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 + NIST Testing Server URL - http://hl7v2-lab-testing.nist.gov
-+ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-lab-1.0.0.war
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-lab-1.1.0.zip
 
 
 Electronic Lab Reporting (ELR) Test Tool
@@ -30,14 +30,14 @@ Electronic Lab Reporting (ELR) Test Tool
 
 + Testing Procedure - http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 + NIST Testing Server URL - http://hl7v2-elr-testing.nist.gov
-+ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-elr-1.0.0.war
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-elr-1.1.0.zip
 
 Syndromic Test Tool
 -------------------
 
 + Testing Procedure - http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 + NIST Testing Server URL - http://hl7v2-ss-testing.nist.gov
-+ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-syndromic-1.0.0.war
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-syndromic-1.1.0.zip
 
 
 Ubuntu Linux Installation Instructions
