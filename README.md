@@ -1,6 +1,8 @@
 The Meaningful Use (MU2) Repository of Useful Information
 =========================================================
 
+LAst Updsated Feb. 19, 2013 by A. Viars
+
 This repository contains information on Meaningful Use Stage 2 Certification. 
 Contents include, test data, test software, links to public test tool servers, 
 and other related Information. Much of the information included here is 
@@ -27,6 +29,17 @@ Contents
 + [CDA-C32 Tools   - includes Cancer Registry](https://github.com/meaningfuluse/mu2/tree/master/cdac32)
 + [ePrescribing    - includes SCRIPT XML, SCRIPT EDIFAC ](https://github.com/meaningfuluse/mu2/tree/master/script)
 
+
+
+
+Quick Links
+-----------
+
++ [Direct Hello World](https://github.com/meaningfuluse/mu2/blob/master/transport/direct-hello-world.md)
++ [How to Create Direct Certificates using NIST's pre-configured Virtual Machine](https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-certificates-using-vmware.md)
++ [TTT Configuration](https://github.com/meaningfuluse/mu2/blob/master/transport/ttt-configuration.md)
++ [NIST Tools as AMI and VMWare Image](https://github.com/meaningfuluse/mu2/tree/master/hl7v2#vmware-image)
++ [Using the VMWare Image to Create Certificates for TTT]https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certificates-for-ttt.md
 
 List of Google Groups
 ---------------------
@@ -106,11 +119,5 @@ http://meaningfuluse.s3.amazonaws.com/googlegroups.html
 </tr>
 </table>
 
-
-Quick Links
------------
-
-+ [Direct Hello World](https://github.com/meaningfuluse/mu2/blob/master/transport/direct-hello-world.md)
-+ [How to Create Direct Certificates using NIST's pre-configured Virtual Machine](https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-certificates-using-vmware.md)
 
 
