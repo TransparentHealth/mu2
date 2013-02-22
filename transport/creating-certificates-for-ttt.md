@@ -1,7 +1,7 @@
-Using the VMWare Image to Create Direct Certificates
-====================================================
+Using the VMWare Image to Create Certificates for Transport Testing Tool (TTT)
+==============================================================================
 
-Last updated: February 14, 2013 by Alan Viars
+Last updated: February 19, 2013 by Alan Viars
 
 The goal of this document is to demonstrate how to create direct certificates
 for use with NIST's Transport Testing Tool (TTT). If you have a "headless" server
