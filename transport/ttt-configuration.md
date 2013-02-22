@@ -4,7 +4,7 @@ Transport Testing Tool Configuration
 This document describes how to get the Trandport Testing Tool (TTT) configured
 on your own hardware or instance.
 
-Last updated: February 15, 2013 by Alan Viars
+Last updated: February 22, 2013 by Alan Viars
 
 Overview:
 ---------
@@ -167,7 +167,9 @@ Change the default password.  Change "your-password" to your desired password.:
 
     sudo sed -i -e 's/easy/your-password/g' toolkit.properties
 
+Now restart Tomcat
 
+    sudo service tomcat7 restart
 
 7. Create/Obtain certificates for your Domain 
 ---------------------------------------------
