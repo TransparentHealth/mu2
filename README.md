@@ -39,7 +39,7 @@ Quick Links
 + [How to Create Direct Certificates using NIST's pre-configured Virtual Machine](https://github.com/meaningfuluse/mu2/blob/master/transport/creating-direct-certificates-using-vmware.md)
 + [TTT Configuration](https://github.com/meaningfuluse/mu2/blob/master/transport/ttt-configuration.md)
 + [NIST Tools as AMI and VMWare Image](https://github.com/meaningfuluse/mu2/tree/master/hl7v2#vmware-image)
-+ [Using the VMWare Image to Create Certificates for TTT]https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certificates-for-ttt.md
++ [Using the VMWare Image to Create Certificates for TTT](https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certificates-for-ttt.md)
 
 List of Google Groups
 ---------------------
