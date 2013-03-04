@@ -300,6 +300,7 @@ Alan Viars
 Appendix I - How to update the TTT release on a server
 ------------------------------
 The steps above that are involved in updating a release of the TTT on a server are:
+
 6. Download and Install the ttt war
 
 8. Install Certificates in the TTT
@@ -308,14 +309,15 @@ The steps above that are involved in updating a release of the TTT on a server a
 
 
 For a more detailed explanation, please see below.
+
 1. Replace the old TTT .war file with the new one.
 2. Restart the server in order to install the file that you just copied. This will regenerate the WEB-INF directory for the web application.
-3. Re-installing certificates in the TTT webapp directory can be done easily by using the script:
+3. Re-installing certificates in the TTT webapp directory can be done easily by using the script install-certs-from-default.
 
-    /home/ubuntu/install-certs-from-default.sh
+    sudo bash /home/ubuntu/install-certs-from-default.sh
 
 4. Copy file toolkit.properties to the WEB-INF directory. The default toolkit.properties file is stored under /home/ubuntu. 
 
     sudo cp /home/ubuntu/toolkit.properties /var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties
-
+    
 5. Restart and test the server as described in step 11 of the main section above.
