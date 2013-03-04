@@ -328,15 +328,15 @@ Here is a quick summary of these steps in case you only want to UPDATE the tool.
 2. Restart the server in order to install the file that you just copied. This will regenerate the WEB-INF directory for the web application.
 3. Re-installing certificates in the TTT webapp directory can be done easily by using the script install-certs-from-default. The script is configured to be used only on transparenthealth.com.
 
-    sudo bash /home/ubuntu/install-certs-from-default.sh
-
+    `sudo bash /home/ubuntu/install-certs-from-default.sh`
+    
 4. Copy file toolkit.properties to the WEB-INF directory. The default toolkit.properties file is stored under /home/ubuntu. 
 
-    sudo cp /home/ubuntu/toolkit.properties /var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties
+    `sudo cp /home/ubuntu/toolkit.properties /var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties`
     
 5. Restart and test the server as described in step 11 above:
 
-    sudo service tomcat7 restart
+    `sudo service tomcat7 restart`
 
-    nmap 127.0.0.1
+    `nmap 127.0.0.1`
 
