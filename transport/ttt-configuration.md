@@ -195,7 +195,7 @@ See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certific
 
 for how to complete this step.
 
-8. Install Certificates in the TTT
+8. Install Certificates and Properties file in the TTT
 ----------------------------------
 
 After these files are created and transfered to the server, you will want to
@@ -295,3 +295,14 @@ in var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties again.
 Alan Viars
 @aviars
 
+
+
+Appendix I - How to update the TTT release on a server
+------------------------------
+The steps that are involved in updating a release of the TTT on a server are:
+6. Download and Install the ttt war 
+8. Install Certificates in the TTT
+11. Restart and Test the Server
+
+Re-installing certificates and properties file in the TTT webapp directory can be done easily by using the script:
+    /home/ubuntu/install-certs-from-default.sh
