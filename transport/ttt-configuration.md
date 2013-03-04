@@ -316,11 +316,9 @@ Appendix I - How to update the TTT release on a server
 ------------------------------
 The steps above that are involved in updating a release of the TTT on a server are:
 
-Step 6 - Download and Install the ttt war
-
-Step 8 - Install Certificates in the TTT
-
-Step 11 - Restart and Test the Server
+* Step 6 - Download and Install the ttt war
+* Step 8 - Install Certificates in the TTT
+* Step 11 - Restart and Test the Server
 
 
 
