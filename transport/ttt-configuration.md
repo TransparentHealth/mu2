@@ -4,7 +4,7 @@ Transport Testing Tool Configuration
 This document describes how to get the Trandport Testing Tool (TTT) configured
 on your own hardware or instance.
 
-Last updated: February 22, 2013 by Alan Viars
+Last updated: March 4, 2013 by Alan Viars
 
 Overview:
 ---------
@@ -80,8 +80,8 @@ Log into the server:
 
 Create the following directory and subdirectories from your home directory:
 
-    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-160/tttdir-2013-02-15.tar.gz/download -O tttdir-2013-02-12.tar.gz
-    tar zxvf tttdir-2013-02-15.tar.gz
+    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-161/tttdir-2013-02-01.tar.gz/download -O tttdir-2013-03-01.tar.gz
+    tar zxvf tttdir-2013-03-01.tar.gz
 
 
 4.  Setup a Tomcat Connector for port 8443
@@ -110,7 +110,7 @@ Replace it with the following text:
            clientAuth="true" sslProtocol="TLS"
      />
 
-Press Ctrl-x, and then "Y", to exit and sabve the changes.
+Press Ctrl-x, and then "Y", to exit and save the changes.
 
 
 Restart Tomcat7.
@@ -195,36 +195,54 @@ See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certific
 
 for how to complete this step.
 
-8. Install Certificates and Properties file in the TTT
+8. Install Certificates in the TTT
 ----------------------------------
 
 After these files are created and transfered to the server, you will want to
-place them in the correct location. Assuming that your trust anchor is "root.der",
+place them in the correct location. Assuming that your trust anchor is "example.com.der",
 your public certificate is "ttt.your-domain.com.der", and your domain level signing
 certificate is "ttt.your-domain.com.p12", the copy these files to their required
 location. assuming these files are your current directory, then execute the
 following commands.
 
-    sudo cp root.der /var/lib/tomcat7/webapps/ttt/pubcert/
+    sudo cp example.com.der /var/lib/tomcat7/webapps/ttt/pubcert/
     sudo cp ttt.your-domain.com.der /var/lib/tomcat7/webapps/ttt/pubcert/
-    sudo cp invalid-trust-relationship.der /var/lib/tomcat7/webapps/ttt/pubcert/
     cp ttt.your-domain.com.der  ~/tttdir/external_cache/direct/encrypt_certs
     sudo cp ttt.your-domain.com.p12 /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
     cp ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/signing_cert/
     touch ~/tttdir/external_cache/direct/signing_cert/password.txt
     cd /var/lib/tomcat7/webapps/ttt/WEB-INF/privcert/
     sudo rm mykeystore.p12
-    sudo chown tomcat7 *; sudo chgrp tomcat7 *
+
     
     
 Set the file names in tk_props to the filenames used above. We are assuming that
 your public cert is named "ttt.your-domain.com.der" and your trust anchor is
-"root.der".  Change these to match the name of your files.
+"example.com.der".  Change these to match the name of your files.
     
     cd ~/tttdir/external_cache
     sed -i -e 's/my-public-cert.der/ttt.your-domain.com.der/g' tk_props.txt
-    sed -i -e 's/my-trust-anchor.der/root.der/g' tk_props.txt
+    sed -i -e 's/my-trust-anchor.der/example.com.der/g' tk_props.txt
     sed -i -e 's/my-invtrustrel.der/invalid-trust-relationship.der/g' tk_props.txt
+
+Install the certificates for negative testing in subfolders within the
+~/tttdir/external_cached/direct and for download in
+/var/lib/tomcat7/webapps/ttt/pubcert/.  These include an invalid trust relationship,
+an expired certificate, and an invalid certificate. 
+
+
+    cp expired-ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/exp_signing_cert/ttt.your-domain.com.p12
+    cp invalid-ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/inv_signing_cert/ttt.your-domain.com.p12
+    cp other.der ~/tttdir/external_cache/direct/diff_trust_anchor/
+    sudo cp invalid-trust-relationship.der /var/lib/tomcat7/webapps/ttt/pubcert/invalid-trust-relationship.der
+
+
+Set the file names in tk_props to the filenames used above. Change these to
+match the name of your files.
+
+    cd ~/tttdir/external_cache
+    sed -i -e 's/my-invtrustrel.der/invalid-trust-relationship.der/g' tk_props.txt
+
 
 Change the owndership and permissions on the external_cache and logs directory
 
@@ -294,7 +312,6 @@ in var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties again.
 
 Alan Viars
 @aviars
-
 
 
 Appendix I - How to update the TTT release on a server
