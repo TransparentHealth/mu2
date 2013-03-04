@@ -101,14 +101,12 @@ Locate the commented out section that looks like this:
 
 Replace it with the following text:
 
-    <Connector port="8443"
-            protocol="HTTP/1.1"
-            maxThreads="200"
-           scheme="https" secure="true" SSLEnabled="true"
-           keystoreFile="/home/ubuntu/tttdir/external_cache/keystore" keystorePass="changeit"
-           truststoreFile="/home/ubuntu/tttdir/external_cache/keystore" truststorePass="changeit"
-           clientAuth="true" sslProtocol="TLS"
-     />
+    <Connector port="8443" protocol="HTTP/1.1" maxThreads="200"
+        scheme="https" secure="true" SSLEnabled="true"
+        keystoreFile="/home/ubuntu/tttdir/external_cache/keystore" keystorePass="changeit"
+        truststoreFile="/home/ubuntu/tttdir/external_cache/keystore" truststorePass="changeit"
+        clientAuth="true" sslProtocol="TLS"
+    />
 
 Press Ctrl-x, and then "Y", to exit and save the changes.
 
