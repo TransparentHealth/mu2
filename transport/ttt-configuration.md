@@ -4,7 +4,7 @@ Transport Testing Tool Configuration
 This document describes how to get the Trandport Testing Tool (TTT) configured
 on your own hardware or instance.
 
-Last updated: March 4, 2013 by Alan Viars
+Last updated: March 5, 2013 by Alan Viars
 
 Overview:
 ---------
@@ -231,6 +231,7 @@ an expired certificate, and an invalid certificate.
 
     cp expired-ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/exp_signing_cert/ttt.your-domain.com.p12
     cp invalid-ttt.your-domain.com.p12 ~/tttdir/external_cache/direct/inv_signing_cert/ttt.your-domain.com.p12
+    cp cert-from-other-trust-anchor.p12 ~/tttdir/external_cache/direct/diff_trust_anchor/ttt.your-domain.com.p12
     cp other.der ~/tttdir/external_cache/direct/diff_trust_anchor/
     sudo cp invalid-trust-relationship.der /var/lib/tomcat7/webapps/ttt/pubcert/invalid-trust-relationship.der
 
