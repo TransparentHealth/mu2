@@ -80,7 +80,7 @@ Log into the server:
 
 Create the following directory and subdirectories from your home directory:
 
-    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-161/tttdir-2013-02-01.tar.gz/download -O tttdir-2013-03-01.tar.gz
+    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-161/tttdir-2013-03-01.tar.gz/download -O tttdir-2013-03-01.tar.gz
     tar zxvf tttdir-2013-03-01.tar.gz
 
 
