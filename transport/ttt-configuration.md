@@ -19,7 +19,7 @@ are supported at this time. The high-level tasks are as follows:
 5. Adjust the settings in the "tk_props.txt" file.
 6. Download and Install the ttt war.
 7. Create/Obtain certificates for your domain
-8. Install certificatse in the TTT
+8. Install certificates in the TTT
 9. Start the SMTP daemon.
 10. Create the output folder for Direct validation messages.
 11. Test the server.
@@ -142,7 +142,7 @@ Log into the server:
 Download the ttt war and the listner scripts:
 
 
-    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-160/ttt.war/download -O ttt.war
+    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-161/ttt.war/download -O ttt.war
         
 
 Install the ttt war file:
