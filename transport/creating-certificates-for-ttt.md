@@ -1,7 +1,7 @@
 Using the VMWare Image to Create Certificates for Transport Testing Tool (TTT)
 ==============================================================================
 
-Last updated: February 19, 2013 by Alan Viars
+Last updated: March 8th, 2013 by Alan Viars
 
 The goal of this document is to demonstrate how to create direct certificates
 for use with NIST's Transport Testing Tool (TTT). If you have a "headless" server
@@ -40,7 +40,26 @@ Type this into the terminal:
     ./certGen.sh
 
 
-You are now ready to create certificates for TTT described in the following
+You will need to create:
+
+*Good Certificates-*
+
+   1. a Trust Anchor, we will name "root". You will need the file "roo.der".
+   2. A domain-bound certificates, buit from the aformentioned "root.", for
+   "ttt.your-domain.com". You will need the files "ttt.your-domain.com.p12" and
+   "ttt.your-domain.com.der".
+
+*Negative Certificates-*
+
+   1. An expired certificate.
+   2. An invalid certificate whereby the email subject name is bogus.
+   3. An invalid trurst relationship. We will call this
+   "invalid-trust-relationship"  in these instructions. This anchor is valid,
+   but if you use it in conjunction with "ttt.your-domain.com" from #2, in Good
+   Certificates then it would be invalis because the domain-bound certifcate was
+   not created with this trust anchor.
+
+Details for creating a each type of certificate is detailed  in the following
 sections.
 
 
@@ -74,7 +93,7 @@ these two files along with your password to reload the CA.
 
 
 Create a Domain Bound Certificate
-----------------------------------
+---------------------------------
 
 1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
@@ -102,10 +121,56 @@ DO NOT add a password.
 "direct.example.com.p12", and "direct.example.comKey.der" in the
 /home/ubuntu/direct/tools/ directory.
 
-Create Another Root CA / Trust Anchor to be Used in the Invalid Trust Relationship Test
----------------------------------------------------------------------------------------
 
-1. Close certGen.sh, and the restart it.
+Neagative 1: Expired
+--------------------
+
+
+ 1. An expired certificate.
+   2. An invalid certificate whereby the email subject name is bogus.
+
+    CN:                             [Name for your CA - ex. "Invalid trust relationship for your-domain.com"]
+    Country:                        [Your Country] # Use two letter ISO code, e.g. US.
+    State:                          [Your State]
+    Location:                       [Your City]
+    Org:                            [Your Organization Name]
+    Email:                          [ttt.your-domain.com]
+    Expiration Days:                0
+    Key Strength:                   1024
+    Password:                       [Your password]
+    Add Email to Alt Subject Names: Checked
+
+![Screen shot of certGen used to create an expired domain-bound certificate]
+(http://certgen.s3.amazonaws.com/expired.png
+"Create an Expired Domain-Bound Certificate")
+
+
+Negative 2: Invalid
+-------------------
+
+This is invalid certificate whereby the email subject name is bogus.
+
+    CN:                             [Name for your CA - ex. "Invalid trust relationship for your-domain.com"]
+    Country:                        [Your Country] # Use two letter ISO code, e.g. US.
+    State:                          [Your State]
+    Location:                       [Your City]
+    Org:                            [Your Organization Name]
+    Email:                          [bogus.domain.com]
+    Expiration Days:                365
+    Key Strength:                   1024
+    Password:                       [Your password]
+    Add Email to Alt Subject Names: Checked
+
+
+![Screen shot of certGen used to create an invalid domain-bound certificate]
+(http://certgen.s3.amazonaws.com/invalid.png
+"Create an Invalid  Domain-Bound Certificate")
+
+
+Negative 3: Create Another Root CA / Trust Anchor to be Used in the Invalid Trust Relationship Test
+---------------------------------------------------------------------------------------------------
+
+1. Close the leaft node dialoge if certGen.sh, and the restart it.
 
 2. Enter the appropriate values for the CA you are creating in the certGen tool
 following the example shown in the figure below. You only need to create one CA.
@@ -116,7 +181,7 @@ following the example shown in the figure below. You only need to create one CA.
     State:                          [Your State]
     Location:                       [Your City]
     Org:                            [Your Organization Name]
-    Email:                          [Email for Root CA - ex. invalid-trust-relationship@ttt.your-domain.com]
+    Email:                          [root@otheranchor.com]
     Expiration Days:                365
     Key Strength:                   1024
     Password:                       [Your password]

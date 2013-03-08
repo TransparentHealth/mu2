@@ -4,7 +4,7 @@ Transport Testing Tool Configuration
 This document describes how to get the Trandport Testing Tool (TTT) configured
 on your own hardware or instance.
 
-Last updated: March 5, 2013 by Alan Viars
+Last updated: March 8, 2013 by Alan Viars
 
 Overview:
 ---------
@@ -173,24 +173,29 @@ Now restart Tomcat
 ---------------------------------------------
 
 You will need to create:
-   1. a Trust anchor CA, we will name "root". You will need the file "roo.der".
+
+*Good Certificates-*
+
+   1. a Trust anchor, we will name "root". You will need the file "roo.der".
    2. A domain-bound certificates, buit from the aformentioned "root.", for
    "ttt.your-domain.com". You will need the files "ttt.your-domain.com.p12" and
    "ttt.your-domain.com.der".
-   3.  Another trust anchor to serve as an untrusted anchor. We will call this
-   "invalid-trust-relationship", and you will need the file
-   "invalid-trust-relationship.der". This anchor is valid, but if you use it in
-   conjunction with "ttt.your-domain.com" from #2, then it would be invalis because
-   the domain-bound certifcate was not created with this trust anchor.
+
+*Negative Certificates-*
+
+   1. An expired certificate
+   2. An invalid certificate whereby the email subject name is bogus.
+   3. An invalid trurst relationship. We will call this
+   "invalid-trust-relationship"  in these instructions. This anchor is valid,
+   but if you use it in conjunction with "ttt.your-domain.com" from #2, in Good
+   Certificates then it would be invalis because the domain-bound certifcate was
+   not created with this trust anchor.
    
 To generate these files, we will use the tool "certGen.sh" that is bundled with
-the Java Direct RI.  There is a direct
-
-The following link describes how you can go about doing this using the certGen
-tool that comes bundled with Java Direct Reference Implementation (RI)
-
-See https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certificates-for-ttt.md
-
+the Java Direct RI.  There is a directThe following link describes how you can
+go about doing this using the certGen tool that comes bundled with Java Direct
+Reference Implementation (RI). See
+https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certificates-for-ttt.md
 for how to complete this step.
 
 8. Install Certificates in the TTT
@@ -313,14 +318,13 @@ Alan Viars
 @aviars
 
 
-Appendix I - How to update the TTT release on a server
-------------------------------
+Appendix I - How to Update the TTT release on a Derver -  by Dians Azais
+------------------------------------------------------------------------
 The steps above that are involved in updating a release of the TTT on a server are:
 
-* Step 6 - Download and Install the ttt war
-* Step 8 - Install Certificates in the TTT
+* Step 6 -  Download and Install the ttt war
+* Step 8 -  Install Certificates in the TTT
 * Step 11 - Restart and Test the Server
-
 
 
 Here is a quick summary of these steps in case you only want to UPDATE the tool.
@@ -329,15 +333,14 @@ Here is a quick summary of these steps in case you only want to UPDATE the tool.
 2. Restart the server in order to install the file that you just copied. This will regenerate the WEB-INF directory for the web application.
 3. Re-installing certificates in the TTT webapp directory can be done easily by using the script install-certs-from-default. The script is configured to be used only on transparenthealth.com.
 
-    `sudo bash /home/ubuntu/install-certs-from-default.sh`
+    sudo bash /home/ubuntu/install-certs-from-default.sh
     
 4. Copy file toolkit.properties to the WEB-INF directory. The default toolkit.properties file is stored under /home/ubuntu. 
 
-    `sudo cp /home/ubuntu/toolkit.properties /var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties`
+    sudo cp /home/ubuntu/toolkit.properties /var/lib/tomcat7/webapps/ttt/WEB-INF/toolkit.properties
     
 5. Restart and test the server as described in step 11 above:
 
-    `sudo service tomcat7 restart`
-
-    `nmap 127.0.0.1`
+    sudo service tomcat7 restart
+    nmap 127.0.0.1
 
