@@ -318,7 +318,7 @@ Alan Viars
 @aviars
 
 
-Appendix I - How to Update the TTT release on a Derver -  by Dians Azais
+Appendix I - How to update the TTT release on a server
 ------------------------------------------------------------------------
 The steps above that are involved in updating a release of the TTT on a server are:
 
