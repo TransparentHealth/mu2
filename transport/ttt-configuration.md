@@ -1,7 +1,7 @@
 Transport Testing Tool Configuration
 ====================================
 
-This document describes how to get the Trandport Testing Tool (TTT) configured
+This document describes how to get the Transport Testing Tool (TTT) configured
 on your own hardware or instance.
 
 Last updated: March 8, 2013 by Alan Viars
