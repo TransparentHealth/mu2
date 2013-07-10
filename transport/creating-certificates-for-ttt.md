@@ -207,9 +207,9 @@ and "ttt.example.com.p12" in the /home/ubuntu/direct/tools/ directory.
 their own directory called "good".  This is necessary because the next steps will
 overwrite these files because they will have the same file names.
 
-    > mkdir good
-    > mv example.com* good/
-    > mv ttt.example* good/
+    mkdir good
+    mv example.com* good
+    mv ttt.example.com* good
 
 
 
@@ -240,8 +240,8 @@ Expired (#2)
 called "expired".  This is necessary because the next steps will
 overwrite these files because they will have the same file names.
 
-    > mkdir expired
-    > mv ttt.example* expired/
+    mkdir expired
+    mv ttt.example* expired
 
 
 
@@ -275,9 +275,9 @@ following the example shown in the figure below. You only need to create one CA.
 /home/ubuntu/direct/tools directory.  Place these in their own directory called,
 invalid-trust-relationship" to avoid confusing this with your other sets of certificates.
 
-    > mkdir invalid-trust-relationship
-    > cp example.com* invalid-trust-relationship/
-    > cp good/ttt.example.com* invalid-trust-relationship/
+    mkdir invalid-trust-relationship
+    cp example.com* invalid-trust-relationship
+    cp good/ttt.example.com* invalid-trust-relationship
 
 The above step will result in a folder containing a trust anchor and endpoint that
 do not match.
