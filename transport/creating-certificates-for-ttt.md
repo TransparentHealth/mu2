@@ -21,7 +21,7 @@ As a primer, please read section 4 "Trust Verification" in
 
 http://wiki.directproject.org/file/view/Applicability%20Statement%20for%20Secure%20Health%20Transport%20v1.1.pdf
 
-As you see there are 5 criteria for Trust Verification.
+As you see, there are 5 conditions to satisfy for Trust Verification.
 
 1. Has not expired
 2. Has a valid signature
@@ -40,7 +40,7 @@ outlines current support.
     4. Binding to the expected entity       N                 See note++      Negative
     5. Has a trusted certificate path    Partial              See note+++     Negative
 
-+ *Revocation*: *Revocation via CRL or otherwise, is not supported by the certGen.*
++ **Revocation**: *Revocation via CRL or otherwise, is not supported by the certGen.*
 
 ++ **For email-bound certificates**: *If the subjectAltName extension is present
 and an rfc822Name is included then it contains the e-mail address.
@@ -71,10 +71,10 @@ Certificates to Create
 
 Good Certificates
 ------------------
-   1. a Trust Anchor, we will name "your-domain.com". You will need the file "your-domain.der".
-   2. A domain-bound certificates, built from the aforementioned "your-domain.", for
-   "ttt.your-domain.com". You will need the files "ttt.your-domain.com.p12" and
-   "ttt.your-domain.com.der".
+   1. a Trust Anchor, we will name "example.com". You will need the file "example.der".
+   2. A domain-bound certificates, built from the aforementioned "example.com", for
+   "ttt.example.com". You will need the files "ttt.example.com.p12" and
+   "ttt.example.com.der".
 
 Negative Certificates
 ----------------------
@@ -115,18 +115,18 @@ Running the Canned version of CertGen using VMWare
 
 1. Download the file [http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip]
 (http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip)
-1. Unzip the file "certGen-Ubuntu-12-LTS-64bit.zip" to a folder such as "certgen-vm".
-2. Download VMWare Player from [http://www.vmware.com/products/player/]
+2. Unzip the file "certGen-Ubuntu-12-LTS-64bit.zip" to a folder such as "certgen-vm".
+3. Download VMWare Player from [http://www.vmware.com/products/player/]
 (http://www.vmware.com/products/player/)
-3. Start VMWare Player.
-4. Press Ctrl-O to open a VMWare Image
-5. Navigate to folder extracted in step 1 and select the file
+4. Start VMWare Player.
+5. Press Ctrl-O to open a VMWare Image
+6. Navigate to folder extracted in step 1 and select the file
 "Direct certGen - Ubuntu64-bit.vmx" and click "Open".
-6. When the virtual VM is completely booted you will see a Desktop.
+7. When the virtual VM is completely booted you will see a Desktop.
 There is no password or login required, but the user and password are:
 ubuntu/adm1nD1r3ct
-7. Press Ctrl-Alt-T to open up a terminal window.
-8. Start the certGen tool.
+8. Press Ctrl-Alt-T to open up a terminal window.
+9. Start the certGen tool.
 
 Type this into the terminal:
 
@@ -144,12 +144,12 @@ Create a Good Root CA / Trust Anchor (# 2)
 following the example shown in the figure below. You only need to create one CA.
 
 
-    CN:                             [Name for your CA - ex. "Root for your-domain.com"]
+    CN:                             [Name for your CA - ex. "example.com"]
     Country:                        [Your Country] # Use two letter ISO code, e.g. US.
     State:                          [Your State]
     Location:                       [Your City]
     Org:                            [Your Organization Name]
-    Email:                          [your-domain.com]
+    Email:                          [example.com]
     Expiration Days:                365
     Key Strength:                   1024
     Password:                       [Your password]
@@ -160,7 +160,7 @@ following the example shown in the figure below. You only need to create one CA.
 
 
 2. Click the Create button to create the CA. This will create the files
-"your-domain.com.der" and "your-domain.comKey.der" in the /home/ubuntu/direct/tools directory.
+"example.com.der" and "example.comKey.der" in the /home/ubuntu/direct/tools directory.
 If you need to create more leaf certificates from this CA later, You will need
 these two files along with your password to reload the CA.
 
