@@ -66,7 +66,8 @@ Experimental support for conditions 3 and 4 are possible using https://DirectCA.
 but currently this is approach is not officially supported.  See section "Other
 Negative Tests" for more details.
 
-You will need to create:
+Certificates to Create
+======================
 
 *Good Certificates-*
 
@@ -108,7 +109,7 @@ chain (2 nodes or more from the Trust anchor).
 
 
 Running the Canned version of CertGen using VMWare
---------------------------------------------------
+==================================================
 
 1. Download the file [http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip]
 (http://certgen.s3.amazonaws.com/certGen-Ubuntu-12-LTS-64bit.zip)
@@ -134,8 +135,8 @@ Details for creating a each type of certificate is detailed  in the following
 sections.
 
 
-Create a Root CA / Trust Anchor
--------------------------------
+Create a Good Root CA / Trust Anchor (# 2)
+==========================================
 
 1. Enter the appropriate values for the CA you are creating in the certGen tool
 following the example shown in the figure below. You only need to create one CA.
@@ -146,7 +147,7 @@ following the example shown in the figure below. You only need to create one CA.
     State:                          [Your State]
     Location:                       [Your City]
     Org:                            [Your Organization Name]
-    Email:                          [Email for Root CA - ex. root@ttt.your-domain.com]
+    Email:                          [your-domain.com]
     Expiration Days:                365
     Key Strength:                   1024
     Password:                       [Your password]
@@ -157,25 +158,25 @@ following the example shown in the figure below. You only need to create one CA.
 
 
 2. Click the Create button to create the CA. This will create the files
-"root.der" and "rootKey.der" in the /home/ubuntu/direct/tools directory.
+"your-domain.com.der" and "your-domain.comKey.der" in the /home/ubuntu/direct/tools directory.
 If you need to create more leaf certificates from this CA later, You will need
 these two files along with your password to reload the CA.
 
 
 
-Create a Domain Bound Certificate
----------------------------------
+Create a Good Domain Bound Certificate (#2)
+===========================================
 
-1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
+2. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
 
-    CN:                                 [ttt.your-domain.com]
+    CN:                                 [ttt.example.com]
     Country:                            [Your Country] # Use two letter ISO code, e.g. US.
     State:                              [Your State]
     Location:                           [Your City]
     Org:                                [Your Organization Name]
-    Email:                              [ttt.your-domain.com] #Notice this is not actually an email.
+    Email:                              [ttt.example.com] #Notice this is not actually an email.
     Expiration Days:                    365
     Key Strength:                       1024
     Password:                           LEAVE BLANK
@@ -188,26 +189,26 @@ DO NOT add a password.
 "Create a Domain-Bound Certificate")
 
 
-2. Click the "Create" button.This will create the files "direct.example.com.der",
-"direct.example.com.p12", and "direct.example.comKey.der" in the
-/home/ubuntu/direct/tools/ directory.
+2. Click the "Create" button.This will create the files "ttt.example.com.der",
+and "ttt.example.com.p12" in the /home/ubuntu/direct/tools/ directory.
 
 
-Negative 1: Expired
---------------------
+Expired (#2)
+============
 
 
- 1. An expired certificate.
+ 1. Using the Good Trust Anchor from above, create an expired domain-bound
+ endpoint certificate.
 
-    CN:                             [Name for your CA - ex. "Invalid trust relationship for your-domain.com"]
+    CN:                             [Name for your CA - ex. "ttt.example.com"]
     Country:                        [Your Country] # Use two letter ISO code, e.g. US.
     State:                          [Your State]
     Location:                       [Your City]
     Org:                            [Your Organization Name]
-    Email:                          [ttt.your-domain.com]
+    Email:                          [ttt.example.com]
     Expiration Days:                0
     Key Strength:                   1024
-    Password:                       [Your password]
+    Password:                       LEAVE BLANK
     Add Email to Alt Subject Names: Checked
 
 ![Screen shot of certGen used to create an expired domain-bound certificate]
@@ -215,43 +216,22 @@ Negative 1: Expired
 "Create an Expired Domain-Bound Certificate")
 
 
-Negative 2: Invalid
--------------------
 
-This is invalid certificate whereby the email subject name is bogus.
+Create Another Root CA / Trust Anchor to be Used in the Invalid Trust Relationship Test (#5)
+============================================================================================
 
-    CN:                             [Name for your CA - ex. "Invalid trust relationship for your-domain.com"]
-    Country:                        [Your Country] # Use two letter ISO code, e.g. US.
-    State:                          [Your State]
-    Location:                       [Your City]
-    Org:                            [Your Organization Name]
-    Email:                          [bogus.domain.com]
-    Expiration Days:                365
-    Key Strength:                   1024
-    Password:                       [Your password]
-    Add Email to Alt Subject Names: Checked
-
-
-![Screen shot of certGen used to create an invalid domain-bound certificate]
-(http://certgen.s3.amazonaws.com/invalid.png
-"Create an Invalid  Domain-Bound Certificate")
-
-
-Negative 3: Create Another Root CA / Trust Anchor to be Used in the Invalid Trust Relationship Test
----------------------------------------------------------------------------------------------------
-
-1. Close the leaf node dialog if certGen.sh, and the restart it.
+1. Restart certGen.sh.
 
 2. Enter the appropriate values for the CA you are creating in the certGen tool
 following the example shown in the figure below. You only need to create one CA.
 
 
-    CN:                             [Name for your CA - ex. "Invalid trust relationship for your-domain.com"]
+    CN:                             [Name for your CA - ex. "example.com"]
     Country:                        [Your Country] # Use two letter ISO code, e.g. US.
     State:                          [Your State]
     Location:                       [Your City]
     Org:                            [Your Organization Name]
-    Email:                          [root@otheranchor.com]
+    Email:                          [example.com]
     Expiration Days:                365
     Key Strength:                   1024
     Password:                       [Your password]
@@ -263,8 +243,14 @@ following the example shown in the figure below. You only need to create one CA.
 
 
 3. Click the Create button to create the CA. This will create the files
-"root.der" and "rootKey.der" in the /home/ubuntu/direct/tools directory.
-If you need to create more leaf certificates from this CA later, You will need
-these two files along with your password to reload the CA.
+"example.com.der" and "example.comKey.der" in the
+/home/ubuntu/direct/tools directory.  Place these in their own directory called,
+invalid-trust-relationship" to avoid confusing this with your other set. 
 
+4. Install this example.com.der into the Direct implmentation.  Then attempt to
+send a Direct message using the certificate from the "Good Domain Bound Certificate"
+step.  Since this endpoint certificate was not created by this trust anchor, despite
+the fact the DNS, Common Name (CN), and Email, and Subject are the same. 
 
+Please refer to ttt.configuration.md for more explanation on installation of these
+certificates.
