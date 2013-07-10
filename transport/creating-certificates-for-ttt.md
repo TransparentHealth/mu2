@@ -36,30 +36,30 @@ outlines current support.
     ==========                          =========      =====================  =========
     1. Has not expired                      Y                 Expired         Negative
     2. Has a valid signature                Y                 Good            Positive  
-    3. Has not been revoked                 N                 Revoked*        Negative  
-    4. Binding to the expected entity       N                 See note**       Negative
-    5. Has a trusted certificate path    Partial              See note***     Negative
+    3. Has not been revoked                 N                 Revoked+        Negative  
+    4. Binding to the expected entity       N                 See note++      Negative
+    5. Has a trusted certificate path    Partial              See note+++     Negative
 
-* Revocation, via CRL or otherwise, is not supported by the certGen.
++ *Revocation*: *Revocation via CRL or otherwise, is not supported by the certGen.*
 
-** *For email-bound certificates*: If the subjectAltName extension is present
+++ **For email-bound certificates**: *If the subjectAltName extension is present
 and an rfc822Name is included then it contains the e-mail address.
 If the Subject Distinguished Name contains an EmailAddress legacy attribute,
-then it contains the e-mail address.
-If both of the previous locations contain an e-mail address, they must match.
-*For domain-bound certificates*: The subjectAltName extension is present, a
+then it contains the e-mail address. If both of the previous locations contain
+an e-mail address, they must match.
+
+++ **For domain-bound certificates**: *The subjectAltName extension is present, a
 dNSName is included, and it matches the Direct Address' Health Internet Domain.
+It is not possible for the "certGen" tool to generate a certificate with The
+subjectAltName extension is present, a dNSName is included, and it DOES NOT match
+the Direct Address' Health Internet Domain.*
 
-** It is not possible for the "certGen" tool to generate a certificate with The
-subjectAltName extension is present, a dNSName is included, and it DOES NOT matches
-the Direct Address' Health Internet Domain.
-
-*** The certificate chain is verified all the way up to the Trust Anchor. ( Version 1.1
-of the Direct Applicability Statement for Secure Health Transport Working does
-not require checking of the chain back to the Root CA, but rather just to the Trust Anchor.
-The current test procedure only tests one hop.  That is to say, it assumes that the
-endpoint certificate was created by the trust anchor and there are no intermediate
-certificates.
++++ **Trusted Certificate Path**: *The certificate chain is verified all the
+way up to the Trust Anchor. ( Version 1.1 of the Direct Applicability Statement
+for Secure Health Transport Working does not require checking of the chain back
+to the Root CA, but rather just to the Trust Anchor. The current test procedure
+only tests one hop.  That is to say, it assumes that the endpoint certificate
+was created by the trust anchor and there are no intermediate certificates.*
 
 
 Experimental support for conditions 3 and 4 are possible using https://DirectCA.org,
