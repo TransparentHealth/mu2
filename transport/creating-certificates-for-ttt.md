@@ -69,14 +69,15 @@ Negative Tests" for more details.
 Certificates to Create
 ======================
 
-*Good Certificates-*
-
+Good Certificates
+------------------
    1. a Trust Anchor, we will name "your-domain.com". You will need the file "your-domain.der".
    2. A domain-bound certificates, built from the aforementioned "your-domain.", for
    "ttt.your-domain.com". You will need the files "ttt.your-domain.com.p12" and
    "ttt.your-domain.com.der".
 
-*Negative Certificates-*
+Negative Certificates
+----------------------
 
    1. An expired certificate.
    2. An invalid trust relationship. We will call this
@@ -86,26 +87,27 @@ Certificates to Create
    invalid because the domain-bound certificate was not created with this trust
    anchor.
 
-*Other Negative Tests*
+Other Negative Tests
+--------------------
 
 ATLs are currently not testing 3, 4, and are partially testing 5.
 
 
-# 3. Revocation -  The Direct Applicbility Statement version 1.1 does not specify
+3. Revocation -  The Direct Applicbility Statement version 1.1 does not specify
 how revocation is to be performed.  The Java RI implements certificate revocation
 lists (CRL), but other Direct implementation do it some other way.The web based
 certificate generation tool, https://DirectCA.org  , provides experimental
 support for this test, but this is not officially supported.
 
-# 4. Binding to the expected entity - It is not possible for the "certGen" tool
+4. Binding to the expected entity - It is not possible for the "certGen" tool
 to generate a certificate with The subjectAltName extension is present, a
 dNSName is included, and it DOES NOT matches the Direct Address' Health
 Internet Domain.  Other tools attempt to prevent this mistake as well.
 The web based certificate generation tool, https://DirectCA.org  , provides
 experimental support for this test, but this is not officially supported.
 
-# 5. The test procedure needs to be updated to require the building of a multi-node
-chain (2 nodes or more from the Trust anchor).
+5. The test procedure needs to be updated to require the building of a multi-node
+chain (2 nodes or more away from the Trust Anchor).
 
 
 Running the Canned version of CertGen using VMWare
