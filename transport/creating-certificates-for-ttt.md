@@ -42,13 +42,13 @@ outlines current support.
 
 * Revocation, via CRL or otherwise, is not supported by the certGen.
 
-** For email-bound certificates,
-    + If the subjectAltName extension is present and an rfc822Name is included then it contains the e-mail address.
-    + If the Subject Distinguished Name contains an EmailAddress legacy attribute, then it contains the e-mail address.
-    + If both of the previous locations contain an e-mail address, they must match
-    
-** For domain-bound certificates,
-    + The subjectAltName extension is present, a dNSName is included, and it matches the Direct Address' Health Internet Domain.
+** *For email-bound certificates*: If the subjectAltName extension is present
+and an rfc822Name is included then it contains the e-mail address.
+If the Subject Distinguished Name contains an EmailAddress legacy attribute,
+then it contains the e-mail address.
+If both of the previous locations contain an e-mail address, they must match.
+*For domain-bound certificates*: The subjectAltName extension is present, a
+dNSName is included, and it matches the Direct Address' Health Internet Domain.
 
 ** It is not possible for the "certGen" tool to generate a certificate with The
 subjectAltName extension is present, a dNSName is included, and it DOES NOT matches
