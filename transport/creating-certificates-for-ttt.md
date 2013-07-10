@@ -140,6 +140,10 @@ sections.
 Create a Good Root CA / Trust Anchor (# 2)
 ==========================================
 
+This certificate is for testing "2. Has a valid signature ".  It is used in
+conjunction with the domain-bound endpoint certificate decribed in the next
+section of this document.
+
 1. Enter the appropriate values for the CA you are creating in the certGen tool
 following the example shown in the figure below. You only need to create one CA.
 
@@ -169,7 +173,12 @@ these two files along with your password to reload the CA.
 Create a Good Domain Bound Certificate (#2)
 ===========================================
 
-2. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
+This certificate is for testing "2. Has a valid signature ".  It is used in
+conjunction with the trust anchor certificate decribed in the previous
+section of this document.
+
+
+1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
 
@@ -194,12 +203,21 @@ DO NOT add a password.
 2. Click the "Create" button.This will create the files "ttt.example.com.der",
 and "ttt.example.com.p12" in the /home/ubuntu/direct/tools/ directory.
 
+3. Copy the trust anchor and domain-bound endpoint certificates to files to
+their own directory called "good".  This is necessary because the next steps will
+overwrite these files because they will have the same file names.
+
+    > mkdir good
+    > mv example.com* good/
+    > mv ttt.example* good/
+
+
 
 Expired (#2)
 ============
 
 
- 1. Using the Good Trust Anchor from above, create an expired domain-bound
+1. Using the Good Trust Anchor from above, create an expired domain-bound
  endpoint certificate.
 
     CN:                             [Name for your CA - ex. "ttt.example.com"]
@@ -216,6 +234,14 @@ Expired (#2)
 ![Screen shot of certGen used to create an expired domain-bound certificate]
 (http://certgen.s3.amazonaws.com/expired.png
 "Create an Expired Domain-Bound Certificate")
+
+
+2. Copy this domain-bound endpoint's certificates to their own directory
+called "expired".  This is necessary because the next steps will
+overwrite these files because they will have the same file names.
+
+    > mkdir expired
+    > mv ttt.example* expired/
 
 
 
@@ -247,12 +273,20 @@ following the example shown in the figure below. You only need to create one CA.
 3. Click the Create button to create the CA. This will create the files
 "example.com.der" and "example.comKey.der" in the
 /home/ubuntu/direct/tools directory.  Place these in their own directory called,
-invalid-trust-relationship" to avoid confusing this with your other set. 
+invalid-trust-relationship" to avoid confusing this with your other sets of certificates.
+
+    > mkdir invalid-trust-relationship
+    > cp example.com* invalid-trust-relationship/
+    > cp good/ttt.example.com* invalid-trust-relationship/
+
+The above step will result in a folder containing a trust anchor and endpoint that
+do not match.
+
 
 4. Install this example.com.der into the Direct implmentation.  Then attempt to
 send a Direct message using the certificate from the "Good Domain Bound Certificate"
 step.  Since this endpoint certificate was not created by this trust anchor, despite
 the fact the DNS, Common Name (CN), and Email, and Subject are the same. 
 
-Please refer to ttt.configuration.md for more explanation on installation of these
+Please refer to ttt-configuration.md for more explanation on installation of these
 certificates.
