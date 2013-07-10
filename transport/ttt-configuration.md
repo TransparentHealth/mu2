@@ -1,10 +1,11 @@
 Transport Testing Tool Configuration
 ====================================
 
+Last updated: July 10th, 2013 by Alan Viars
+
 This document describes how to get the Transport Testing Tool (TTT) configured
 on your own hardware or instance.
 
-Last updated: March 8, 2013 by Alan Viars
 
 Overview:
 ---------
@@ -172,31 +173,33 @@ Now restart Tomcat
 7. Create/Obtain certificates for your Domain 
 ---------------------------------------------
 
+See
+https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certificates-for-ttt.md
+for how to complete this step.
+
 You will need to create:
 
 *Good Certificates-*
 
-   1. a Trust anchor, we will name "root". You will need the file "roo.der".
-   2. A domain-bound certificates, buit from the aformentioned "root.", for
-   "ttt.your-domain.com". You will need the files "ttt.your-domain.com.p12" and
-   "ttt.your-domain.com.der".
+   1. a Trust anchor, we will name "example.com". You will need the file "example.com.der".
+   2. A domain-bound certificate, buit from the aformentioned "example.com", for
+   "ttt.example.com". You will need the files generated from this step called
+   "ttt.example.com.p12" and "ttt.example.com.der".
 
 *Negative Certificates-*
 
    1. An expired certificate
-   2. An invalid certificate whereby the email subject name is bogus.
-   3. An invalid trurst relationship. We will call this
-   "invalid-trust-relationship"  in these instructions. This anchor is valid,
+   2. An invalid certificate whereby the email subject name do not match. (Not possible with certGen)
+   3. An invalid trust relationship. We will call this
+   "invalid-trust-relationship" in these instructions. This anchor is valid,
    but if you use it in conjunction with "ttt.your-domain.com" from #2, in Good
-   Certificates then it would be invalis because the domain-bound certifcate was
+   Certificates then it would be invalid because the domain-bound certifcate was
    not created with this trust anchor.
    
 To generate these files, we will use the tool "certGen.sh" that is bundled with
-the Java Direct RI.  There is a directThe following link describes how you can
+the Java Direct RI.  The following link describes how you can
 go about doing this using the certGen tool that comes bundled with Java Direct
-Reference Implementation (RI). See
-https://github.com/meaningfuluse/mu2/blob/master/transport/creating-certificates-for-ttt.md
-for how to complete this step.
+Reference Implementation (RI). 
 
 8. Install Certificates in the TTT
 ----------------------------------
