@@ -40,7 +40,7 @@ outlines current support.
     4. Binding to the expected entity       N                 See note++      Negative
     5. Has a trusted certificate path    Partial              See note+++     Negative
 
-+ **Revocation**: *Revocation via CRL or otherwise, is not supported by the certGen.*
+\+ **Revocation**: *Revocation via CRL or otherwise, is not supported by the certGen.*
 
 ++ **For email-bound certificates**: *If the subjectAltName extension is present
 and an rfc822Name is included then it contains the e-mail address.
