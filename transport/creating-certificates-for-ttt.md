@@ -21,7 +21,7 @@ As a primer, please read section 4 "Trust Verification" in
 
 http://wiki.directproject.org/file/view/Applicability%20Statement%20for%20Secure%20Health%20Transport%20v1.1.pdf
 
-As you see there are 5 critera for Trust Verification.
+As you see there are 5 criteria for Trust Verification.
 
 1. Has not expired
 2. Has a valid signature
@@ -37,7 +37,7 @@ outlines current support.
     1. Has not expired                      Y                 Expired         Negative
     2. Has a valid signature                Y                 Good            Positive  
     3. Has not been revoked                 N                 Revoked*        Negative  
-    4. Binding to the expected entity       N                 ee note**       Negative
+    4. Binding to the expected entity       N                 See note**       Negative
     5. Has a trusted certificate path    Partial              See note***     Negative
 
 * Revocation, via CRL or otherwise, is not supported by the certGen.
@@ -50,15 +50,15 @@ outlines current support.
 ** For domain-bound certificates,
     + The subjectAltName extension is present, a dNSName is included, and it matches the Direct Address' Health Internet Domain.
 
-** It is not possible for the "certGen" tool to generate a certifcate with The
-subjectAltName extension is present, a dNSName is included, and it DOES NOT matche
+** It is not possible for the "certGen" tool to generate a certificate with The
+subjectAltName extension is present, a dNSName is included, and it DOES NOT matches
 the Direct Address' Health Internet Domain.
 
 *** The certificate chain is verified all the way up to the Trust Anchor. ( Version 1.1
 of the Direct Applicability Statement for Secure Health Transport Working does
-not require checking of the chain back to the root CA, but rather just to the CA.
-The current test proceure only tests one hop.  That is to say, it assumes that the
-endpoint certificate was created by the trust anchor and ther are no intermediate
+not require checking of the chain back to the Root CA, but rather just to the Trust Anchor.
+The current test procedure only tests one hop.  That is to say, it assumes that the
+endpoint certificate was created by the trust anchor and there are no intermediate
 certificates.
 
 
@@ -71,27 +71,40 @@ You will need to create:
 *Good Certificates-*
 
    1. a Trust Anchor, we will name "your-domain.com". You will need the file "your-domain.der".
-   2. A domain-bound certificates, buit from the aformentioned "your-domain.", for
+   2. A domain-bound certificates, built from the aforementioned "your-domain.", for
    "ttt.your-domain.com". You will need the files "ttt.your-domain.com.p12" and
    "ttt.your-domain.com.der".
 
 *Negative Certificates-*
 
    1. An expired certificate.
-   2. An invalid certificate whereby the email subject name does not match it's DNS.
-   3. An invalid trurst relationship. We will call this
+   2. An invalid trust relationship. We will call this
    "invalid-trust-relationship" in these instructions. This anchor is valid,
    but the children node were not created by this trust anchor.Use this in conjunction with
    "ttt.your-domain.com" from #2.  These node Certificates then it would be
-   invalid because the domain-bound certifcate was not created with this trust
+   invalid because the domain-bound certificate was not created with this trust
    anchor.
-
-
 
 *Other Negative Tests*
 
-(TODO)
+ATLs are currently not testing 3, 4, and are partially testing 5.
 
+
+# 3. Revocation -  The Direct Applicbility Statement version 1.1 does not specify
+how revocation is to be performed.  The Java RI implements certificate revocation
+lists (CRL), but other Direct implementation do it some other way.The web based
+certificate generation tool, https://DirectCA.org  , provides experimental
+support for this test, but this is not officially supported.
+
+# 4. Binding to the expected entity - It is not possible for the "certGen" tool
+to generate a certificate with The subjectAltName extension is present, a
+dNSName is included, and it DOES NOT matches the Direct Address' Health
+Internet Domain.  Other tools attempt to prevent this mistake as well.
+The web based certificate generation tool, https://DirectCA.org  , provides
+experimental support for this test, but this is not officially supported.
+
+# 5. The test procedure needs to be updated to require the building of a multi-node
+chain (2 nodes or more from the Trust anchor).
 
 
 Running the Canned version of CertGen using VMWare
@@ -116,10 +129,6 @@ Type this into the terminal:
 
     cd direct/tools
     ./certGen.sh
-
-
-
-
 
 Details for creating a each type of certificate is detailed  in the following
 sections.
@@ -184,7 +193,7 @@ DO NOT add a password.
 /home/ubuntu/direct/tools/ directory.
 
 
-Neagative 1: Expired
+Negative 1: Expired
 --------------------
 
 
@@ -231,7 +240,7 @@ This is invalid certificate whereby the email subject name is bogus.
 Negative 3: Create Another Root CA / Trust Anchor to be Used in the Invalid Trust Relationship Test
 ---------------------------------------------------------------------------------------------------
 
-1. Close the leaft node dialoge if certGen.sh, and the restart it.
+1. Close the leaf node dialog if certGen.sh, and the restart it.
 
 2. Enter the appropriate values for the CA you are creating in the certGen tool
 following the example shown in the figure below. You only need to create one CA.
