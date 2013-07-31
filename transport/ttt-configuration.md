@@ -1,7 +1,7 @@
 Transport Testing Tool Configuration
 ====================================
 
-Last updated: July 10th, 2013 by Alan Viars
+Last updated: July 31st, 2013 by Alan Viars
 
 This document describes how to get the Transport Testing Tool (TTT) configured
 on your own hardware or instance.
@@ -81,8 +81,8 @@ Log into the server:
 
 Create the following directory and subdirectories from your home directory:
 
-    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-161/tttdir-2013-03-01.tar.gz/download -O tttdir-2013-03-01.tar.gz
-    tar zxvf tttdir-2013-03-01.tar.gz
+    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-166/tttdir-2013-07-31.tar.gz/download -O tttdir-2013-07-31.tar.gz
+    tar zxvf tttdir-2013-07-31.tar.gz
 
 
 4.  Setup a Tomcat Connector for port 8443
@@ -143,7 +143,7 @@ Log into the server:
 Download the ttt war and the listner scripts:
 
 
-    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-161/ttt.war/download -O ttt.war
+    wget http://sourceforge.net/projects/iheos/files/TransportTestingTool/version-166/ttt.166.war/download -O ttt.war
         
 
 Install the ttt war file:
