@@ -11,9 +11,9 @@ http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-
 Transport Testing Tool (TTT)
 ============================
 
-The Trasnport Testing Tool provides a variety of functionality and will be used
+The Transport Testing Tool provides a variety of functionality and will be used
 in several MU2 criteria tests.  TTT performs CCDA validation
-(via the MDHT Jave library), Direct Testing, and SOAP/SAML.
+(via the MDHT Java library), Direct Testing, and SOAP/SAML.
 
 + Test Data  - https://github.com/meaningfuluse/mu2/tree/master/transport/test-data
 + NIST's Public Transport Testing Tool Server - http://transport-testing.nist.gov  
@@ -25,12 +25,12 @@ in several MU2 criteria tests.  TTT performs CCDA validation
 
 *NOTE: NIST does not provide support for source or .war based installations of TTT.
 
-Direct Certificatte Discovery Tool
+Direct Certificate Discovery Tool
 ==================================
 
 This tool was developed for ONC by Nitor.  It is a seperate tool than the TTT,
-but it is concievable that at some point these two tools functionality will merge
-or more tightly intergrated.
+but it is concievable that at some point these two tools' functionality will merge
+or more tightly integrate.
 
 + Public Version hosted by Nitor -  http://www.testteam.us/ModularSpecPhase3_Tool/
 + Source Code and Resources - http://code.google.com/p/direct-certificate-discovery-tool/
@@ -39,9 +39,9 @@ or more tightly intergrated.
 MDHT
 ====
 
-MDHT is used for CCDA Validation and created by Open HEalth Tools. Since this
+MDHT is used for CCDA Validation and created by Open Health Tools. Since this
 project is a Java library, it does not have a free-standing application with a
-UI.  This library is intergrated into the Transport Testing Tool.
+UI.  This library is integrated into the Transport Testing Tool.
 
 + MDHT Runtime for NIST - https://github.com/meaningfuluse/mu2/tree/master/transport/mdht
 + MDHT Homepage - https://www.projects.openhealthtools.org/sf/projects/mdht/
