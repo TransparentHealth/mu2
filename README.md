@@ -1,7 +1,7 @@
 The Meaningful Use (MU2) Repository of Useful Information
 =========================================================
 
-Last Updated August 8, 2013 by A. Viars
+Last Updated August 23, 2013 by A. Viars
 
 This repository contains information on Meaningful Use Stage 2 Certification. 
 Contents include, test data, test software, links to public test tool servers, 
