@@ -129,10 +129,10 @@ ubuntu/adm1nD1r3ct
 9. Start the certGen tool.
 
 Type this into the terminal:
-
+```
     cd direct/tools
     ./certGen.sh
-
+```
 Details for creating a each type of certificate is detailed  in the following
 sections.
 
@@ -147,7 +147,7 @@ section of this document.
 1. Enter the appropriate values for the CA you are creating in the certGen tool
 following the example shown in the figure below. You only need to create one CA.
 
-
+```
     CN:                             [Name for your CA - ex. "example.com"]
     Country:                        [Your Country] # Use two letter ISO code, e.g. US.
     State:                          [Your State]
@@ -158,7 +158,7 @@ following the example shown in the figure below. You only need to create one CA.
     Key Strength:                   1024
     Password:                       [Your password]
     Add Email to Alt Subject Names: Checked
-
+```
 ![Screen shot of certGen used to create a root certificate authority.]
 (http://certgen.s3.amazonaws.com/CA1.png "Create a Root CA")
 
@@ -181,7 +181,7 @@ section of this document.
 1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
-
+```
     CN:                                 [ttt.example.com]
     Country:                            [Your Country] # Use two letter ISO code, e.g. US.
     State:                              [Your State]
@@ -192,7 +192,7 @@ DO NOT add a password.
     Key Strength:                       1024
     Password:                           LEAVE BLANK
     Add Email to Alt Subject Names:     Checked
-
+```
 
 
 ![Screen shot of certGen used to create a domain-bound certificate]
@@ -206,11 +206,11 @@ and "ttt.example.com.p12" in the /home/ubuntu/direct/tools/ directory.
 3. Copy the trust anchor and domain-bound endpoint certificates to files to
 their own directory called "good".  This is necessary because the next steps will
 overwrite these files because they will have the same file names.
-
+```
     mkdir good
     mv example.com* good
     mv ttt.example.com* good
-
+```
 
 
 Expired (#2)
@@ -219,7 +219,7 @@ Expired (#2)
 
 1. Using the Good Trust Anchor from above, create an expired domain-bound
  endpoint certificate.
-
+```
     CN:                             [Name for your CA - ex. "ttt.example.com"]
     Country:                        [Your Country] # Use two letter ISO code, e.g. US.
     State:                          [Your State]
@@ -230,7 +230,7 @@ Expired (#2)
     Key Strength:                   1024
     Password:                       LEAVE BLANK
     Add Email to Alt Subject Names: Checked
-
+```
 ![Screen shot of certGen used to create an expired domain-bound certificate]
 (http://certgen.s3.amazonaws.com/expired.png
 "Create an Expired Domain-Bound Certificate")
@@ -239,10 +239,10 @@ Expired (#2)
 2. Copy this domain-bound endpoint's certificates to their own directory
 called "expired".  This is necessary because the next steps will
 overwrite these files because they will have the same file names.
-
+```
     mkdir expired
     mv ttt.example* expired
-
+```
 
 
 Create Another Root CA / Trust Anchor to be Used in the Invalid Trust Relationship Test (#5)
@@ -253,7 +253,7 @@ Create Another Root CA / Trust Anchor to be Used in the Invalid Trust Relationsh
 2. Enter the appropriate values for the CA you are creating in the certGen tool
 following the example shown in the figure below. You only need to create one CA.
 
-
+```
     CN:                             [Name for your CA - ex. "example.com"]
     Country:                        [Your Country] # Use two letter ISO code, e.g. US.
     State:                          [Your State]
@@ -264,7 +264,7 @@ following the example shown in the figure below. You only need to create one CA.
     Key Strength:                   1024
     Password:                       [Your password]
     Add Email to Alt Subject Names: Checked
-
+```
 ![Screen shot of certGen used to create a root certificate authority.]
 (http://certgen.s3.amazonaws.com/CA2.png
 "Create a Root CA")
@@ -274,11 +274,11 @@ following the example shown in the figure below. You only need to create one CA.
 "example.com.der" and "example.comKey.der" in the
 /home/ubuntu/direct/tools directory.  Place these in their own directory called,
 invalid-trust-relationship" to avoid confusing this with your other sets of certificates.
-
+```
     mkdir invalid-trust-relationship
     cp example.com* invalid-trust-relationship
     cp good/ttt.example.com* invalid-trust-relationship
-
+```
 The above step will result in a folder containing a trust anchor and endpoint that
 do not match.
 
