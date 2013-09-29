@@ -76,6 +76,7 @@ Create a Domain Bound Certificate
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
 
+```
     CN:                                 [direct.example.com]
     Country:                            [Your Country] # Use two letter ISO code, e.g. US.
     State:                              [Your State]
@@ -86,7 +87,7 @@ DO NOT add a password.
     Key Strength:                       1024
     Password:                           LEAVE BLANK
     Add Email to Alt Subject Names:     Checked
-
+```
 
 
 ![Screen shot of certGen used to create a domain-bound certificate]
@@ -106,7 +107,7 @@ Create an Address-Bound Certificate
 1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
-
+```
     CN:                                 [The cert's email e.g. provider1@direct.example.com]
     Country:                            [Your Country] # Use two letter ISO code, e.g. US.
     State:                              [Your State]
@@ -117,7 +118,7 @@ DO NOT add a password.
     Key Strength:                       1024
     Password:                           LEAVE BLANK
     Add Email to Alt Subject Names:     Checked
-
+```
 
 
 ![Screen shot of certGen used to create an address-bound certificate]
