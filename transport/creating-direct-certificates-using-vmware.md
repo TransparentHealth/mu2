@@ -32,9 +32,10 @@ ubuntu/adm1nD1r3ct
 
 Type this into the terminal:
 
+```
     cd direct/tools
     ./certGen.sh
-
+```
 
 You are now ready to create certificates described in the following sections.
 
@@ -45,7 +46,7 @@ Create a Root CA
 1. Enter the appropriate values for the CA you are creating in the certGen tool
 following the example shown in the figure below. You only need to create one CA.
 
-
+```
     CN:                             [Name for your CA - ex. "Root for Direct.Example.com"]
     Country:                        [Your Country] # Use two letter ISO code, e.g. US.
     State:                          [Your State]
@@ -56,6 +57,7 @@ following the example shown in the figure below. You only need to create one CA.
     Key Strength:                   1024
     Password:                       [Your password]
     Add Email to Alt Subject Names: Checked
+```
 
 ![Screen shot of certGen used to create a root certificate authority.]
 (http://certgen.s3.amazonaws.com/root-CA-for-Direct.png
@@ -69,7 +71,7 @@ these two files along with your password to reload the CA.
 
 
 
-Create a Domain Bound Certificate
+Create a Domain-Bound Certificate
 --------------------------------
 
 1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
@@ -107,6 +109,7 @@ Create an Address-Bound Certificate
 1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
+
 ```
     CN:                                 [The cert's email e.g. provider1@direct.example.com]
     Country:                            [Your Country] # Use two letter ISO code, e.g. US.
