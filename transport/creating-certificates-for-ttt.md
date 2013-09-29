@@ -129,6 +129,7 @@ ubuntu/adm1nD1r3ct
 9. Start the certGen tool.
 
 Type this into the terminal:
+
 ```
     cd direct/tools
     ./certGen.sh
@@ -181,6 +182,7 @@ section of this document.
 1. After the CA is created (or loaded), click "Create Leaf Cert" button. Enter
 the required values. Be sure to click the “Add Email to Alt Subject Names”.
 DO NOT add a password. 
+
 ```
     CN:                                 [ttt.example.com]
     Country:                            [Your Country] # Use two letter ISO code, e.g. US.
@@ -219,6 +221,7 @@ Expired (#2)
 
 1. Using the Good Trust Anchor from above, create an expired domain-bound
  endpoint certificate.
+
 ```
     CN:                             [Name for your CA - ex. "ttt.example.com"]
     Country:                        [Your Country] # Use two letter ISO code, e.g. US.
@@ -239,6 +242,7 @@ Expired (#2)
 2. Copy this domain-bound endpoint's certificates to their own directory
 called "expired".  This is necessary because the next steps will
 overwrite these files because they will have the same file names.
+
 ```
     mkdir expired
     mv ttt.example* expired
@@ -274,6 +278,7 @@ following the example shown in the figure below. You only need to create one CA.
 "example.com.der" and "example.comKey.der" in the
 /home/ubuntu/direct/tools directory.  Place these in their own directory called,
 invalid-trust-relationship" to avoid confusing this with your other sets of certificates.
+
 ```
     mkdir invalid-trust-relationship
     cp example.com* invalid-trust-relationship
