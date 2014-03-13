@@ -1,8 +1,7 @@
 NIST HL7 v2 Tools
 =================
 
-
-Updated September. 30, 2013 by Alan Viars
+Last Updated: March. 14, 2014 by Alan Viars
 
 These test tools include Electronic Immunization, Lab Results Interface (LRI), Lab Reporting (ELR), and Syndromic.
 
@@ -14,14 +13,14 @@ Immunization Test Tool
 
 + Testing Procedure - http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 + NIST Testing Server URL -  (http://hl7v2-iz-testing.nist.gov)
-+ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-immunization-1.6.0.zip
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-immunization-1.8.0.zip
 
 Lab Results Interface (LRI) Test Tool
 -------------------------------------
 
 + Testing Procedure - http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 + NIST Testing Server URL - http://hl7v2-lab-testing.nist.gov
-+ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-lab-1.6.0.zip
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-lab-1.7.0.zip
 
 
 Electronic Lab Reporting (ELR) Test Tool
@@ -29,14 +28,14 @@ Electronic Lab Reporting (ELR) Test Tool
 
 + Testing Procedure - http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 + NIST Testing Server URL - http://hl7v2-elr-testing.nist.gov
-+ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-elr-1.6.0.zip
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-elr-1.8.0.zip
 
 Syndromic Test Tool
 -------------------
 
 + Testing Procedure - http://www.healthit.gov/policy-researchers-implementers/2014-edition-draft-test-procedures
 + NIST Testing Server URL - http://hl7v2-ss-testing.nist.gov
-+ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-syndromic-1.6.0.zip
++ War Download - http://svn.code.sf.net/p/mu-nist/code/tags/mu-syndromic-1.7.0.zip
 
 
 Ubuntu Linux Installation Instructions
@@ -55,33 +54,33 @@ Install Tomcat7. This will also install OpenJDK 1.6
 
 Fetch the zipped archives containing the WAR fiels from subversion/elsewhere
 
-	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-syndromic-1.6.0.zip
-	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-lab-1.6.0.zip
-	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-eprescribing-1.0.2.zip
-	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-elr-1.6.0.zip
+	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-syndromic-1.7.0.zip
+	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-lab-1.7.0.zip
+	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-eprescribing-1.0.4.zip
+	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-elr-1.8.0.zip
 	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-actor-1.0.1.zip
-	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-immunization-1.6.0.zip
+	wget http://svn.code.sf.net/p/mu-nist/code/tags/mu-immunization-1.8.0.zip
     wget http://hit-testing.nist.gov/cda-validation/downloads/muCrValidation20130206.tar.gz
 
 
 Unzip the files and copy the War files the webapps folder for deployment
 
-    unzip mu-elr-1.6.0.zip
-    sudo cp mu-elr-1.6.0/mu-elr.war /var/lib/tomcat7/webapps/
+    unzip mu-elr-1.8.0.zip
+    sudo cp mu-elr-1.8.0/mu-elr.war /var/lib/tomcat7/webapps/
 
-    unzip  mu-immunization-1.6.0.zip
-    sudo cp mu-immunization-1.6.0/mu-immunization.war /var/lib/tomcat7/webapps/
+    unzip  mu-immunization-1.8.0.zip
+    sudo cp mu-immunization-1.8.0/mu-immunization.war /var/lib/tomcat7/webapps/
 
     unzip mu-actor-1.0.1.zip
     sudo cp mu-actor-1.0.1/mu-actor.war /var/lib/tomcat7/webapps/mu-actor.war
 
-    unzip mu-lab-1.6.0.zip
-    sudo cp  mu-lab-1.6.0/mu-lab.war  /var/lib/tomcat7/webapps/
+    unzip mu-lab-1.7.0.zip
+    sudo cp  mu-lab-1.7.0/mu-lab.war  /var/lib/tomcat7/webapps/
 
-    unzip mu-syndromic-1.6.0.zip
-    sudo cp mu-syndromic-1.6.0/mu-syndromic.war /var/lib/tomcat7/webapps/
+    unzip mu-syndromic-1.7.0.zip
+    sudo cp mu-syndromic-1.7.0/mu-syndromic.war /var/lib/tomcat7/webapps/
 
-    unzip mu-eprescribing-1.0.2.zip
+    unzip mu-eprescribing-1.0.4.zip
     sudo cp mu-eprescribing-edi.war  /var/lib/tomcat7/webapps/
     sudo cp mu-eprescribing-xml.war /var/lib/tomcat7/webapps/
 

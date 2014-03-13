@@ -1,4 +1,4 @@
-Last Updated August 23, 2013
+Last Updated March 14, 2014
 
 Transport
 =========
@@ -22,8 +22,6 @@ in several MU2 criteria tests.  TTT performs CCDA validation
 + Transport Testing Tool Configuration - https://github.com/meaningfuluse/mu2/blob/master/transport/ttt-configuration.md
 + TTT Source Code* -http://iheos.svn.sourceforge.net/viewvc/iheos/
 + TTT Source Build Instrutions* - http://ihexds.nist.gov/XdsDocs/Documentation/toolkit-developer-guide.html
-+ VMWare Image - TODO
-+ Amazon Machine Image - TODO
 
 *NOTE: NIST does not provide support for source or .war based installations of TTT.
 
