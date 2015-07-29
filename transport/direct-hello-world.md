@@ -73,7 +73,10 @@ Get Direct version :
 --------------------
 
 Download the version of direct you want to use.  We are using both 1.3 and 2.0
-in this tutorial but if you are just starting I'd reccomend using 2.0.
+in this tutorial but if you are just starting I'd reccomend using 3.0.1.
+
+3.0.1
+    wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/3.0.1/direct-project-stock-3.0.1.tar.gz
     
 2.0
 
@@ -436,10 +439,17 @@ optional but probally a good idea.  They have only been tested on Direct RI 2.0.
 Optional Setup Steps
 ====================
 
-Setting up James 3, IMAP, TTL, and SquirrelMail (TOFO)
+Setting up James 3, IMAP, TTL, and SquirrelMail (TODO)
 
 
 Change the Password on the RI
 =============================
 
-TODO
+Issue the following commands to backup the original file and find/place the password. 
+
+    
+    cp $DIRECT_HOME/apache-tomcat-7.0.32/webapps/config-ui/WEB-INF/config-servlet.xml $DIRECT_HOME/apache-tomcat-7.0.32/webapps/config-ui/WEB-INF/config-servlet.xml.orig
+    sed -i "s/adm1nD1r3ct/your_new_password/g" $DIRECT_HOME/apache-tomcat-6.0.29/webapps/config-ui/WEB-INF/config-servlet.xml
+    cd $DIRECT_HOME/apache-tomcat-6.0.29
+    sh bin/shutdown.sh
+    sh bin/startup.sh
