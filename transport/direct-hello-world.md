@@ -444,9 +444,9 @@ In the file `$DIRECT_HOME/james-2.3.2/apps/james/SAR-INF/config.xml` find the li
 Change the Password on the RI
 =============================
 
-Issue the following commands to backup the original file and find/place the password. 
+Issue the following commands to backup the original file and find/place the password.
 
- 
+
     cp $DIRECT_HOME/apache-tomcat-7.0.32/webapps/config-ui/WEB-INF/config-servlet.xml $DIRECT_HOME/apache-tomcat-7.0.32/webapps/config-ui/WEB-INF/config-servlet.xml.orig
     sed -i "s/adm1nD1r3ct/your_new_password/g" $DIRECT_HOME/apache-tomcat-7.0.32/webapps/config-ui/WEB-INF/config-servlet.xml
     cd $DIRECT_HOME/apache-tomcat-7.0.32
@@ -459,3 +459,28 @@ Optional Setup Steps
 ====================
 
 Setting up James 3, IMAP, TTL, and SquirrelMail (TODO)
+
+
+Other Notes:
+============
+
+
+Fixing .p12 bug in 4.0
+----------------------
+In 4.0 there is a bug related to .p12 files.  To fix do the following
+
+* Shutdown James and Tomcat and perform the following
+* `cd   $DIRECT_HOME/apache-tomcat-7.0.59/webapps/config-service/WEB-INF/lib` 
+*`rm `config-store-1.5.1.jar`
+* `wget https://oss.sonatype.org/content/repositories/snapshots/org/nhind/config-store/1.5.1-SNAPSHOT/config-store-1.5.1-20150730.130206-1.jar`
+* `cd $DIRECT_HOME`
+* `mv  nhindconfig nhindconfig-bak`
+* `$DIRECT_HOME/apache-tomcat-7.0.59/bin/startup.sh
+
+Configuring MySQL or Oracle:
+----------------------------
+
+Change database settings by editing the file `$DIRECT_HOME/apache-tomcat-7.0.59/webapps/config-service/WEB-INF/beans.xml`. By default Derby is used. If MySQL is used a DB must be setup and a DB user created.  The MySQL Jars must also be added as they are not bundled with the RI.
+
+
+
