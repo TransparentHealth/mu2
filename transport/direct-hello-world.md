@@ -48,8 +48,6 @@ Setup JAVA_HOME:
 
     export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
     echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
-    export JAVA_OPTS="-Xmx256m -XX:MaxPermSize=256m"
-    echo "export JAVA_OPTS=\"$JAVA_OPTS\"" >> ~/.bashrc
     source ~/.bashrc 
 
 
