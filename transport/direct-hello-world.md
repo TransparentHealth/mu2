@@ -53,7 +53,7 @@ Setup JAVA_HOME:
 
 Verify Java 7 is Installed:
 ---------------------------
-    
+
     java -version
 
 
@@ -457,7 +457,12 @@ Issue the following commands to backup the original file and find/place the pass
 Optional Setup Steps
 ====================
 
-Setting up James 3, IMAP, TTL, and SquirrelMail (TODO)
+Setting up James 3, IMAP, & TTL
+-------------------------------
+
+TODO
+
+
 
 
 Other Notes:
@@ -475,6 +480,27 @@ In 4.0 there is a bug related to .p12 files.  To fix do the following
 * `cd $DIRECT_HOME`
 * `mv  nhindconfig nhindconfig-bak`
 * `$DIRECT_HOME/apache-tomcat-7.0.59/bin/startup.sh
+
+
+Resolving the issue where config service forgets its configuration information upon restart.
+-------------------------------------------------------------------------------
+I have encountered this issue on Redhat but not on Ubuntu. The fix is to add an
+absolute path instead of a relative path inside the JPA Derby Configuration section withing the file.
+`$DIRECT_HOME/apache-tomcat-7.0.59/webapps/config-service/WEB-INF/beans.xml`.
+
+Find the term `jdbc:derby:nhindconfig` and replace `nhindconfig` with the full path.
+
+For example, if your RI is installed at `/opt/direct`, then the resulting configuration 
+would look like:
+
+
+`<property name="url" value="jdbc:derby:/opt/direct/apache-tomcat-7.0.59/bin/nhindconfig;create=true" />`
+
+Stop and start Tomcat to complete.
+
+
+
+
 
 Configuring MySQL or Oracle:
 ----------------------------
