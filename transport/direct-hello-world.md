@@ -438,6 +438,7 @@ Deliver MDNs to the Edge Client
 
 In the file `$DIRECT_HOME/james-2.3.2/apps/james/SAR-INF/config.xml` find the line `<ConsumeMDNProcessed>true</ConsumeMDNProcessed>` and change the faclue from `true` to `false`. Restart James.
 
+In James 3 the file to edit is `$DIRECT_HOME/apache-james-3.0-beta4/conf/mailetcontainer.conf`.
 
 
 Change the Password on the RI
@@ -457,10 +458,32 @@ Issue the following commands to backup the original file and find/place the pass
 Optional Setup Steps
 ====================
 
-Setting up James 3, IMAP, & TTL
--------------------------------
+Setting up James 3, IMAP, & STARTLS
+------------------------------------
 
-TODO
+shut down James2 if running.
+
+
+Give Java more heap memory:
+
+    export JAVA_OPTS="-Xmx256m -XX:MaxPermSize=256m"
+
+change to James3 directory
+
+    cd $DIRECT_HOME/apache-james-3.0-beta4/
+
+In the file `$DIRECT_HOME/apache-james-3.0-beta4/conf/wrapper.conf` under the section "# Java Additional Parameters", add the following lines:
+
+    wrapper.java.additional.16=-Xmx256m
+    wrapper.java.additional.15=-XX:MaxPermSize=256m
+
+Start James 3.
+
+    cd $DIRECT_HOME/apache-james-3.0-beta4/bin
+    ./james start
+
+Use `$DIRECT_HOME/apache-james-3.0-beta4/bin/james-cli.sh` to create users, etc.
+
 
 
 
