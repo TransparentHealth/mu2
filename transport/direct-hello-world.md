@@ -73,6 +73,14 @@ Get Direct version :
 Download the version of direct you want to use.  We are using both 1.3 and 2.0
 in this tutorial but if you are just starting I'd reccomend using 3.0.1.
 
+5.0
+
+   wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/5.0/direct-project-stock-5.0.tar.gz
+
+4.0
+
+    wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/4.0/direct-project-stock-4.0.tar.gz
+
 3.0.1
 
     wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/3.0.1/direct-project-stock-3.0.1.tar.gz
