@@ -506,11 +506,11 @@ In 4.0 there is a bug related to .p12 files.  To fix do the following
 
 * Shutdown James and Tomcat and perform the following
 * `cd   $DIRECT_HOME/apache-tomcat-7.0.59/webapps/config-service/WEB-INF/lib` 
-*`rm `config-store-1.5.1.jar`
+* `rm `config-store-1.5.1.jar`
 * `wget https://oss.sonatype.org/content/repositories/snapshots/org/nhind/config-store/1.5.1-SNAPSHOT/config-store-1.5.1-20150730.130206-1.jar`
 * `cd $DIRECT_HOME`
 * `mv  nhindconfig nhindconfig-bak`
-* `$DIRECT_HOME/apache-tomcat-7.0.59/bin/startup.sh
+* `$DIRECT_HOME/apache-tomcat-7.0.59/bin/startup.sh`
 
 
 Resolving the issue where config service forgets its configuration information upon restart.
