@@ -75,7 +75,7 @@ in this tutorial but if you are just starting I'd reccomend using 3.0.1.
 
 5.0
 
-   wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/5.0/direct-project-stock-5.0.tar.gz
+    wget http://repo2.maven.org/maven2/org/nhind/direct-project-stock/5.0/direct-project-stock-5.0.tar.gz
 
 4.0
 
